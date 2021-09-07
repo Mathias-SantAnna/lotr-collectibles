@@ -126,3 +126,153 @@ SQLite, which is Django built-in database is used for development mode and Herok
 <br>
 
 ![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/back-end-chart.png)<br>
+
+### Skeleton Plane
+
+The website is created as a desktop-first because it is easy to picture the whole image of the website, however, it is a fully mobile responsive website as well so shoppers using a mobile phone have no difficulties looking for products and purchase them. Below are the wireframes of the core pages of the website.<br>
+
+<details>
+<summary>Home (index.html)</summary><br>
+
+![Wireframe: Home](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/home.png)
+</details>
+
+<details>
+<summary>Products (products.html)</summary><br>
+
+![Wireframe: Products](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/products.png)
+</details>
+
+<details>
+<summary>Product Details (product/product_id.html)</summary><br>
+
+![Wireframe: Product Details](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/product-details.png)
+</details>
+
+<details>
+<summary>Shopping Cart (cart.html)</summary><br>
+
+![Wireframe: Shopping Cart](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/shopping-cart.png)
+</details>
+
+<details>
+<summary>Checkout (checkout.html)</summary><br>
+
+![Wireframe: Checkout](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/checkout.png)
+</details>
+
+<details>
+<summary>Checkout Success (checkout_success.html)</summary><br>
+
+![Wireframe: Checkout Success](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/checkout-success.png)
+</details>
+
+> **Note:**<br>
+> No product image and product details on the website
+
+<details>
+<summary>Register (signup.html)</summary><br>
+
+![Wireframe: Register](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/register.png)
+</details>
+
+<details>
+<summary>Login (login.html)</summary><br>
+
+![Wireframe: Login](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/login.png)
+</details>
+
+<details>
+<summary>Profile (profile.html)</summary><br>
+
+![Wireframe: Profile](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/profile.png)
+</details>
+
+<details>
+<summary>Product Management (product_management.html)</summary><br>
+
+![Wireframe: Product Management](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/product-management.png)
+</details>
+
+<details>
+<summary>Page 404 (page_404.html)</summary><br>
+
+![Wireframe: Page 404](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/page-404.png)
+</details>
+
+> **Note:**<br>
+> **Page 500**: Same as page 404
+
+### Surface Plane
+
+— **Colours** —
+
+This is an e-commerce website that has a lot of products with images containing different colours, **White** (#FFFFFF) is used as the main background colour to keep the entire image of the website settled. The shop colour is **Hunter Green** (#09572A) ~~and this is used for some icons and fonts~~. **Jet** (#333333) is used as the main font colour, **Golden Yellow** (#FFDF00) is used for buttons and alerts to stand them out. **Flame** (#E84610) is used for other things that need user's attention. These are the base colours and similar colours are used on the different parts and sections on the website.
+
+> **Note:**<br>
+> **Hunter Green** (#09572A) is not used for any fonts or icons but used for the colour of toast success
+
+![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/colours.png)
+
+— **Typography** —
+
+**Roboto** which is one of the most popular google fonts is used for all the texts because good readability is an important factor for e-commerce websites from the user's point of view. Robot is a default font for Android so many users are very familiar with it as well.
+
+![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/roboto.png)
+
+<div align="right"><a href="#top">🔝</a></div>
+
+## WEBSITE DEVELOPMENT PLAN
+This is a full-stack website that contains both front-end & back-end, so many Django apps, features and functions, therefore a good website development plan is required to maximise the efficiency of the development. GitHub project planner, which has a Kanban planner, is used for this project. Below is the summary of core tasks* for the website and more detailed tasks are listed on [GitHub Projects](https://github.com/Mathias-SantAnna/lotr-collectibles/projects/1). This gives not only very clear planning but also making sure nothing is missed during the process.<br>
+**Follow the same process as Code Institute Mini Project, Boutique Ado*
+
+1. Planning The Website with UX5 Planes
+1. Project Set-Up (Installing Django, Setting up Project, Testing connection, Creating Django superuser)
+1. Authentication & Authorisation (Installing Allauth, Testing)
+1. The Base Template (Creating base template)
+1. The Home Page (Navigation bar, Header and Footer)
+1. Products Set-Up (Creating Products app, Installing data, Filtering & Searching)
+1. The Shopping Cart (Adding and adjusting products)
+1. Toasts (Real-time notification)
+1. Checkout with Stripe (Function, Form, Testing Stripe)
+1. Profile (Displaying personal details and order history)
+1. Product Admin (CRUD function for products)
+1. Deployment (AWS, Heroku)
+1. Emails (Setting up email functionality)
+1. Code Refactoring (Checking code, Reviewing the design and updating)
+1. Testing (Testing for HTML, CSS, JavaScript, Python, User Stories, Functions and Features)
+1. Final Check Before Submission
+
+> **Note:**<br>
+> **CSS**: In previous projects, get confused by Bootstrap CSS classes and my own CSS classes so for this project, two dashes (a kind of BEM methodology) is used on all CSS classes 
+
+<div align="right"><a href="#top">🔝</a></div>
+
+## FEATURES
+
+### Existing Features
+
+- Create with **HTML5**, **CSS3** (with Material Design for Bootstrap), **JavaScript**, **Python** (Django Framework), **Stripe**, **AWS** and **Heroku**
+- It consists of 1 product with 5 apps in Django
+- It consists of 1 base html template and 12 main html files. (Excluding sub html files and some allauth html files)
+- Modal for "Delivery Cost" information
+- Toast for user's action
+- All the features planned on [Strategy Plane](https://github.com/Mathias-SantAnna/lotr-collectibles/tree/main/readme/features/strategy-plane.png) and [Scope Plane](https://github.com/Mathias-SantAnna/lotr-collectibles/tree/main/readme/features/scope-plane.png)
+
+### Features Left To Implement
+
+- **Displaying number of product images per product:** This would probably be possible to implement by using the same principle as Carousel, however, cannot confirm it for sure and do not have time to work on this, decide to leave it out in this project
+
+- **Enlarging image when hovering:** Find a few ways of enlarging (zooming) images on hover, however, not sure if these are the same as enlarging images of products that are used in e-commerce websites. Currently, no time to look at the details so decide to leave it out in this project
+
+- **Refinements options:** This might be implemented by different combinations of filter, however, currently have no skill to achieve this so decide to leave it out in this project
+
+- **More detailed categories and advertisement:** This is to have more detailed categories (e.g. There are only 11 categories but actual e-commerce website, there should be more categories available = more products) and more detailed advertisement such as having different colours, guidance for size etc. Currently have no time to work on this, decide to leave it out in this project
+
+- **Creating an account with social media:** Look at a tutorial and not sure if this can be implemented easily. All the testing is done and confirmed all the functions are working, and afraid of breaking something unintentionally by linking social account login, decide to leave this for this project but this is something would like to try with my own project as a challenge
+
+- **Product comparison:** This seems to be a very advanced feature and do not even know how to look up for this with my current skill and knowledge so decide to leave it out in this project
+
+- **Payment in different currencies:** This might be possible with Stripe rather than Django, but not sure how to achieve this. As this is not an important feature with the current project and do not have time to look at it, decide to leave it out in this project
+
+<div align="right"><a href="#top">🔝</a></div>
