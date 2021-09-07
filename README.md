@@ -116,7 +116,8 @@ The admin panel, which can be created with Django project, where Admin can take 
 CSS and JavaScript files of those HTML files are created within the same app folder.
 
 <br>
-![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/ux/back-end-chart.png)<br>
+
+![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/front-end-chart.png)<br>
 
 — **Back-end** —<br>
 
@@ -124,4 +125,4 @@ Users have options to purchase products as guest users or account holder users. 
 SQLite, which is Django built-in database is used for development mode and Heroku Postgre is used for production mode. AWS (Amazon Web Services) is used to hold all static files and folders for the website for production mode.
 <br>
 
-![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/ux/front-end-chart.png)<br>
+![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/back-end-chart.png)<br>
