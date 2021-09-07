@@ -207,18 +207,18 @@ The website is created as a desktop-first because it is easy to picture the whol
 
 — **Colours** —
 
-This is an e-commerce website that has a lot of products with images containing different colours, **White** (#FFFFFF) is used as the main background colour to keep the entire image of the website settled. The shop colour is **Hunter Green** (#09572A) ~~and this is used for some icons and fonts~~. **Jet** (#333333) is used as the main font colour, **Golden Yellow** (#FFDF00) is used for buttons and alerts to stand them out. **Flame** (#E84610) is used for other things that need user's attention. These are the base colours and similar colours are used on the different parts and sections on the website.
+This is an e-commerce website that has a lot of products with images containing different colours, **White** (#FFFFFF) is used as the main background colour to keep the entire image of the website settled. The shop colour is **Hunter Green** (#09572A) and this is used for some icons and fonts. **Back Chocolate** (#231703) is used as the main font colour, **Maximum Yellow Red** (#E7BA55) is used for buttons and alerts to stand them out. **Middle Green Yellow** (#9AB250) is used for other things that need user's attention. These are the base colours and similar colours are used on the different parts and sections on the website.
 
 > **Note:**<br>
 > **Hunter Green** (#09572A) is not used for any fonts or icons but used for the colour of toast success
 
-![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/colours.png)
+![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/colour-palette.png)
 
 — **Typography** —
 
-**Roboto** which is one of the most popular google fonts is used for all the texts because good readability is an important factor for e-commerce websites from the user's point of view. Robot is a default font for Android so many users are very familiar with it as well.
+**Abril Fat Face** which is one very popular google fonts is used for all the texts because good readability is an important factor for e-commerce websites from the user's point of view. Also resemble a book title, which is the case for better website UX.
 
-![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/roboto.png)
+![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/abril-fat-face.png)
 
 <div align="right"><a href="#top">🔝</a></div>
 
