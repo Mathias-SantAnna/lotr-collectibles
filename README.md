@@ -86,8 +86,7 @@ The page where users can view all the selected products and details. Users can a
 The page where users can process the purchase. Strip, which is a secured platform for credit card payment, is used on the website for processing payments.  
 
 - **Checkout Success** (`checkout_success.html`)<br>
-The confirmation page where users are lead to when the payment process is completed. Usergit add .
-s can see the order number, shipping address, product details. This page is accessible for registered users from Profile.
+The confirmation page where users are lead to when the payment process is completed. Users can see the order number, shipping address, product details. This page is accessible for registered users from Profile.
 
 - **Register** (`signup.html`)<br>
 The page where users can create an account to save their details for next shopping and keep their purchase histories. A form with a built-in function is created with Django Allauth package.
