@@ -1,6 +1,6 @@
 # Lord Of The Rings Collectibles <a name="top"></a>
 
-This is an e-commerce website for golf products that I create for **Milestone Project 4 (Full Stack Frameworks with Django)** in [Code Institute](https://codeinstitute.net/), Ireland. The use of the website is for educational purposes only, however, all the functionalities work as if it is an actual e-commerce website. It is a mobile responsive website and the link to the website is available [HERE](https://lotr-collectibles.herokuapp.com/).
+This is an e-commerce website for collectibles products that I create for **Milestone Project 4 (Full Stack Frameworks with Django)** in [Code Institute](https://codeinstitute.net/), Ireland. The use of the website is for educational purposes only, however, all the functionalities work as if it is an actual e-commerce website. It is a mobile responsive website and the link to the website is available [HERE](https://lotr-collectibles.herokuapp.com/).
 
 ## USER STORIES
 
@@ -71,7 +71,7 @@ Based on the requirements of achieving user's and owner's goals and stories, bel
 The website consists of below core `HTML` pages and has some `CSS` and `JavaScript` 
 
 - **Home** (`index.html`)<br>
-The main page of the website. There is a logo, search function, navigation to *Group of Categories & Categories*, *Register* & *Login* and *Shopping Cart* pages, a hero image with Shop Now button. There are icons of popular brands that users can click and view the products of the brand. There is a section of "Why Eagle Golf?" which provides a few reasons for buying products with the shop. There is a footer with a form to subscribe to newsletter and some social icons. **The same header and footer are used across all html files*
+The main page of the website. There is a logo, search function, navigation to *Group of Categories & Categories*, *Register* & *Login* and *Shopping Cart* pages, a hero image with Shop Now button. There are icons of popular brands that users can click and view the products of the brand. There is a section of "Why LoTR Collectibles?" which provides a few reasons for buying products with the shop. There is a footer with a form to subscribe to newsletter and some social icons. **The same header and footer are used across all html files*
 
 - **Products** (`products.html`, `products/<category_name>.html`)<br>
 The pages where users can see products by a group of categories & category and have an access to the product details page.
