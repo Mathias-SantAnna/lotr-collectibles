@@ -278,3 +278,52 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 - **Payment in different currencies:** This might be possible with Stripe rather than Django, but not sure how to achieve this. As this is not an important feature with the current project and do not have time to look at it, decide to leave it out in this project
 
 <div align="right"><a href="#top">🔝</a></div>
+
+## TECHNOLOGIES USED
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML) for markup
+- [CSS3](https://en.wikipedia.org/wiki/CSS) for style
+- [Material Design for Bootstrap 5 & 4](https://mdbootstrap.com/) (an open-source toolkit based on Bootstrap for developing Material Design) for the mainframe of the website <!-- MDB or Bootstrap TBC -->
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) for interaction
+- [Python3](https://www.python.org/) as a backend programming language
+- [Django](https://www.djangoproject.com/) (an open-source web framework) as the main framework of Python
+- [SQLite](https://www.sqlite.org/index.html) (Django built-in database) as database in development mode
+- [PostgreSQL](https://landing.aiven.io/en/aiven-for-postgresql/) (Heroku built-in) as database in production mode
+- [Google Fonts](https://fonts.google.com/) for fonts
+- [Font Awesome](https://fontawesome.com/) for icons
+- [Gitpod](https://www.gitpod.io/) as Integrated Development Environment (IDE)
+- [Git](https://git-scm.com/) for local version control, keeping the files & documents
+- [GitHub](https://github.com/) for online version control and keeping the files & documents
+- [Heroku](https://www.heroku.com/) for deploying the website
+
+## RESOURCES
+
+### General Resources
+
+### Tools
+
+## TESTING
+
+## PROJECT BARRIERS & SOLUTIONS
+
+## VERSION CONTROL
+
+## DEPLOYMENT
+
+## CREDITS
+
+### Code
+
+— **HTML5** —
+
+— **CSS3** —
+
+— **JavaScript** —
+
+— **Python** —
+
+### Contents
+
+### Media
+
+## ACKNOWLEDGEMENTS
