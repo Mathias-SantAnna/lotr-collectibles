@@ -1,6 +1,5 @@
-![image](https://github.com/Mathias-SantAnna/lotr-collectibles/main/readme/lotr-readme-logo.png)
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/lotr-readme-logo.png)
-![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/lotr-readme-logo.png)
+
 # Lord Of The Rings Collectibles <a name="top"></a>
 
 This is an e-commerce website for collectibles products that I create for **Milestone Project 4 (Full Stack Frameworks with Django)** in [Code Institute](https://codeinstitute.net/), Ireland. The use of the website is for educational purposes only, however, all the functionalities work as if it is an actual e-commerce website. It is a mobile responsive website and the link to the website is available [HERE](https://lotr-collectibles.herokuapp.com/).
