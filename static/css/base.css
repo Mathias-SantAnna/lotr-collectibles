@@ -1,0 +1,45 @@
+body {
+    box-sizing: border-box;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.1rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* -- General Settings -- */
+
+.form-control {
+    border-radius: 0 !important;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+/* -- Header & Navbar -- */
+.main--header {
+    margin-top: 1rem;
+}
+
+.navbar-brand, .main--logo {
+    width: 15rem;
+}
+
+.inline {
+    display: inline;
+    float: right;
+}
+
+.icon {
+    align-items: center;
+    color: #333;
+    display: inline-flex;
+    height: 3rem;
+    justify-content: center;
+    width: 3rem;
+}
+
+.vl {
+    padding-top: 0.5rem;
+}
