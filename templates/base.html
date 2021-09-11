@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="An online Golf Shop website that you can see a lot of golf products and purchase them with secure payments">
+        content="An online Collectibles Shop website that you can see a lot of Collectibles products and purchase them with secure payments">
     {% endblock %}
 
     {% block extra_meta %}
@@ -80,7 +80,6 @@
                         <a class="dropdown-item" href="#">Login</a>
                     </li>
                 </ul>
-                <i class="fas fa-tools fa-lg inline icon"></i>
             </div>
         </div>
         <!-- Navbar -->
@@ -96,11 +95,6 @@
 
                 <!-- Collapsible Wrapper -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Navbar brand -->
-                    <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                        <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="15" alt=""
-                            loading="lazy" />
-                    </a>
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -138,11 +132,74 @@
     {% block postloadjs %}
     {% endblock %}
 
+<!-- Credit: MDB Footer @ https://mdbootstrap.com/docs/standard/navigation/footer/ -->
+    <!-- Footer -->
+    <footer class="text-center bg-light text-muted">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!-- Section: Social media -->
+            <section class="mb-4 social--media">
+                <a class="btn btn-outline-light" href="https://www.facebook.com/" role="button"
+                    target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-outline-light" href="https://twitter.com/" role="button"
+                    target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-light" href="https://www.instagram.com/" role="button"
+                    target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-outline-light" href="https://www.youtube.com/" role="button"
+                    target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+            </section>
+
+            <!-- Section: Form -->
+            <section class="">
+                <form action="">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-auto mb-4 mb-md-0">
+                            <p class="pt-2">
+                                <strong>Sign up for our newsletter</strong>
+                            </p>
+                        </div>
+
+                        <div class="col-md-5 col-12 mb-4 mb-md-0">
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <input type="email" id="form5Example2" class="form-control" />
+                                <label class="form-label" for="form5Example2">Email address</label>
+                            </div>
+                        </div>
+
+                        <div class="col-auto mb-4 mb-md-0">
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-success mb-4">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Section: Text -->
+            <section class="mb-4">
+                <small>
+                    Sing up for newsletters and receive our special offers and weekly Collectibles blog
+                </small>
+            </section>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            &copy; LoTR Collectibles <span id="copyright"></span>
+        </div>
+    </footer>
+    <!-- /End of Credit -->
+
     {% block corejs %}
     <!-- MDB -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
     <!-- script.js -->
     <script src=""></script>
+    <script>
+        document.getElementById("copyright").textContent = new Date().getFullYear();
+    </script>
     {% endblock %}
 
     {% block extra_js %}

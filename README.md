@@ -218,7 +218,7 @@ This is an e-commerce website that has a lot of products with images containing 
 
 — **Typography** —
 
-**Abril Fat Face** which is one very popular google fonts is used for all the texts because good readability is an important factor for e-commerce websites from the user's point of view. Also resemble a book title, which is the case for better website UX.
+**Abril Fatface** is used for all the texts because good readability is an important factor for e-commerce websites from the user's point of view. Also resemble a book title, which is the case for better website UX. Uses as second font **Roboto**, which is one very popular google fonts.
 
 ![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/abril-fat-face.png)
 
@@ -315,6 +315,8 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 ### Code
 
 — **HTML5** —
+- [MDB Navbar](https://mdbootstrap.com/docs/standard/navigation/navbar/) for navigation bar
+- [Bootstrap Alerts](https://getbootstrap.com/docs/5.0/components/alerts/) for alert
 
 — **CSS3** —
 
@@ -325,5 +327,11 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 ### Contents
 
 ### Media
+
+— **Logo & Favicon** —
+- Logo and Favicon created by me using [canva](https://www.canva.com/) with base from [Fanart](https://fanart.tv/fanart/movies/120/hdmovielogo/the-lord-of-the-rings-the-fellowship-of-the-ring-5232c108a0b11.png) 
+
+— **Images** —
+- Readme Banner: [Sideshow](https://www.sideshow.com/brands/the-lord-of-the-rings) 
 
 ## ACKNOWLEDGEMENTS
