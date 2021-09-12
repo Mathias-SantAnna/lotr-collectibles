@@ -33,7 +33,8 @@ body {
 /* -- base.html -- */
 /* Header & Navbar */
 .main--header {
-    margin-top: 1rem;
+    margin-top: .5rem;
+    margin-bottom: -1.2rem;
 }
 
 .navbar-brand,
@@ -87,6 +88,11 @@ body {
 
 /* -- index.html -- */
 
+h1, h2, h3, h4 {
+    font-family: 'Abril Fatface';
+    letter-spacing: 0.2rem;
+}
+
 .main--alert {
     background-color: rgba(255, 223, 0, 0.7);
     border-radius: 0;
@@ -102,3 +108,8 @@ body {
     vertical-align: middle;
     width: 7rem;
 }
+
+#reasons--for--purchase {
+    background-color: #09572931;
+}
+
