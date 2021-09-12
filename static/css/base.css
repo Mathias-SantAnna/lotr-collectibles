@@ -7,12 +7,16 @@ body {
     padding: 0;
 }
 
-/* -- General Settings -- */
+/* -- General Settings and Styles -- */
 
 .form-control,
 .form-notch-leading,
 .form-notch-trailing {
     border-radius: 0 !important;
+}
+
+.color--e84610 {
+    color: #e84610;
 }
 
 .center {

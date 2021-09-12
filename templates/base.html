@@ -22,7 +22,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet" /> -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
     <!-- MDB -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" type="text/css" />
     <!-- Styles CSS -->
@@ -41,15 +41,15 @@
     <header class="container-fluid">
         <!-- Website Logo -->
         <div class="row main--header">
-            <div class="col-3">
-                <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <div class="col-4">
+                <a class="navbar-brand mt-2 mt-lg-0" href="{% url 'home' %}">
                     <img class="main--logo" src="{% static 'images/logo.png' %}" alt="Website main logo"
                         loading="lazy" />
                 </a>
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <!-- Search Form -->
-                <form class="d-flex input-group w-auto pt-3 search--form">
+                <form class="d-flex input-group w-auto pt-3 search--form" method="GET" action="">
                     <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
                         aria-describedby="search-addon" />
                     <span class="input-group-text border-0" id="search-addon">
@@ -57,29 +57,48 @@
                     </span>
                 </form>
             </div>
-            <div class="col-3 mt-2">
+            <div class="col-4 mt-2">
                 <!-- User Account -->
-                <a class="text-reset me-3 inline" href="#">
-                    <i class="fas fa-shopping-cart fa-lg icon"></i>
-                </a>
+                <div class="text-reset me-3 inline">
+                    <div class="{% if grand_total %}font-weight-bold color--e84610{% endif %}"><i
+                            class="fas fa-shopping-cart fa-lg icon"></i></div>
+                    <p class="{% if grand_total %}font-weight-bold{% endif %}">
+                        {% if grand_total %}
+                        ${{ grand_total|floatformat:2 }}
+                        {% else %}
+                        $0.00
+                        {% endif %}
+                    </p>
+                </div>
                 <a class="dropdown-toggle d-flex align-items-center hidden-arrow inline" href="#"
                     id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                     <i class="fas fa-user fa-lg icon"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                    <a class="dropdown-item" href="">Product Management</a>
+                    {% endif %}
                     <li>
-                        <a class="dropdown-item" href="#">My Profile</a>
+                        <a class="dropdown-item" href="">My Profile</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">Register</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Login</a>
+                        <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
                     </li>
                 </ul>
+                {% endif %}
+                {% if request.user.is_authenticated and request.user.is_superuser%}
+                <a href="">
+                    <i class="fas fa-tools fa-lg inline icon"></i>
+                </a>
+                {% endif %}
             </div>
         </div>
         <!-- Navbar -->
@@ -132,21 +151,21 @@
     {% block postloadjs %}
     {% endblock %}
 
-<!-- Credit: MDB Footer @ https://mdbootstrap.com/docs/standard/navigation/footer/ -->
+    <!-- Credit: MDB Footer @ https://mdbootstrap.com/docs/standard/navigation/footer/ -->
     <!-- Footer -->
     <footer class="text-center bg-light text-muted">
         <!-- Grid container -->
         <div class="container p-4">
             <!-- Section: Social media -->
             <section class="mb-4 social--media">
-                <a class="btn btn-outline-light facebook" href="https://www.facebook.com/" role="button"
-                    target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-outline-light twitter" href="https://twitter.com/" role="button"
-                    target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-light facebook" href="https://www.facebook.com/" role="button" target="_blank"
+                    rel="noopener"><i class="fab fa-facebook-square"></i></a>
+                <a class="btn btn-outline-light twitter" href="https://twitter.com/" role="button" target="_blank"
+                    rel="noopener"><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-outline-light instagram" href="https://www.instagram.com/" role="button"
                     target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-                <a class="btn btn-outline-light youtube" href="https://www.youtube.com/" role="button"
-                    target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                <a class="btn btn-outline-light youtube" href="https://www.youtube.com/" role="button" target="_blank"
+                    rel="noopener"><i class="fab fa-youtube"></i></a>
             </section>
 
             <!-- Section: Form -->
