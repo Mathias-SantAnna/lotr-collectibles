@@ -9,7 +9,9 @@ body {
 
 /* -- General Settings -- */
 
-.form-control {
+.form-control,
+.form-notch-leading,
+.form-notch-trailing {
     border-radius: 0 !important;
 }
 
@@ -17,12 +19,18 @@ body {
     margin: 0 auto;
 }
 
-/* -- Header & Navbar -- */
+.color--333 {
+    color: #333 !important;
+}
+
+/* -- base.html -- */
+/* Header & Navbar */
 .main--header {
     margin-top: 1rem;
 }
 
-.navbar-brand, .main--logo {
+.navbar-brand,
+.main--logo {
     width: 15rem;
 }
 
@@ -42,4 +50,48 @@ body {
 
 .vl {
     padding-top: 0.5rem;
+}
+
+/* Footer */
+.social--media a {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.facebook:hover {
+    color: #4267b2;
+}
+
+.twitter:hover {
+    color: #1da1f2;
+}
+
+.instagram:hover {
+    color: #833ab4;
+}
+
+.youtube:hover {
+    color: #ff0000;
+}
+
+.btn-outline-light:hover {
+    background-color: #fbfbfb;
+}
+
+/* -- index.html -- */
+
+.main--alert {
+    background-color: rgba(255, 223, 0, 0.7);
+    border-radius: 0;
+}
+
+.vertical--align--middle {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.brand--logo {
+    vertical-align: middle;
+    width: 7rem;
 }
