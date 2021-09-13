@@ -21,7 +21,6 @@ class ProductAdmin(admin.ModelAdmin):
         'category',
         'brand',
         'name',
-        'has_sizes',
         'price',
         'is_discount',
         'image',
