@@ -1,0 +1,42 @@
+[   
+    {
+        "pk": 1,
+        "model": "products.brand",
+        "fields": {
+            "name": "weta_workshop",
+            "friendly_name": "WetaWorkshop"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.brand",
+        "fields": {
+            "name": "prime_1_studio",
+            "friendly_name": "Prime 1 Studio"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.brand",
+        "fields": {
+            "name": "irons_tudios",
+            "friendly_name": "Iron Studios"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.brand",
+        "fields": {
+            "name": "asmus",
+            "friendly_name": "Asmus"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.brand",
+        "fields": {
+            "name": "other",
+            "friendly_name": "Other"
+        }
+    }
+]

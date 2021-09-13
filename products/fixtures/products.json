@@ -1,0 +1,152 @@
+[   
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "sku": "LOTRC2021001",
+            "category": 1,
+            "brand": 4,
+            "name": "Series Q-Bitz",
+            "description": "This set includes Nazgul, Aragorn, Arwen, Gimli, and Lurtz standing at 4 inch tall each with roughly 2-4 joints of articulation. Don't miss your chance to add this set to your collection!",
+            "price": 89.9,
+            "is_discount": "False",
+            "discount_price": 0.00,
+            "image": "series-q-bitz.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "LOTRC2021002",
+            "category": 4,
+            "brand": 3,
+            "name": "Cave Troll Deluxe BDS Art Scale 1/10 ",
+            "description": "This statue is part of a battle diorama based on The Fellowship of the Ring movie. Made in polystone. Hand painted. Limited edition",
+            "price": 399.99,
+            "is_discount": "False",
+            "discount_price": 0.00,
+            "image": "cave-troll-deluxe-bds-art-scale-1-10.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "sku": "LOTRC2021003",
+            "category": 2,
+            "brand": 1,
+            "name": "GANDALF THE WHITE",
+            "description": "From the certified cool-stuff addicts at Weta Workshop comes Figures of Fandom: a new generation of collectibles featuring iconic characters from film, television, and gaming! New in the mix: iconic characters from The Lord of the Rings.",
+            "price": 101.65,
+            "is_discount": "False",
+            "discount_price": 0.00,
+            "image": "gandalf-the-white-ffandom.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "sku": "LOTRC2021004",
+            "category": 3,
+            "brand": 1,
+            "name": "MINI EPICS: SARUMAN",
+            "description": "Thinking of joining the forces of evil? It would be wise to have Saruman at your side my friend. The hour truly is later than you think...collect this Limited Edition Mini Epic today! Material: High quality vinyl. Scale: Approx. 1:10. ",
+            "price": 42.35,
+            "is_discount": "False",
+            "discount_price": 0.00,
+            "image": "mini-epics-saruman.jpg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "sku": "LOTRC2021005",
+            "category": 5,
+            "brand": 1,
+            "name": "ARWEN AND FRODO ON ASFALOTH",
+            "description": "Sculpted by the masterful Jane Wenley, Arwen and Frodo on Asfaloth joins Weta Workshop high-quality 1:6 scale Middle-earth line; a line that is designed by the very same artists and technicians who work on our movies.",
+            "price": 124.90,
+            "is_discount": "False",
+            "discount_price": 0.00,
+            "image": "arwen-on-asfaloth.jpg"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "sku": "LOTRC2021006",
+            "category": 6,
+            "brand": 2,
+            "name": "Aragorn Deluxe Version",
+            "description": "Prime 1 Studio is proud to present the latest addition to the Premium Masterline Series. 1/4 Scale PMLOTR-03DX Aragorn Deluxe Version from the epic fantasy adventure film series: The Lord of The Rings.",
+            "price": 1099.00,
+            "is_discount": "True",
+            "discount_price": 890.00,
+            "image": "lotr3-aragorn-pmlotr-03dx.jpg"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "sku": "LOTRC2021007",
+            "category": 7,
+            "brand": 1,
+            "name": "GANDALF ON GWAIHIR",
+            "description": "Immortal beings many times the size of ordinary birds of prey, the Great Eagles of the Misty Mountains flew so high that the only the sharp eyes of Elves could discern them in the blue. This iconic pairing for you in a perfectly sized miniature statue - ideal for your bookshelf or desktop. Dimensions: 10.3 cm x 15 cm",
+            "price": 126.50,
+            "is_discount": "False",
+            "discount_price": 0.00,
+            "image": "gandalf-on-gwaihir.jpg"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "sku": "LOTRC2021008",
+            "category": 9,
+            "brand": 5,
+            "name": "Lurtz Mask",
+            "description": "This is the ultimate Lurtz Mask from The Lord of the Rings Trilogy based on hundreds of screen and behind-the-scenes photographs. Every detail of Lurtz is present in this mask. Get yourself the official The Lord of the Rings Lurtz Mask this Halloween!",
+            "price": 96.29,
+            "is_discount": "False",
+            "discount_price": 0.00,
+            "image": "lurtz-prop-replica-mask.jpg"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "sku": "LOTRC2021009",
+            "category": 8,
+            "brand": 1,
+            "name": "LOTR™ THE ONE RING",
+            "description": "One Ring to rule them all. One Ring to find them. One Ring to bring them all and in the darkness bind them.This gorgeous piece of jewellery has the famous words in ancient Black Speech runes delicately engraved on the inside and outside of the ring, as well as on the beautiful wooden gift box made from natural Walnut timber. Tungsten carbide is 100% hypoallergenic and will not produce skin irritation or discoloration.",
+            "price": 299.50,
+            "is_discount": "True",
+            "discount_price": 149.90,
+            "image": "the-one-ring.jpg"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
+            "sku": "LOTRC20210010",
+            "category": 10,
+            "brand": 1,
+            "name": "WAR HELM OF DAIN IRONFOOT",
+            "description": "The Dwarves of the Iron Hills were a tough people; courageous, indomitable and canny in the working of ore they mined from the ranges in which they dwelt. All among their army bore iron helms, but the grandest was saved for their king, Dain Ironfoot. Dimensions: (W x H x D) 6.5 cm x 18 cm x 12 cm",
+            "price": 99.50,
+            "is_discount": "False",
+            "discount_price": 0.00,
+            "image": "war-helm-of-dain-ironfoot.jpg"
+        }
+    }
+]
