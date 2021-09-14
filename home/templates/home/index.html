@@ -84,19 +84,19 @@
   <div class="container text-center">
     <div class="row mt-5">
       <div class="col-3">
-        <a href=""><span class="vertical--align--middle"></span><img class="brand--logo"
+        <a href="{% url 'products' %}?brand=iron_studios"><span class="vertical--align--middle"></span><img class="brand--logo"
             src="{% static 'images/ironstudios.png' %}" alt="Popular Brand Iron Studios"></a>
       </div>
       <div class="col-3">
-        <a href=""><span class="vertical--align--middle"></span><img class="brand--logo"
-            src="{% static 'images/prime1studio.png' %}" alt="Popular Brand Prime 1 Studio"></a>
+        <a href="{% url 'products' %}?brand=prime1studio"><span class="vertical--align--middle"></span><img class="brand--logo"
+            src="{% static 'images/prime_1_studio.png' %}" alt="Popular Brand Prime 1 Studio"></a>
       </div>
       <div class="col-3">
-        <a href=""><span class="vertical--align--middle"></span><img class="brand--logo"
-            src="{% static 'images/wetaworkshop.png' %}" alt="Popular Brand Weta Workshop"></a>
+        <a href="{% url 'products' %}?brand=wetaworkshop"><span class="vertical--align--middle"></span><img class="brand--logo"
+            src="{% static 'images/weta_workshop.png' %}" alt="Popular Brand Weta Workshop"></a>
       </div>
       <div class="col-3">
-        <a href=""><span class="vertical--align--middle"></span><img class="brand--logo"
+        <a href="{% url 'products' %}?brand=asmus"><span class="vertical--align--middle"></span><img class="brand--logo"
             src="{% static 'images/asmus-collectible.png' %}" alt="Popular Brand Asmus Collectible"></a>
       </div>
     </div>

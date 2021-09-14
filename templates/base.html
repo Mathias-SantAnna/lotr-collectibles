@@ -119,19 +119,19 @@
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Action Figures</a>
+                            <a class="nav-link" href="{% url 'products' %}?category=collectible_figure,figures_of_fandom,vinyl_figure">Figures</a>
                         </li>
                         <li class="vl d-none d-lg-inline"> &nbsp;&#124;&nbsp; </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Statues</a>
+                            <a class="nav-link" href="{% url 'products' %}?category=1:10_scale_statue,1:6_scale_statue,1:4_scale_statue, miniature_statue">Statues</a>
                         </li>
                         <li class="vl d-none d-lg-inline"> &nbsp;&#124;&nbsp; </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Jewerly & Others</a>
+                            <a class="nav-link" href="{% url 'products' %}?category=jewellery,prop_replica,helm">Jewerly & Others</a>
                         </li>
                         <li class="vl d-none d-lg-inline"> &nbsp;&#124;&nbsp; </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">SALE</a>
+                            <a class="nav-link" href="{% url 'products' %}">Sale</a>
                         </li>
                     </ul>
                 </div>
