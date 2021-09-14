@@ -31,8 +31,17 @@
 
     {% block extra_css %}
     {% endblock %}
+
+    {% block jquery %}
+    <!-- JQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    {% endblock %}
+
+    {% block favicon %}
     <!-- Favicon -->
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+    {% endblock %}
 
     <title>LotR Collectibles {% block extra_title %}{% endblock %}</title>
 </head>
@@ -53,7 +62,8 @@
                     action="{% url 'products' %}">
                     <input class="form-control" type="text" name="q" placeholder="Search Products"
                         aria-label="Search" />
-                    <button class="btn btn-outline-primary border-0" type="submit" data-mdb-ripple-color="dark" aria-label="Search button">
+                    <button class="btn btn-outline-primary border-0" type="submit" data-mdb-ripple-color="dark"
+                        aria-label="Search button">
                         <i class="fas fa-search font-weight-bold "></i>
                     </button>
                 </form>
@@ -66,9 +76,9 @@
                     </a>
                     <p class="{% if grand_total %}font-weight-bold{% endif %}" id="color-white">
                         {% if grand_total %}
-                            ${{ grand_total|floatformat:2 }}
+                        ${{ grand_total|floatformat:2 }}
                         {% else %}
-                            $0.00
+                        $0.00
                         {% endif %}
                     </p>
                 </div>
@@ -77,7 +87,7 @@
                     <i class="fas fa-user fa-lg icon"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                {% if request.user.is_authenticated %}
+                    {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
                     <a class="dropdown-item" href="">Product Management</a>
                     {% endif %}
@@ -119,15 +129,18 @@
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'products' %}?category=collectible_figure,figures_of_fandom,vinyl_figure">Figures</a>
+                            <a class="nav-link"
+                                href="{% url 'products' %}?category=collectible_figure,figures_of_fandom,vinyl_figure">Figures</a>
                         </li>
                         <li class="vl d-none d-lg-inline"> &nbsp;&#124;&nbsp; </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'products' %}?category=1:10_scale_statue,1:6_scale_statue,1:4_scale_statue, miniature_statue">Statues</a>
+                            <a class="nav-link"
+                                href="{% url 'products' %}?category=1:10_scale_statue,1:6_scale_statue,1:4_scale_statue, miniature_statue">Statues</a>
                         </li>
                         <li class="vl d-none d-lg-inline"> &nbsp;&#124;&nbsp; </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'products' %}?category=jewellery,prop_replica,helm">Jewerly & Others</a>
+                            <a class="nav-link" href="{% url 'products' %}?category=jewellery,prop_replica,helm">Jewerly
+                                & Others</a>
                         </li>
                         <li class="vl d-none d-lg-inline"> &nbsp;&#124;&nbsp; </li>
                         <li class="nav-item">
