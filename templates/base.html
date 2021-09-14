@@ -39,34 +39,36 @@
 
 <body>
     <header class="container-fluid">
-        <div class="row mb-0 main--header fixed-top header--border">
+        <div class="row mb-0 main--header">
             <!-- Website Logo -->
-            <div class="col-4">
+            <div class="col-6 order-lg-first col-lg-4">
                 <a class="navbar-brand mt-2 mt-lg-0" href="{% url 'home' %}">
                     <img class="main--logo" src="{% static 'images/logo.png' %}" alt="Website main logo"
                         loading="lazy" />
                 </a>
             </div>
-            <div class="col-4">
-                <!-- Search Form -->
-                <form class="d-flex input-group w-auto pt-3 search--form" method="GET" action="">
-                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                        aria-describedby="search-addon" />
-                    <span class="input-group-text border-0" id="search-addon">
-                        <i class="fas fa-search"></i>
-                    </span>
+            <!-- Search Form -->
+            <div class="col-12 order-lg-second col-lg-4">
+                <form class="d-flex input-group pt-2 float-end float-lg-none mx-lg-auto w--85" method="GET"
+                    action="{% url 'products' %}">
+                    <input class="form-control" type="text" name="q" placeholder="Search Products"
+                        aria-label="Search" />
+                    <button class="btn btn-outline-primary border-0" type="submit" data-mdb-ripple-color="dark" aria-label="Search button">
+                        <i class="fas fa-search font-weight-bold "></i>
+                    </button>
                 </form>
             </div>
-            <div class="col-4 mt-2">
-                <!-- User Account -->
-                <div class="text-reset me-3 inline">
-                    <div class="{% if grand_total %}font-weight-bold color--e84610{% endif %}"><i
-                            class="fas fa-shopping-cart fa-lg icon"></i></div>
-                    <p class="{% if grand_total %}font-weight-bold{% endif %}">
+            <!-- User Account -->
+            <div class="col-6 order-lg-last col-lg-4">
+                <div class="text-reset me-3 inline float-end">
+                    <a href="#" aria-label="Shopping Cart">
+                        <i class="fas fa-shopping-cart fa-lg icon {% if grand_total %}color--55{% endif %}"></i>
+                    </a>
+                    <p class="{% if grand_total %}font-weight-bold{% endif %}" id="color-white">
                         {% if grand_total %}
-                        ${{ grand_total|floatformat:2 }}
+                            ${{ grand_total|floatformat:2 }}
                         {% else %}
-                        $0.00
+                            $0.00
                         {% endif %}
                     </p>
                 </div>
@@ -115,7 +117,7 @@
                 <!-- Collapsible Wrapper -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left links -->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#">Action Figures</a>
                         </li>
