@@ -18,10 +18,6 @@ body {
     border-radius: 0 !important;
 }
 
-.color--e84610 {
-    color: #e84610;
-}
-
 .center {
     margin: 0 auto;
 }
@@ -29,6 +25,16 @@ body {
 .color--55 {
     color: #e7ba55 !important;
 }
+
+.color--Hgreen {
+    background-color: #2f4b25;
+    color: #fbfbfb;
+}
+
+.color--e84610 {
+    color: #e84610;
+}
+
 
 /* -- base.html -- */
 /* Header & Navbar */

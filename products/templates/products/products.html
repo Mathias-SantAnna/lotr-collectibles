@@ -8,70 +8,78 @@
     <span class="font-weight-bold text-uppercase">free</span>!
 </div>
 
-<section class="text-center container w--80">
-    <h2 class="mt-5">All Products</h2>
+<div class="overlay"></div>
+<div class="container-fluid">
+    <section class="text-center container w--80">
+        <h2 class="mt-5">All Products</h2>
 
-    <div class="">
-        <p class="text-muted mt-3 text-center text-md-left">
-            {% if search_term or current_categories or current_sorting != 'None_None' %}
-            <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
-            {% endif %}
-            {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
-        </p>
-    </div>
-
-
-    {% for c in current_categories %}
-    <a class="badge rounded-pill bg-success" href="{% url 'products' %}?category={{ c.name }}">
-        <span class="p-2 mt-2">{{ c.friendly_name }}</span>
-    </a>
-    {% endfor %}
-
-
-    <div class="">
-        <div class="w-50">
-            <select id="sort-selector" class="">
-                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price Low to High
-                </option>
-                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price High to Low
-                </option>
-                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category A - Z
-                </option>
-                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category Z -
-                    A</option>
-                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Product A - Z</option>
-                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Product Z - A
-                </option>
-                <option value="brand_asc" {% if current_sorting == 'brand_asc' %}selected{% endif %}>Brand A - Z</option>
-                <option value="brand_desc" {% if current_sorting == 'brand_desc' %}selected{% endif %}>Branz Z - A
-                </option>
-            </select>
+        <div class="">
+            <p class="text-muted mt-3 text-center text-md-left">
+                {% if search_term or current_categories or current_sorting != 'None_None' %}
+                <span class="small"><a href="{% url 'products' %}">All Products</a> | </span>
+                {% endif %}
+                {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+            </p>
         </div>
-    </div>
 
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for product in products %}
-        <div class="col">
-            <div class="card h-100">
-                <a href="{% url 'product_detail' product.id %}">
-                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" />
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    
-                </div>
-                <div class="card-footer">
-                    <p>€{{ product.price }}</p>
-                    <small class="text-muted">{{ product.category }}</small>
+        {% for c in current_categories %}
+        <a class="badge rounded-pill color--Hgreen" href="{% url 'products' %}?category={{ c.name }}">
+            <span class="p-2 mt-2">{{ c.friendly_name }}</span>
+        </a>
+        {% endfor %}
+
+
+        <div class="row">
+            <div class="product-container col-10 offset-1">
+                <div class="row mt-1 mb-2">
+                    <div class="sort-select-wrapper w-50">
+                        <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price Low to High
+                            </option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price High to Low
+                            </option>
+                            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category A - Z
+                            </option>
+                            <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category Z -
+                                A</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Product A - Z</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Product Z - A
+                            </option>
+                            <option value="brand_asc" {% if current_sorting == 'brand_asc' %}selected{% endif %}>Brand A - Z</option>
+                            <option value="brand_desc" {% if current_sorting == 'brand_desc' %}selected{% endif %}>Branz Z - A
+                            </option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
-    </div>
-    <!-- /End of Credit -->
-</section>
+
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for product in products %}
+            <div class="col">
+                <div class="card h-100">
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" />
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        
+                    </div>
+                    <div class="card-footer">
+                        <p>€{{ product.price }}</p>
+                        <small class="text-muted">{{ product.category }}</small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- /End of Credit -->
+    </section>
+</div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
