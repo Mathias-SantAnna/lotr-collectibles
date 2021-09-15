@@ -71,14 +71,15 @@
             <!-- User Account -->
             <div class="col-6 order-lg-last col-lg-4">
                 <div class="text-reset me-3 inline float-end">
-                    <a class="{% if grand_total %}font-weight-bold color--e84610{% endif %}" href="{% url 'view_bag' %}">
+                    <a class="{% if grand_total %}font-weight-bold color--e84610{% endif %}"
+                        href="{% url 'view_bag' %}">
                         <i class="fas fa-shopping-cart fa-lg icon"></i>
                     </a>
                     <p class="{% if grand_total %}font-weight-bold{% endif %}" id="color-white">
                         {% if grand_total %}
-                            ${{ grand_total|floatformat:2 }}
+                        ${{ grand_total|floatformat:2 }}
                         {% else %}
-                            $0.00
+                        $0.00
                         {% endif %}
                     </p>
                 </div>
@@ -88,22 +89,22 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                     {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                        <a class="dropdown-item" href="">Product Management</a>
-                        {% endif %}
-                        <li>
-                            <a class="dropdown-item" href="">My Profile</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
-                        </li>
+                    {% if request.user.is_superuser %}
+                    <a class="dropdown-item" href="">Product Management</a>
+                    {% endif %}
+                    <li>
+                        <a class="dropdown-item" href="">My Profile</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                    </li>
                     {% else %}
-                        <li>
-                            <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
-                        </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                    </li>
                 </ul>
                 {% endif %}
                 {% if request.user.is_authenticated and request.user.is_superuser%}
@@ -154,7 +155,21 @@
     </header>
 
     {% if messages %}
-    <div class="message-container"></div>
+    <div class="message-container">
+        {% for message in messages %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+        {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+        {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+        {% include 'includes/toasts/toast_success.html' %}
+        {% else %}
+        {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+        {% endwith %}
+        {% endfor %}
+    </div>
     {% endif %}
 
     {% block page_header %}
@@ -225,6 +240,12 @@
         </div>
     </footer>
     <!-- /End of Credit -->
+
+    {% block postloadjs %}
+    <script type="text/javascript">
+        $('.toast').toast('show');
+    </script>
+    {% endblock %}
 
     {% block corejs %}
     <!-- MDB -->
