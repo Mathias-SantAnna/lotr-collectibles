@@ -71,8 +71,8 @@
             <!-- User Account -->
             <div class="col-6 order-lg-last col-lg-4">
                 <div class="text-reset me-3 inline float-end">
-                    <a href="#" aria-label="Shopping Cart">
-                        <i class="fas fa-shopping-cart fa-lg icon {% if grand_total %}color--55{% endif %}"></i>
+                    <a class="{% if grand_total %}font-weight-bold color--e84610{% endif %}" href="{% url 'view_bag' %}">
+                        <i class="fas fa-shopping-cart fa-lg icon"></i>
                     </a>
                     <p class="{% if grand_total %}font-weight-bold{% endif %}" id="color-white">
                         {% if grand_total %}
