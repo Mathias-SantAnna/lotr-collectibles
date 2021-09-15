@@ -154,6 +154,8 @@ h1, h2, h3, h4 {
     right: 10px;
 }
 
-.btt-link {
+.btt-link,
+.update-link,
+.remove-item {
     cursor: pointer;
 }
