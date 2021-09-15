@@ -136,3 +136,14 @@ h1, h2, h3, h4 {
     background-color: #09572931;
 }
 
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
