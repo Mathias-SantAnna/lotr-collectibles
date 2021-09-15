@@ -66,6 +66,15 @@ body {
     width: 3rem;
 }
 
+/* from Bulma */
+.icon2 {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
 .vl {
     padding-top: 0.5rem;
 }
