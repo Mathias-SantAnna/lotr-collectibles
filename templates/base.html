@@ -76,9 +76,9 @@
                     </a>
                     <p class="{% if grand_total %}font-weight-bold{% endif %}" id="color-white">
                         {% if grand_total %}
-                        ${{ grand_total|floatformat:2 }}
+                            ${{ grand_total|floatformat:2 }}
                         {% else %}
-                        $0.00
+                            $0.00
                         {% endif %}
                     </p>
                 </div>
@@ -88,22 +88,22 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                     {% if request.user.is_authenticated %}
-                    {% if request.user.is_superuser %}
-                    <a class="dropdown-item" href="">Product Management</a>
-                    {% endif %}
-                    <li>
-                        <a class="dropdown-item" href="">My Profile</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
-                    </li>
+                        {% if request.user.is_superuser %}
+                        <a class="dropdown-item" href="">Product Management</a>
+                        {% endif %}
+                        <li>
+                            <a class="dropdown-item" href="">My Profile</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                        </li>
                     {% else %}
-                    <li>
-                        <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
-                    </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                        </li>
                 </ul>
                 {% endif %}
                 {% if request.user.is_authenticated and request.user.is_superuser%}
@@ -203,7 +203,7 @@
 
                         <div class="col-auto mb-4 mb-md-0">
                             <!-- Submit button -->
-                            <button type="submit" class="btn btn-success mb-4">
+                            <button type="submit" class="btn color--Hgreen text-white mb-4">
                                 Subscribe
                             </button>
                         </div>
