@@ -93,6 +93,22 @@ body {
     color: #333;
 }
 
+/* Toasts Messages */
+.message-container {
+    position: fixed;
+    right: 1rem;
+    top: 4.5rem;
+    z-index: 999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: .125 rem;
+}
+
 /* Footer */
 .social--media a {
     color: #231703;
