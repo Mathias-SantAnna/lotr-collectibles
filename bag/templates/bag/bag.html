@@ -37,9 +37,6 @@
                         <td class="py-3">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                             <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
-                            {% if item.product.has_sizes %}
-                            <p class="my-0 small text-muted">Size: {{ item.size|upper }}</p>
-                            {% endif %}
                             <p class="my-0">{{ item.product.category.friendly_name }}</p>
                         </td>
                         <td class="py-3">
@@ -69,16 +66,12 @@
                                                 </span>
                                             </button>
                                         </div>
-                                        {% if item.prudct.has_sizes %}
-                                        <input type="hidden" name="product_size" value="{ item.size }">
-                                        {% endif %}
                                     </div>
                                 </div>
 
                             </form>
                             <a class="update-link text-info"><small>Update</small></a>
-                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"
-                                data-product_size="{{ item.size }}"><small>Remove</small></a>
+                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -146,9 +139,8 @@
         $('.remove-item').click(function (e) {
             let csrfToken = "{{ csrf_token }}";
             let itemId = $(this).attr('id').split('remove_')[1];
-            let size = $(this).data('product_size');
             let url = `/bag/remove/${itemId}/`;
-            let data = { 'csrfmiddlewaretoken': csrfToken, 'product_size': size };
+            let data = { 'csrfmiddlewaretoken': csrfToken };
 
             $.post(url, data)
                 .done(function () {
