@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load cart_tools %}
+{% load bag_tools %}
 
 
 {% block content %}
@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">Checkout</h2>
+                <h2 class="logo-font mb-4 text-uppercase">Checkout</h2>
                 <hr>
             </div>
         </div>
@@ -25,7 +25,7 @@
                         <p class="mb-1 mt-0 small text-muted">Subtotal</p>
                     </div>
                 </div>
-                {% for item in cart_items %}
+                {% for item in bag_items %}
                     <div class="row">
                         <div class="col-2 mb-1">
                             <a href="{% url 'product_detail' item.product.id %}">
@@ -100,11 +100,11 @@
                     </fieldset>
 
                     <div class="submit-button text-right mt-5 mb-2">                    
-						<a href="{% url 'view_cart' %}" class="btn btn-outline-black rounded-0">
+						<a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
 							<span class="icon">
 								<i class="fas fa-chevron-left"></i>
 							</span>
-							<span class="font-weight-bold">Adjust Shopping Cart</span>
+							<span class="font-weight-bold">Adjust Shopping bag</span>
 						</a>
 						<button id="submit-button" class="btn btn-black rounded-0">
 							<span class="font-weight-bold">Complete Order</span>
