@@ -2,10 +2,13 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
 
 {% block content %}
     <div class="overlay"></div>
-    <div class="container">
+    <section class="container">
         <div class="row">
             <div class="col">
                 <hr>
@@ -60,8 +63,11 @@
                     </div>
                 </div>
             </div>
+            <!-- Payment -->
             <div class="col-12 col-lg-6">
+                <p class="text-muted text-center">Payment</p>
                 <p class="text-muted">Please fill out the form below to complete your order</p>
+                <!-- Personal Details Form -->
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
@@ -122,5 +128,12 @@
                 </form>
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %} 
+
+{% block postloadjs %}
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}
