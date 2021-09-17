@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="container p-3">
+    <h2 class="mt-5 mb-5 text-center">Thank You</h2>
+    <hr>
+    <div class="row">
+        <div class="col-12 col-lg-6 order-lg-last mb-5">
+            <!-- Order Summary -->
+            <p class="text-muted text-center mb-3">Order Summary ({{ product_count }})</p>
+            <div class="row">
+                <div class="col-7 offset-2">
+                    <p class="mb-1 mt-0 small text-muted">Item</p>
+                </div>
+                <div class="col-3 text-right">
+                    <p class="mb-1 mt-0 small text-muted text--right">Subtotal</p>
+                </div>
+            </div>
+            <hr class="mt-2 mb-2">
+            <!-- Order Total -->
+            <div class="row prices--display pt-3 pb-3">
+                <div class="col-6 offset-3">
+                    <p class="my-0">Order Total:</p>
+                    <p class="my-0">Delivery:</p>
+                    <p class="my-0">Grand Total:</p>
+                </div>
+                <div class="col-3 text--right">
+                    <p class="my-0">€{{ total | floatformat:2 }}</p>
+                    <p class="my-0">€{{ delivery | floatformat:2 }}</p>
+                    <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
+                </div>
+            </div>
+        </div>
+        <!-- Payment -->
+        <div class="col-12 col-lg-6">
+            <p class="text-muted text-center">Payment</p>
+            <p class="text-muted text-center mt-3">Please fill out the form below to complete your order</p>
+            <!-- Personal Details Form -->
+
+        </div>
+    </div>
+</section>
+{% endblock %} 
