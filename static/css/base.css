@@ -231,3 +231,24 @@ h1, h2, h3, h4 {
 .remove-item {
     cursor: pointer;
 }
+
+/* -- bag.html -- */
+.c--1 {
+    width: 20%;
+}
+
+.bag--product--image {
+    width: 100%;
+}
+
+.bag--product--image--mob {
+    width: 50%;
+}
+
+.qty--update {
+    margin-right: 0.5rem;
+}
+
+.qty--remove {
+    margin-left: 0.5rem;
+}
