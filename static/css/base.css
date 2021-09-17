@@ -252,3 +252,8 @@ h1, h2, h3, h4 {
 .qty--remove {
     margin-left: 0.5rem;
 }
+
+/* -- checkout.html -- */
+.form-group {
+    margin-bottom: 0.5rem;
+}
