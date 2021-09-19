@@ -5,7 +5,7 @@
 {% block content %}
 <!-- Credit: Bootstrap Alerts @ https://getbootstrap.com/docs/5.0/components/alerts/ -->
 <div class="alert alert-warning text-center mb-0 main--alert" role="alert">
-    Spend <span class="fw-bold">&#128;{{ free_golf_balls_threshold }}</span> or more and get a Dozen Golf Balls
+    Spend <span class="fw-bold">&#128;{{ free_collectible_threshold }}</span> or more and get a Collectible for 
     <span class="fw-bold text-uppercase">free</span>!
 </div>
 <!-- /End of Credit -->
@@ -66,14 +66,6 @@
                                                         data-item_id="{{ item.item_id }}"><i class="fas fa-plus pt-2 fa-lg"></i>
                                                     </button>
                                                 </div>
-                                                <!-- Golf Club Right or Left -->
-                                                {% if item.product.is_club %}
-                                                <input type="hidden" name="product_club" value="{{ item.club }}">
-                                                {% endif %}
-                                                 <!-- Product Size -->
-                                                {% if item.product.has_sizes %}
-                                                <input type="hidden" name="product_size" value="{{ item.size }}">
-                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>
@@ -103,7 +95,7 @@
                 <p class="fw-normal mt-3">Bag Total: &#128;{{ total|floatformat:2 }}</p>
                 <p class="fw-normal mt-3">Delivery: &#128;{{ delivery|floatformat:2 }}</p>
                 <p class="fw-bold mt-5">Grand Total: &#128;{{ grand_total|floatformat:2 }}</p>
-                {% if free_golf_balls_delta > 0 %}
+                {% if free_collectible_delta > 0 %}
                 <p class="mb-1 color--e84610">
                     You can get a <strong>Free Collectible</strong> by spending <strong>&#128;{{ free_delivery_delta }}</strong> more
                 </p>
@@ -150,12 +142,6 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ item.product.name }}</h5>
                             <p class="small text-muted">Product ID: {{ item.product.sku }}</p>
-                            {% if item.product.has_sizes %}
-                            <p class="small">Size: {{ item.size|upper }}</p>
-                            {% endif %}
-                            {% if item.product.is_club %}
-                            <p class="small">Club: {{ item.golf_club|upper }}</p>
-                            {% endif %}
                             <p class="d-inline d-md-none">Price:</p>
                             {% if not item.product.is_discount %}
                             <p class="d-inline d-md-none">&#128;{{ item.product.price }}</p>
@@ -189,14 +175,6 @@
                                                     data-item_id="{{ item.item_id }}"><i class="fas fa-plus pt-2 fa-lg"></i>
                                                 </button>
                                             </div>
-                                            <!-- Golf Club Right or Left -->
-                                            {% if item.product.is_club %}
-                                            <input type="hidden" name="product_club" value="{{ item.club }}">
-                                            {% endif %}
-                                             <!-- Product Size -->
-                                            {% if item.product.has_sizes %}
-                                            <input type="hidden" name="product_size" value="{{ item.size }}">
-                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -228,9 +206,9 @@
                 <h6 class="">bag Total: &#128;{{ total|floatformat:2 }}</h6>
                 <h6 class="mt-3">Delivery: &#128;{{ delivery|floatformat:2 }}</h6>
                 <h6 class="fw-bold mt-5">Grand Total: &#128;{{ grand_total|floatformat:2 }}</h6>
-                {% if free_golf_balls_delta > 0 %}
+                {% if free_collectible_delta > 0 %}
                 <p class="mb-1 color--e84610">
-                    You can get free golf balls by spending <strong>&#128;{{ free_golf_balls_delta }}</strong> more!
+                    You can get free Collectible by spending <strong>&#128;{{ free_collectible_delta }}</strong> more!
                 </p>
                 {% endif %}
             </div>
