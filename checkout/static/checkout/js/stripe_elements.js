@@ -4,15 +4,14 @@
     CSS from here: 
     https://stripe.com/docs/stripe-js
 */
-
-let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
-let clientSecret = $('#id_client_secret').text().slice(1, -1);
-let stripe = Stripe(stripePublicKey);
-let elements = stripe.elements();
-let style = {
+var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+var clientSecret = $('#id_client_secret').text().slice(1, -1);
+var stripe = Stripe(stripePublicKey);
+var elements = stripe.elements();
+var style = {
     base: {
         color: '#000',
-        fontFamily: '"Roboto", sans-serif',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSmoothing: 'antialiased',
         fontSize: '16px',
         '::placeholder': {
@@ -20,21 +19,21 @@ let style = {
         }
     },
     invalid: {
-        color: '#e84610',
-        iconColor: '#e84610'
+        color: '#dc3545',
+        iconColor: '#dc3545'
     }
 };
-let card = elements.create('card', {
+var card = elements.create('card', {
     style: style
 });
 card.mount('#card-element');
 
-// Handle Realtime Validation Errors on the card element
+// Handle realtime validation errors on the card element
 card.addEventListener('change', function (event) {
-    let errorDiv = document.getElementById('card-errors');
+    var errorDiv = document.getElementById('card-errors');
     if (event.error) {
-        let html = `
-            <span role="alert">
+        var html = `
+            <span class="icon" role="alert">
                 <i class="fas fa-times"></i>
             </span>
             <span>${event.error.message}</span>
@@ -45,8 +44,8 @@ card.addEventListener('change', function (event) {
     }
 });
 
-// Handle Form Submit
-let form = document.getElementById('payment-form');
+// Handle form submit
+var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function (ev) {
     ev.preventDefault();
@@ -54,19 +53,23 @@ form.addEventListener('submit', function (ev) {
         'disabled': true
     });
     $('#submit-button').attr('disabled', true);
+    $('#payment-form').fadeToggle(100);
+    $('#loading-overlay').fadeToggle(100);
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
         }
     }).then(function (result) {
         if (result.error) {
-            let errorDiv = document.getElementById('card-errors');
-            let html = `
-                <span role="alert">
+            var errorDiv = document.getElementById('card-errors');
+            var html = `
+                <span class="icon" role="alert">
                 <i class="fas fa-times"></i>
                 </span>
                 <span>${result.error.message}</span>`;
             $(errorDiv).html(html);
+            $('#payment-form').fadeToggle(100);
+            $('#loading-overlay').fadeToggle(100);
             card.update({
                 'disabled': false
             });
@@ -77,4 +80,4 @@ form.addEventListener('submit', function (ev) {
             }
         }
     });
-}); 
+});

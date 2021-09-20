@@ -1,7 +1,7 @@
 body {
     box-sizing: border-box;
     color: #333;
-    font-family: 'Abril Fatface', 'Roboto' sans-serif;
+    font-family: 'Abril Fatface', 'Roboto'sans-serif;
     letter-spacing: 0.1rem;
     margin: 0;
     padding: 0;
@@ -11,6 +11,24 @@ body {
 }
 
 /* -- General Settings and Styles -- */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    color: #e7ba55;
+    height: 3rem;
+    width: 3rem;
+}
+
+/* from Bulma */
+.icon2 {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.1rem;
+    width: 1.1rem;
+}
+
 
 .form-control,
 .form-notch-leading,
@@ -49,7 +67,7 @@ body {
 
 .navbar-brand,
 .main--logo {
-    width: 15rem;   
+    width: 15rem;
 }
 
 #color-white {
@@ -59,25 +77,6 @@ body {
 .inline {
     display: inline;
     float: right;
-}
-
-.icon {
-    align-items: center;
-    color: #e7ba55;
-    display: inline-flex;
-    height: 3rem;
-    justify-content: center;
-    width: 3rem;
-}
-
-/* from Bulma */
-.icon2 {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.1rem;
-    width: 1.1rem;
-    border-radius: 5px;
 }
 
 .vl {
@@ -119,10 +118,10 @@ body {
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
+    border-right: 4px solid transparent;
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;
@@ -197,7 +196,10 @@ body {
 
 /* -- index.html -- */
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: 'Abril Fatface';
     letter-spacing: 0.2rem;
 }
@@ -266,4 +268,3 @@ h1, h2, h3, h4 {
 .w--75 {
     width: 75%;
 }
-
