@@ -167,6 +167,13 @@ body {
     overflow-y: auto;
 }
 
+/* Allauth */
+#div_id_login,
+#div_id_password {
+    margin-bottom: 1.5rem;
+}
+
+
 
 /* Footer */
 .social--media a {
@@ -259,6 +266,39 @@ h4 {
     margin-left: 0.5rem;
 }
 
+/* -- products.html & product_details.html -- */
+.badge:hover {
+    color: #fff !important;
+}
+
+.sort--selector--field {
+    text-align: right;
+}
+
+#sort-selector {
+    border: none;
+}
+
+.btt--button {
+    bottom: 0.625rem;
+    position: fixed;
+    right: 0.625rem;
+}
+
+.btt--link {
+    cursor: pointer;
+}
+
+.quantity--selector {
+    width: 7rem;
+}
+
+.decrement-qty, 
+.increment-qty {
+    border: none;
+    background-color: #fff;
+}
+
 /* -- checkout.html -- */
 .form-group {
     margin-bottom: 0.5rem;
@@ -267,4 +307,56 @@ h4 {
 
 .w--75 {
     width: 75%;
+}
+
+/* -- login.html/register.html -- */
+
+.btn-login,
+.btn-register {
+    background-color: #0f7508;
+    color: #fbfbfb;
+    width: 10rem;
+    letter-spacing: 0.1rem;
+}
+
+/* -- Media Query: Tablet Screen Size Bigger Than 48rem / 768px -- */
+@media only screen and (min-width: 48rem) {
+    .category--name {
+        font-size: 1.4rem;
+    }
+
+    .message--container {
+        left: auto;
+        position: fixed;
+        right: 1rem;
+        top: auto;
+        width: 25rem;
+    }
+
+    .login {
+        width: 50%;
+    }
+}
+
+/* -- Media Query: Desktop Screen Size Bigger Than 62rem / 992px -- */
+@media only screen and (min-width: 62rem) {
+    .search--form {
+        width: 100%;
+    }
+
+    .reasons--for--purchase--tabs {
+        width: 80%;
+    }
+
+    .product--card {
+        width: 90%;
+    }
+
+    .w--75 {
+        width: 75%;
+    }
+
+    .login {
+        width: 30%;
+    }
 }
