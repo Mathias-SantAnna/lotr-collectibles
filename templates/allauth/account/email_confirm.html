@@ -19,10 +19,14 @@
         <p class="mt-4 mt-md-5">{% blocktrans with confirmation.email_address.email as email %}
             Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
 
-        <form class="mx-auto mt-3 text-start" method="post" action="{% url 'account_confirm_email' confirmation.key %}">
-            {% csrf_token %}
-            <button class="btn btn-primary mt-4 mb-4" type="submit">{% trans 'Confirm' %}</button>
-        </form>
+        <div class="row">
+            <div class="col-12 text-center">
+                <form class="mx-auto mt-3 form-inline justify-content-center" method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+                    {% csrf_token %}
+                    <button class="btn btn-confirm mt-4 mb-4" type="submit">{% trans 'Confirm' %}</button>
+                </form>
+            </div>
+        </div>
 
         {% else %}
 

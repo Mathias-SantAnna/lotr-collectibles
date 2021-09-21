@@ -16,7 +16,7 @@
 
   <div class="row">
     <div class="col-12 text-center">
-      <form id="signup_form" class="form-inline justify-content-center mx-auto mt-3 text-start" method="POST" action="{% url 'account_login' %}">
+      <form id="signup_form" class="form-inline justify-content-center mx-auto mt-3 text-start" method="POST" action="{% url 'account_signup' %}">
         {% csrf_token %}
         {{ form|crispy }}
         {% if redirect_field_value %}

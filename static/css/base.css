@@ -324,6 +324,12 @@ h4 {
     letter-spacing: 0.1rem;
 }
 
+.btn-confirm {
+    background-color: #0f7508;
+    color: #fbfbfb;
+    letter-spacing: 0.1rem;
+}
+
 
 /* -- Media Query: Tablet Screen Size Bigger Than 48rem / 768px -- */
 @media only screen and (min-width: 48rem) {
