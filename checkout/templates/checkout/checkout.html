@@ -46,7 +46,11 @@
                         <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                     </div>
                     <div class="col-3 text-right">
+                        {% if not item.product.is_discount %}
                         <p class="my-0 small text-muted">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                        {% else %}
+                        <p class="my-0 small">€{{ item.product.discount_price | calc_subtotal:item.quantity }}</p>
+                        {% endif %}
                     </div>
                 </div>
                 {% endfor %}
@@ -106,6 +110,7 @@
 
                         <!-- Display form errors -->
                         <div id="card-errors" class="color--e84610" role="alert"></div>
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
                     <!-- Adjust Bag and Complete Order Buttons -->
                     <div class="submit-button text-right mt-5 mb-2">
