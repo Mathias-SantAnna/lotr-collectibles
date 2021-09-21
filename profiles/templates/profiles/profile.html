@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="container p-3">
+    <h2 class="mt-5 mb-5 text-center">My Profile</h2>
+    <hr>
+    <div class="row">
+        <div class="col-12 col-lg-6 order-lg-last mb-5">
+            <!-- Order Summary -->
+            <p class="text-muted text-center mb-3">Order Summary ({{ product_count }})</p>
+            <div class="row">
+                <div class="col-7 offset-2">
+                    <p class="mb-1 mt-0 small text-muted">Item</p>
+                </div>
+                <div class="col-3 text-right">
+                    <p class="mb-1 mt-0 small text-muted text--right">Subtotal</p>
+                </div>
+            </div>
+</section>
+{% endblock %}
