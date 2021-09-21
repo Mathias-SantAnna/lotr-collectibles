@@ -169,7 +169,12 @@ body {
 
 /* Allauth */
 #div_id_login,
-#div_id_password {
+#div_id_password,
+#div_id_email,
+#div_id_email2,
+#div_id_username,
+#div_id_password1,
+#div_id_passwprd2 { {
     margin-bottom: 1.5rem;
 }
 
@@ -333,7 +338,8 @@ h4 {
         width: 25rem;
     }
 
-    .login {
+    .login,
+    .register {
         width: 50%;
     }
 }
@@ -356,7 +362,8 @@ h4 {
         width: 75%;
     }
 
-    .login {
+    .login,
+    .register {
         width: 30%;
     }
 }
