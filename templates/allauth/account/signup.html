@@ -12,34 +12,24 @@
 {% block content %}
 <section class="mb-5 p-4 text-center">
 	<h2 class="m-3">{% trans "Register" %}</h2>
-
-	{% get_providers as socialaccount_providers %}
-	{% if socialaccount_providers %}
-		<p>{% blocktrans with site.name as site_name %}Please sign in with one of your existing third party accounts.
-			Or, <a href="{{ signup_url }}">Register</a> for a {{ site_name }} account and sign in below:{% endblocktrans %}
-		</p>
-		<div class="socialaccount_ballot">
-			<ul class="socialaccount_providers">
-				{% include "socialaccount/snippets/provider_list.html" with process="login" %}
-			</ul>
-			<div class="login-or">{% trans 'or' %}</div>
-		</div>
-	{% include "socialaccount/snippets/login_extra.html" %}
-	{% else %}
     <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">Login</a>.{% endblocktrans %}</p>
-	{% endif %}
 
-	<form id="signup_form" class="signup mx-auto mt-3 text-start" method="POST" action="{% url 'account_login' %}">
-		{% csrf_token %}
-		{{ form|crispy }}
-		{% if redirect_field_value %}
-			<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-		{% endif %}
-		<div class="row">
-			<div class="col-12 text-center">
-				<button class="btn btn-register btn-lg mt-4 mb-4" type="submit">{% trans "Register" %}</button>
-			</div>
-		</div>
-	</form>
+  <div class="row">
+    <div class="col-12 text-center">
+      <form id="signup_form" class="form-inline justify-content-center mx-auto mt-3 text-start" method="POST" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <div class="row">
+          <div class="col-12 text-center">
+            <button class="btn btn-register btn-lg mt-4 mb-4" type="submit">{% trans "Register" %}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+	
 </section>
 {% endblock %}
