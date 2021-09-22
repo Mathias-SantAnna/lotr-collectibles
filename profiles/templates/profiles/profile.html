@@ -6,21 +6,62 @@
 {% endblock %}
 
 {% block content %}
+
 <section class="container p-3">
     <h2 class="mt-5 mb-5 text-center">My Profile</h2>
     <hr>
     <div class="row">
-        <div class="col-12 col-lg-6 ">
-            <p class="text-muted">Default Delivery Information</p>
-            <form class="mt-3 form-inline text-center" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+        <div class="col-12 col-lg-5 pe-lg-5">
+            <p class="text-muted text-center">Default Delivery Information</p>
+            <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button class="btn btn-success mt-4 mb-4">Update Information</button>
+                <button class="btn btn-primary mt-4 mb-4">Update Information</button>
             </form>
         </div>
-        <div class="col-12 col-lg-6">
-            <p class="text-muted">Order History</p>
-            {{ orders }}
+        <div class="col-12 col-lg-7">
+            <p class="text-muted text-center">Order History</p>
+            <div class="row">
+                <div class="col-3">
+                    <p>Order Number</p>
+                </div>
+                <div class="col-3">
+                    <p>Date</p>
+                </div>
+                <div class="col-3">
+                    <p>Items</p>
+                </div>
+                <div class="col-3">
+                    <p>Total</p>
+                </div>
+            </div>
+
+            <div class="row">
+                {% for order in orders %}
+                <div class="col-3">
+                    <p>
+                        <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                            {{ order.order_number|truncatechars:6 }}
+                        </a>
+                    </p>
+                </div>
+                <div class="col-3">
+                    <p>{{ order.date }}</p>
+                </div>
+                <div class="col-3">
+                    <ul class="list-unstyled">
+                        {% for item in order.lineitems.all %}
+                            <li class="small">
+                                {{ item.product.name }} x{{ item.quantity }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <p>{{ order.grand_total }}</p>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </section>
