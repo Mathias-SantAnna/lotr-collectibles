@@ -3,7 +3,7 @@
 }
 
 #profile-update-form input::placeholder,
-.profile--form--input {
+.profile-form-input {
     color: #aab7c4;
 }
 
