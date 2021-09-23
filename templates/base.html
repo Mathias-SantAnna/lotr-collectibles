@@ -85,9 +85,9 @@
                     </a>
                     <p class="{% if grand_total %}font-weight-bold{% endif %}" id="color-white">
                         {% if grand_total %}
-                        ${{ grand_total|floatformat:2 }}
+                        €{{ grand_total|floatformat:2 }}
                         {% else %}
-                        $0.00
+                        €0.00
                         {% endif %}
                     </p>
                 </div>
@@ -98,7 +98,7 @@
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                     {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
-                    <a class="dropdown-item" href="">Product Management</a>
+                    <a class="dropdown-item" href="{% url 'add_product' %}">Product Management</a>
                     {% endif %}
                     <li>
                         <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
@@ -115,11 +115,7 @@
                     </li>
                 </ul>
                 {% endif %}
-                {% if request.user.is_authenticated and request.user.is_superuser%}
-                <a href="">
-                    <i class="fas fa-tools fa-lg inline icon"></i>
-                </a>
-                {% endif %}
+
             </div>
         </div>
         <!-- Navbar -->

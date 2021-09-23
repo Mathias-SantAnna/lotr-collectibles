@@ -32,7 +32,13 @@
                     <tr>
                         <!-- Product Details -->
                         {% for item in bag_items %}
-                        <td><img class="bag--product--image" src="{{ item.product.image.url }}" alt="{{ item.product.name }}"></td>
+                        <td>
+                            {% if item.product.image %}
+                            <img class="bag--product--image" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            {% else %}
+                            <img class="bag--product--image" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            {% endif %}
+                        </td>
                         <td class="text-start">
                             <p class="fw-bold">{{ item.product.name }}</p>
                             <p class="small text-muted">Product ID: {{ item.product.sku }}</p>
@@ -136,7 +142,11 @@
                     <!-- Product Details -->
                     {% for item in bag_items %}
                     <div class="col-md-4">
-                        <img class="img-fluid bag--product--image--mob" src="{{ item.product.image.url }}" alt="{{ item.product.name }}" />
+                        {% if item.product.image %}
+                        <img class="img-fluid bag--product--image--mob" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                        {% else %}
+                        <img class="img-fluid bag--product--image--mob" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                        {% endif %}
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

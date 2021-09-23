@@ -61,17 +61,34 @@
             {% for product in products %}
             <div class="col">
                 <div class="card h-100">
+                    {% if product.image %}
                     <a href="{% url 'product_detail' product.id %}">
-                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" />
+                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                     </a>
+                    {% else %}
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    </a>
+                    {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
-                        
+                    
+                        <ul class="mt-2 list-group list-group-flush ">
+                            <li class="no--bullets h5 {% if not product.is_discount %}font-weight-bold{% endif %}">
+                                {% if product.is_discount %}<s>Price: &#128;{{ product.price }}</s>
+                                {% else %}Price: &#128;{{ product.price }}{% endif %}</li>
+                            {% if product.is_discount %}
+                            <li class="no--bullets font-weight-bold h5 text-uppercase">Sale: &#128;{{ product.discount_price }}</li>
+                            {% endif %}
+                            <li class="no--bullets text-muted">{{ product.category.friendly_name }}</li>
+                        </ul>
                     </div>
+                    {% if request.user.is_superuser %}
                     <div class="card-footer">
-                        <p>€{{ product.price }}</p>
-                        <small class="text-muted">{{ product.category }}</small>
+                        <a href="#" class="card-link">Edit</a>
+                        <a href="#" class="card-link">Delete</a>
                     </div>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}

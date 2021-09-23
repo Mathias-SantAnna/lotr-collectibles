@@ -6,10 +6,10 @@
     <h2 class="mt-5 mb-5 text-center">Product Management</h2>
     <hr>
     <div class="row">
-        <h5>Add Product</h5>
-        <form class="form mb-2" method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
+        <h5 class="text-center m-3">Add Product</h5>
+        <form class="form mb-2 mx-auto add--product" method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form | crispy }}
+            {{ form|crispy }}
             <div>
                 <a class="btn btn-danger m-2" href="{% url 'products' %}">Cancel</a>
                 <button class="btn btn-success m-2" type="submit">Add Product</button>

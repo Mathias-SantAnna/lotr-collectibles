@@ -57,6 +57,10 @@ body {
     background-color: rgba(255, 223, 0, 0.3);
 }
 
+li.no--bullets {
+    list-style-type: none;
+}
+
 
 /* -- base.html -- */
 /* Header & Navbar */
@@ -348,7 +352,8 @@ h4 {
     .login,
     .password_reset,
     .auth--p,
-    .auth--div  {
+    .auth--div,
+    .add--product {
         width: 50%;
     }
     #signup_form {
@@ -377,7 +382,8 @@ h4 {
     .login,
     .password_reset,
     .auth--p,
-    .auth--div  {
+    .auth--div,
+    .add--product {
         width: 30%;
     }
     #signup_form {

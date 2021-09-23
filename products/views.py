@@ -8,15 +8,17 @@ from .forms import ProductForm
 
 # Create your views here.
 
+
 def all_products(request):
     """ A view to show all products """
 
-    query = None
     products = Product.objects.all()
+    query = None
     categories = None
     brands = None
     sort = None
     direction = None
+    sale = False
 
     if request.GET:
         if 'q' in request.GET:
@@ -54,7 +56,11 @@ def all_products(request):
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
 
-    current_sorting = f'{sort}_{direction}'            
+        if 'sale' in request.GET:
+            sale = True
+            products = products.filter(is_discount=True)
+
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
@@ -62,6 +68,7 @@ def all_products(request):
         'current_categories': categories,
         'current_brands': brands,
         'current_sorting': current_sorting,
+        'sale': sale,
     }
 
     return render(request, 'products/products.html', context)
@@ -78,9 +85,20 @@ def product_detail(request, product_id):
 
     return render(request, 'products/product_detail.html', context)
 
+
 def add_product(request):
     """ Add a product to the store """
-    form = ProductForm()
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = ProductForm()
+        
     template = 'products/add_product.html'
     context = {
         'form': form,
