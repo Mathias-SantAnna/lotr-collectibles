@@ -85,8 +85,8 @@
                     </div>
                     {% if request.user.is_superuser %}
                     <div class="card-footer">
-                        <a href="#" class="card-link">Edit</a>
-                        <a href="#" class="card-link">Delete</a>
+                        <a href="{% url 'edit_product' product.id %}" class="card-link">Edit</a>
+                        <a href="{% url 'delete_product' product.id %}" class="card-link">Delete</a>
                     </div>
                     {% endif %}
                 </div>
