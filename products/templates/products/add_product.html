@@ -9,7 +9,13 @@
         <h5 class="text-center m-3">Add Product</h5>
         <form class="form mb-2 mx-auto add--product" method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form|crispy }}
+            {% for field in form %}
+                {% if field.name != 'image' %}
+                    {{ field | as_crispy_field }}
+                {% else %}
+                    {{ field }}
+                {% endif %}
+            {% endfor %}
             <div>
                 <a class="btn btn-danger m-2" href="{% url 'products' %}">Cancel</a>
                 <button class="btn btn-success m-2" type="submit">Add Product</button>
@@ -18,3 +24,13 @@
     </div>
 </section>
 {% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
+{% endblock %} 
