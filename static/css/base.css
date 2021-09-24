@@ -1,3 +1,7 @@
+html {
+    height: 100%;
+    position: relative;
+}
 body {
     box-sizing: border-box;
     color: #333;
@@ -9,6 +13,15 @@ body {
     background-size: cover;
     height: calc(100vh - 164px);
 }
+
+.footer {
+    height: 300px;
+    bottom: 0;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
 
 /* -- General Settings and Styles -- */
 .icon {
@@ -305,7 +318,8 @@ h4 {
 .decrement-qty, 
 .increment-qty {
     border: none;
-    background-color: #fff;
+    background-color: black;
+    color: #fff;
 }
 
 /* -- checkout.html -- */
