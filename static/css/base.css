@@ -84,6 +84,10 @@ header {
     z-index: 2;
 }
 
+.header--border {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 .margin--top {
     margin-top: 10rem;
 }
@@ -96,8 +100,13 @@ header {
 .main--alert {
 	background-color: rgba(255, 223, 0, 0.7);
 	border-radius: 0;
-	margin-top: 10rem;
+	margin-top: 9.4rem;
 }
+
+.alert {
+    padding: 0.6rem;
+}
+
 .navbar-brand,
 .main--logo {
     width: 15rem;
@@ -247,11 +256,6 @@ h3,
 h4 {
     font-family: 'Abril Fatface';
     letter-spacing: 0.2rem;
-}
-
-.main--alert {
-    background-color: rgba(255, 223, 0, 0.7);
-    border-radius: 0;
 }
 
 .vertical--align--middle {
