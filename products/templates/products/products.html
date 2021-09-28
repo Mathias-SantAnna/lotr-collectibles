@@ -80,7 +80,7 @@
                                 {% if product.is_discount %}<s>Price: &#128;{{ product.price }}</s>
                                 {% else %}Price: &#128;{{ product.price }}{% endif %}</li>
                             {% if product.is_discount %}
-                            <li class="no--bullets font-weight-bold h5 text-uppercase">Sale: &#128;{{ product.discount_price }}</li>
+                            <li class="on--sale no--bullets font-weight-bold h5 text-uppercase">Sale: &#128;{{ product.discount_price }}</li>
                             {% endif %}
                             <li class="no--bullets text-muted">{{ product.category.friendly_name }}</li>
                         </ul>
