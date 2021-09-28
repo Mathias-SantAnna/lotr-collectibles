@@ -1,12 +1,4 @@
-.main--alert {
-	background-color: rgba(255, 223, 0, 0.7);
-	border-radius: 0;
-	margin-top: 9.4rem;;
-}
 
-.alert {
-    padding: 0.6rem;
-}
 /* Credit: Hubspot @ https://blog.hubspot.com/website/css-fade-in */
 .fade-in-text {
 	animation: fadeIn linear 4s;
@@ -68,12 +60,21 @@
 
 /* /End of Credit */
 
-.shop--now--btn {
-	background-color: #ffdf00;
+/* .shop--now--btn {
+	background-color: #00ff55;
 	color: #333;
 	left: 3rem;
 	position: absolute;
     font-size: large;
+} */
+
+.shop--now--btn {
+    background-color: #ffdf00;
+    top: 4rem;
+    color: #000;
+    left: 4rem;
+	font-size: large;
+    position: absolute;
 }
 
 .shop--now--btn:hover {
@@ -157,15 +158,35 @@
 	top: 0.5rem;
 }
 
-/* -- Media Query: Desktop Screen Size Bigger Than 62rem / 992px -- */
-@media only screen and (min-width: 62rem) {
-
-	.hvr-float-shadow {
-		margin-bottom: 3rem;
-	}
+/* -- Media Query: Tablet Screen Size Bigger Than 48rem / 768px -- */
+@media only screen and (min-width: 48rem) {
+	.shop--now--btn {
+		top: 6rem;
+		left: 4rem;
+	}	
 
 	#popular--brand,
 	#reasons--for--purchase {
 		padding: 2.5rem 0 3.5rem;
+	}
+
+	.hvr-float-shadow {
+		margin-bottom: 3rem;
+	}
+}
+
+/* -- Media Query: Desktop Screen Size Bigger Than 62rem / 992px -- */
+@media only screen and (min-width: 62rem) {
+	
+	.shop--now--btn {
+		left: 4rem;
+	}
+	#popular--brand,
+	#reasons--for--purchase {
+		padding: 2.5rem 0 3.5rem;
+	}
+
+	.hvr-float-shadow {
+		margin-bottom: 3rem;
 	}
 }

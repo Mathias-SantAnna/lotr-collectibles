@@ -125,14 +125,6 @@ header {
     padding-top: 0.5rem;
 }
 
-.shop--now--btn {
-    background-color: #ffdf00;
-    top: 4rem;
-    color: #000;
-    left: 2rem;
-    position: absolute;
-}
-
 .btn-warning {
     background-color: #ffdf00;
     color: #333;
