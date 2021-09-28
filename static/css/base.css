@@ -84,6 +84,10 @@ header {
     z-index: 2;
 }
 
+.margin--top {
+    margin-top: 10rem;
+}
+
 .main--header {
     background-color: #231703;
     padding-top: .2rem;
