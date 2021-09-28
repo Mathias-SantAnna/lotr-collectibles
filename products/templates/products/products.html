@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %}
+- Products
+{% for c in current_categories %}
+    {% if c.name == 'collectible_figure' and 'figures_of_fandom' and 'vinyl_figure' %}
+    - Figures
+    {% elif c.name == '1:10_scale_statue' and '1:6_scale_statue' and '1:4_scale_statue' and 'miniature_statue' %}
+    - Statues
+    {% elif c.name == 'jewellery' and 'prop_replica' and 'helm' %}
+    - Jewerly & Others
+    {% endif %}
+    {% endfor %}
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 {% block content %}
 <!-- Credit: Bootstrap Alerts @ https://getbootstrap.com/docs/5.0/components/alerts/ -->
 <div class="alert alert-warning text-center mb-0 main--alert" role="alert">
@@ -8,102 +25,118 @@
     <span class="font-weight-bold text-uppercase">free</span>!
 </div>
 
-<div class="overlay"></div>
-<div class="container-fluid">
-    <section class="text-center container w--80">
+<section class=" container text-center {% if products|length < 1 %}mb-5{% endif %}">
+    {% if current_categories == None and sale != True %}
         <h2 class="mt-5">All Products</h2>
+    {% elif sale == True %}
+        <h2 class="mt-5">Sale</h2>
+    {% endif %}
 
-        <div class="">
-            <p class="text-muted mt-3 text-center text-md-left">
-                {% if search_term or current_categories or current_sorting != 'None_None' %}
+    {% for c in current_categories %}
+    {% if c.name == 'collectible_figure' and 'figures_of_fandom' and 'vinyl_figure' %}
+        <h2 class="mt-5">Figures</h2>
+    {% elif c.name == '1:10_scale_statue' and '1:6_scale_statue' and '1:4_scale_statue' and 'miniature_statue' %}
+        <h2 class="mt-5">Statues</h2>
+    {% elif c.name == 'jewellery' and 'prop_replica' and 'helm' %}
+        <h2 class="mt-5">Jewerly & Others
+        </h2>
+    {% endif %}
+    {% endfor %}
+
+    {% for b in current_brands %}
+    {% if b.name == 'iron_studios' %}
+        <h3 class="mt-3 text-muted font-weight-bold">Iron Studios</h3>
+    {% elif b.name == 'prime_1_studio' %}
+        <h3 class="mt-3 text-muted font-weight-bold">Prime 1 Studio</h3>
+    {% elif b.name == 'weta_workshop' %}
+        <h3 class="mt-3 text-muted font-weight-bold">Weta Workshop</h3>
+    {% elif b.name == 'asmus' %}
+        <h3 class="mt-3 text-muted font-weight-bold">Asmus</h3>
+    {% endif %}
+    {% endfor %}
+
+    <div>
+        <p class="text-muted mt-3 text-center text-md-left">
+            {% if search_term or current_categories or current_sorting != 'None_None' %}
                 <span class="small"><a href="{% url 'products' %}">All Products</a> | </span>
-                {% endif %}
-                {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
-            </p>
-        </div>
+            {% endif %}
+            {{ products|length }}
+            {% if products|length > 1 %} 
+                Products
+            {% else %} 
+                Product
+            {% endif %} 
+            {% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+        </p>
+    </div>
 
-
+    <div class="mt-3 category--name">
         {% for c in current_categories %}
-        <a class="badge rounded-pill color--Hgreen" href="{% url 'products' %}?category={{ c.name }}">
-            <span class="p-2 mt-2">{{ c.friendly_name }}</span>
+        <a class="badge rounded-pill bg-success" href="{% url 'products' %}?category={{ c.name }}">
+            <span class="p-1 p-md-3 mt-2">{{ c.friendly_name }}</span>
         </a>
         {% endfor %}
-
-
-        <div class="row">
-            <div class="product-container col-12 offset-8">
-                <div class="row mt-1 mb-2">
-                    <div class="sort-select-wrapper w-50">
-                        <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price Low to High
-                            </option>
-                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price High to Low
-                            </option>
-                            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category A - Z
-                            </option>
-                            <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category Z -
-                                A</option>
-                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Product A - Z</option>
-                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Product Z - A
-                            </option>
-                            <option value="brand_asc" {% if current_sorting == 'brand_asc' %}selected{% endif %}>Brand A - Z</option>
-                            <option value="brand_desc" {% if current_sorting == 'brand_desc' %}selected{% endif %}>Branz Z - A
-                            </option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            {% for product in products %}
-            <div class="col">
-                <div class="card h-100">
-                    {% if product.image %}
-                    <a class="hover-zoom" href="{% url 'product_detail' product.id %}">
-                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                    </a>
-                    {% else %}
-                    <a href="{% url 'product_detail' product.id %}">
-                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                    </a>
-                    {% endif %}
-                    <div class="card-body mt-2">
-                        <h5 class="card-title">{{ product.name }}</h5>
-
-                    </div>
-                    <div class="">
-                        <ul class="mt-2 mb-3 list-group list-group-flush ">
-                            <li class="no--bullets h5 {% if not product.is_discount %}font-weight-bold{% endif %}">
-                                {% if product.is_discount %}<s>Price: &#128;{{ product.price }}</s>
-                                {% else %}Price: &#128;{{ product.price }}{% endif %}</li>
-                            {% if product.is_discount %}
-                            <li class="on--sale no--bullets font-weight-bold h5 text-uppercase">Sale: &#128;{{ product.discount_price }}</li>
-                            {% endif %}
-                            <li class="no--bullets text-muted">{{ product.category.friendly_name }}</li>
-                        </ul>
-                    </div>
-                    {% if request.user.is_superuser %}
-                    <div class="card-footer">
-                        <a href="{% url 'edit_product' product.id %}" class="card-link">Edit</a>
-                        <a href="{% url 'delete_product' product.id %}" class="card-link">Delete</a>
-                    </div>
-                    {% endif %}
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        <!-- /End of Credit -->
-    </section>
-    <div class="btt-button shadow-sm rounded-0 border border-black">
-        <a class="btt-link d-flex h-100">
-            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-        </a>	
     </div>
-</div>
-</div>
+    {% if products|length > 1 %}
+        <div class="mt-3 mt-lg-0 sort--selector--field">
+            <i class="fas fa-filter"></i>
+            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price Low to High</option>
+                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price High to Low</option>
+                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category A - Z</option>
+                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category Z - A</option>
+                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Product A - Z</option>
+                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Product Z - A</option>
+            </select>
+        </div>
+    {% endif %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for product in products %}
+        <div class="col">
+            <div class="card h-100">
+                {% if product.image %}
+                <a class="hover-zoom" href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </a>
+                {% else %}
+                <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                </a>
+                {% endif %}
+                <div class="card-body mt-2">
+                    <h5 class="card-title">{{ product.name }}</h5>
+
+                </div>
+                <div class="">
+                    <ul class="mt-2 mb-3 list-group list-group-flush ">
+                        <li class="no--bullets h5 {% if not product.is_discount %}font-weight-bold{% endif %}">
+                            {% if product.is_discount %}<s>Price: &#128;{{ product.price }}</s>
+                            {% else %}Price: &#128;{{ product.price }}{% endif %}</li>
+                        {% if product.is_discount %}
+                        <li class="on--sale no--bullets font-weight-bold h5 text-uppercase">Sale: &#128;{{ product.discount_price }}</li>
+                        {% endif %}
+                        <li class="no--bullets text-muted">{{ product.category.friendly_name }}</li>
+                    </ul>
+                </div>
+                {% if request.user.is_superuser %}
+                <div class="card-footer">
+                    <a class="card-link" href="{% url 'edit_product' product.id %}">Edit</a>
+                    <a class="card-link color--e84610" href="{% url 'delete_product' product.id %}">Delete</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if products|length > 1 %}
+        <div class="btt--button">
+            <a class="btt--link">
+                <i class="far fa-caret-square-up fa-2x color--e84610"></i>
+            </a>	
+        </div>
+    {% endif %}
+</section>
 {% endblock %}
 
 {% block postloadjs %}

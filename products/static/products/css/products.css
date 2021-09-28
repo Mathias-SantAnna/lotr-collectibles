@@ -1,0 +1,21 @@
+.badge:hover {
+    color: #fff !important;
+}
+
+.sort--selector--field {
+    text-align: right;
+}
+
+#sort-selector {
+    border: none;
+}
+
+.btt--button {
+    bottom: 0.625rem;
+    position: fixed;
+    right: 0.625rem;
+}
+
+.btt--link {
+    cursor: pointer;
+}
