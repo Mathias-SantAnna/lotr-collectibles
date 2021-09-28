@@ -130,7 +130,7 @@
         {% endfor %}
     </div>
     {% if products|length > 1 %}
-        <div class="btt--button">
+        <div id="myBtn" class="btt--button">
             <a class="btt--link">
                 <i class="far fa-caret-square-up fa-2x color--e84610"></i>
             </a>	
@@ -141,11 +141,26 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
+    <!-- Credit: W3Schools @ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top -->
+    <script>
+        const mybutton = document.getElementById("myBtn");
+
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
+            mybutton.style.display = "block";
+            } else {
+            mybutton.style.display = "none";
+            }
+        }
+
+
 		$('.btt-link').click(function(e) {
 			window.scrollTo(0,0)
 		})
 	</script>
+    <!-- /End of Credit -->
 
     <script type="text/javascript">
         $('#sort-selector').change(function() {

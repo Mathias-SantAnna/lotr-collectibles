@@ -11,7 +11,8 @@
 }
 
 .btt--button {
-    bottom: 0.625rem;
+    bottom: 8rem;
+    display: none;
     position: fixed;
     right: 0.625rem;
 }
