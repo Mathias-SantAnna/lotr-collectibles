@@ -2,6 +2,14 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_title %}
+- Shopping Cart
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
+{% endblock %}
+
 {% block content %}
 <!-- Credit: Bootstrap Alerts @ https://getbootstrap.com/docs/5.0/components/alerts/ -->
 <div class="alert alert-warning text-center mb-0 main--alert" role="alert">

@@ -1,0 +1,19 @@
+.c--1 {
+    width: 20%;
+}
+
+.cart--product--image {
+    width: 100%;
+}
+
+.cart--product--image--mob {
+    width: 50%;
+}
+
+.qty--update {
+    margin-right: 0.5rem;
+}
+
+.qty--remove {
+    margin-left: 0.5rem;
+}

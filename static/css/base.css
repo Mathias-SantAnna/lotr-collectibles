@@ -280,25 +280,7 @@ h4 {
 }
 
 /* -- bag.html -- */
-.c--1 {
-    width: 20%;
-}
 
-.bag--product--image {
-    width: 100%;
-}
-
-.bag--product--image--mob {
-    width: 50%;
-}
-
-.qty--update {
-    margin-right: 0.5rem;
-}
-
-.qty--remove {
-    margin-left: 0.5rem;
-}
 
 /* -- products.html & product_details.html -- */
 .badge:hover {
