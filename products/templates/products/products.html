@@ -70,10 +70,12 @@
                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                     </a>
                     {% endif %}
-                    <div class="card-body">
+                    <div class="card-body mt-2">
                         <h5 class="card-title">{{ product.name }}</h5>
-                    
-                        <ul class="mt-2 list-group list-group-flush ">
+
+                    </div>
+                    <div class="">
+                        <ul class="mt-2 mb-3 list-group list-group-flush ">
                             <li class="no--bullets h5 {% if not product.is_discount %}font-weight-bold{% endif %}">
                                 {% if product.is_discount %}<s>Price: &#128;{{ product.price }}</s>
                                 {% else %}Price: &#128;{{ product.price }}{% endif %}</li>

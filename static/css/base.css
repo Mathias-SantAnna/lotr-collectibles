@@ -77,11 +77,23 @@ li.no--bullets {
 
 /* -- base.html -- */
 /* Header & Navbar */
+header {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+
 .main--header {
     background-color: #231703;
     padding-top: .2rem;
 }
 
+.main--alert {
+	background-color: rgba(255, 223, 0, 0.7);
+	border-radius: 0;
+	margin-top: 10rem;
+}
 .navbar-brand,
 .main--logo {
     width: 15rem;
@@ -321,6 +333,17 @@ h4 {
     background-color: black;
     color: #fff;
 }
+
+.card-img, .card-img-top {
+    border-radius: calc(.5rem - 1px);
+}
+
+.hover-zoom:hover img, .hover-zoom:hover video {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+
 
 /* Product Form */
 .btn-file {

@@ -1,6 +1,7 @@
 .main--alert {
 	background-color: rgba(255, 223, 0, 0.7);
 	border-radius: 0;
+	margin-top: 10rem;
 }
 
 /* Credit: Hubspot @ https://blog.hubspot.com/website/css-fade-in */
@@ -141,7 +142,7 @@
 
 #reasons--for--purchase,
 .prices--display {
-	background-color: rgba(255, 223, 0, 0.2);
+	background-color: #096d2c85;
 }
 
 .catch--phrase {
