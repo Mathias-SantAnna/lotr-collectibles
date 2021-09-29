@@ -2,6 +2,10 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_title %}
+- Checkout
+{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
@@ -20,7 +24,7 @@
         <div class="row">
             <div class="col-12 col-lg-6 order-lg-last mb-5">
                 <p class="text-muted">Order Summary ({{ product_count }})</p>
-                <div class="row">
+                <div class="row mb-2">
                     <div class="col-7 offset-2">
                         <p class="mb-1 mt-0 small text-muted">Item</p>
                     </div>
@@ -29,7 +33,7 @@
                     </div>
                 </div>
                 {% for item in bag_items %}
-                <div class="row">
+                <div class="row mb-2">
                     <div class="col-2 mb-1">
                         <a href="{% url 'product_detail' item.product.id %}">
                             {% if item.product.image %}
@@ -41,8 +45,6 @@
                     </div>
                     <div class="col-7">
                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                        <p class="my-0 small">Size:
-                            {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                         <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                     </div>
                     <div class="col-3 text-right">
@@ -53,18 +55,23 @@
                         {% endif %}
                     </div>
                 </div>
+                <hr class="my-2">
                 {% endfor %}
-                <hr class="my-0">
                 <div class="row text-black text-right">
                     <div class="col-7 offset-2">
                         <p class="my-0">Order Total:</p>
-                        <p class="my-0">Delivery:</p>
-                        <p class="my-0">Grand Total:</p>
+                        <!-- <p class="my-0">Delivery:</p> -->
+                        <p class="fw-normal my-0 mb-3">
+                            <a type="button" data-mdb-toggle="modal" data-mdb-target="#deliveryCostModal"><span><i class="fas fa-truck fw-bold text-primary"></i></span></a> 
+                            Delivery :
+                        </p>
+
+                        <h6 class="my-0 text-uppercase"><strong>Grand Total:</strong></h6>
                     </div>
                     <div class="col-3">
                         <p class="my-0">€{{ total | floatformat:2 }}</p>
-                        <p class="my-0">€{{ delivery | floatformat:2 }}</p>
-                        <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
+                        <p class="my-0 mb-3">€{{ delivery | floatformat:2 }}</p>
+                        <h5 class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></h5>
                     </div>
                 </div>
             </div>
@@ -113,7 +120,7 @@
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
                     <!-- Adjust Bag and Complete Order Buttons -->
-                    <div class="submit-button text-right mt-5 mb-2">
+                    <div class="submit-button text-right mt-3 mb-2">
                         <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
                             <span class="icon">
                                 <i class="fas fa-chevron-left"></i>
@@ -141,10 +148,31 @@
         <h1 class="text-light logo-font loading-spinner">
             <span class="icon">
                 <!-- <i class="fas fa-3x fa-sync-alt fa-spin"></i> -->
-                <img class="fa-spin the-one-ring--spinner" src="{% static 'images/the_one_ring.png' %}" alt="">   
+                <img class="fa-spin the-one-ring--spinner" src="{% static 'images/the_one_ring.png' %}" alt="Loading Spinner Icon">   
             </span>
         </h1>
     </div>
+
+    <!-- Credit: MDB Modal @ https://mdbootstrap.com/docs/standard/components/modal/ -->
+    <!-- Modal -->
+    <div id="deliveryCostModal" class="modal fade" tabindex="-1" aria-labelledby="deliveryCostModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deliveryCostModalLabel">Delivery Cost</h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+            <div class="modal-body">
+                You will get <span class="fw-bold">FREE delivery</span> for order <span class="text-decoration-underline ">€150</span> or more.
+                <br>10% on the order value will be charged as a delivery fee if your order is less than €150.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-mdb-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+<!-- /End of Credit -->
 {% endblock %}
 
 {% block postloadjs %}

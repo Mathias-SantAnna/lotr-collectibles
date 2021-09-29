@@ -359,16 +359,6 @@ h4 {
     border-radius: 0;
 }
 
-/* -- checkout.html -- */
-.form-group {
-    margin-bottom: 0.5rem;
-}
-
-
-.w--75 {
-    width: 75%;
-}
-
 /* -- login.html/register.html -- */
 
 .btn-login,
