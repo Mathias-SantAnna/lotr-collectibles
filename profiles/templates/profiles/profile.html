@@ -1,13 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %}
+- Profile
+{% endblock %}
+
+
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<section class="container p-3">
+<section class="container mb-md-5 p-3 margin--top">
     <h2 class="mt-5 mb-5 text-center">My Profile</h2>
     <hr>
     <div class="row">
@@ -35,6 +41,7 @@
                     <p>Total</p>
                 </div>
             </div>
+            <hr class="mt-0">
 
             <div class="row">
                 {% for order in orders %}
@@ -60,7 +67,9 @@
                 <div class="col-3">
                     <p>{{ order.grand_total }}</p>
                 </div>
+                <hr class="my-1">
                 {% endfor %}
+                
             </div>
         </div>
     </div>

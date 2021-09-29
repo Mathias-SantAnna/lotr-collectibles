@@ -20,7 +20,7 @@
                 <hr>
             </div>
         </div>
-
+        <!-- Order Summary -->
         <div class="row">
             <div class="col-12 col-lg-6 order-lg-last mb-5">
                 <p class="text-muted">Order Summary ({{ product_count }})</p>
@@ -29,7 +29,7 @@
                         <p class="mb-1 mt-0 small text-muted">Item</p>
                     </div>
                     <div class="col-3 text-right">
-                        <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+                        <p class="mb-1 mt-0 small text-muted text-end">Subtotal</p>
                     </div>
                 </div>
                 {% for item in bag_items %}
@@ -47,7 +47,7 @@
                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                         <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                     </div>
-                    <div class="col-3 text-right">
+                    <div class="col-3 text-end">
                         {% if not item.product.is_discount %}
                         <p class="my-0 small text-muted">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         {% else %}
@@ -57,8 +57,9 @@
                 </div>
                 <hr class="my-2">
                 {% endfor %}
-                <div class="row text-black text-right">
-                    <div class="col-7 offset-2">
+                <!-- Order Total -->
+                <div class="row prices--display pt-3 pb-3">
+                    <div class="col-5 col-md-6 offset-3">
                         <p class="my-0">Order Total:</p>
                         <!-- <p class="my-0">Delivery:</p> -->
                         <p class="fw-normal my-0 mb-3">
@@ -68,7 +69,7 @@
 
                         <h6 class="my-0 text-uppercase"><strong>Grand Total:</strong></h6>
                     </div>
-                    <div class="col-3">
+                    <div class="col-4 col-md-3 text-end">
                         <p class="my-0">€{{ total | floatformat:2 }}</p>
                         <p class="my-0 mb-3">€{{ delivery | floatformat:2 }}</p>
                         <h5 class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></h5>
