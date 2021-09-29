@@ -149,7 +149,7 @@
                         <p class="mb-0 text-black">
                             {{ item.product.name }}{% if item.product_size %} - Size: {{ item.product_size|upper }}{% endif %}
                         </p>
-                        <p class="">QTY: {{ item.quantity }} @ &#128;{{ item.product.price }} each</p>
+                        <p class="">QTY: {{ item.quantity }} @ €;{{ item.product.price }} each</p>
                 </div>
                 <div class="d-none d-md-block col-md-2"></div>
             </div>
@@ -161,7 +161,7 @@
                     <p class="mb-0 text-black fw-bold">Grand Total</p>
                 </div>
                 <div class="col-md-4 text-md-right">
-                    <p class="mb-0">&#128;{{ order.grand_total }}</p>
+                    <p class="mb-0">€;{{ order.grand_total }}</p>
                 </div>
                 <div class="d-none d-md-block col-md-2"></div>
             </div>
@@ -171,7 +171,7 @@
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-4">
-                    <p class="mt-2 mb-1 text-muted text-start"><small>(Order Total: &#128;{{ order.order_total }})</small></p>
+                    <p class="mt-2 mb-1 text-muted text-start"><small>(Order Total: €;{{ order.order_total }})</small></p>
                 </div>
                 <div class="d-none d-md-block col-md-2"></div>
             </div>
@@ -181,7 +181,7 @@
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-4">
-                    <p class="mb-0 text-muted"><small>(Delivery: &#128;{{ order.delivery_cost }})</small></p>
+                    <p class="mb-0 text-muted"><small>(Delivery: €;{{ order.delivery_cost }})</small></p>
                 </div>
                 <div class="d-none d-md-block col-md-2"></div>
             </div>

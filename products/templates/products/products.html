@@ -21,7 +21,7 @@
 {% block content %}
 <!-- Credit: Bootstrap Alerts @ https://getbootstrap.com/docs/5.0/components/alerts/ -->
 <div class="alert alert-warning text-center mb-0 main--alert" role="alert">
-    Spend <span class="font-weight-bold">&#128;{{ free_collectible_threshold }}</span> or more and get a Special Collecrible for 
+    Spend <span class="font-weight-bold">€;{{ free_collectible_threshold }}</span> or more and get a Special Collecrible for 
     <span class="font-weight-bold text-uppercase">free</span>!
 </div>
 
@@ -111,10 +111,10 @@
                 <div class="">
                     <ul class="mt-2 mb-3 list-group list-group-flush ">
                         <li class="no--bullets h5 {% if not product.is_discount %}font-weight-bold{% endif %}">
-                            {% if product.is_discount %}<s>Price: &#128;{{ product.price }}</s>
-                            {% else %}Price: &#128;{{ product.price }}{% endif %}</li>
+                            {% if product.is_discount %}<s>Price: €;{{ product.price }}</s>
+                            {% else %}Price: €;{{ product.price }}{% endif %}</li>
                         {% if product.is_discount %}
-                        <li class="on--sale no--bullets font-weight-bold h5 text-uppercase">Sale: &#128;{{ product.discount_price }}</li>
+                        <li class="on--sale no--bullets font-weight-bold h5 text-uppercase">Sale: €;{{ product.discount_price }}</li>
                         {% endif %}
                         <li class="no--bullets text-muted">{{ product.category.friendly_name }}</li>
                     </ul>
