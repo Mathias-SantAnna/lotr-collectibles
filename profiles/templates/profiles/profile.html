@@ -25,47 +25,50 @@
                 <button class="btn btn-primary mt-4 mb-4">Update Information</button>
             </form>
         </div>
-        <div class="col-12 col-lg-7">
+        <div class="col-12 col-lg-7 ps-4 pe-4">
             <p class="text-muted text-center">Order History</p>
             <div class="row">
-                <div class="col-3">
-                    <p>Order Number</p>
+                <div class="d-none d-md-inline col-2 fw-bold">
+                    <p>Order No.</p>
                 </div>
-                <div class="col-3">
+                <div class="d-none d-md-inline col-2 fw-bold">
                     <p>Date</p>
                 </div>
-                <div class="col-3">
-                    <p>Items</p>
+                <div class="d-none d-md-inline col-5 fw-bold">
+                    <p>Item&#40;s&#41;</p>
                 </div>
-                <div class="col-3">
+                <div class="d-none d-md-inline col-3 fw-bold text-end">
                     <p>Total</p>
                 </div>
             </div>
             <hr class="mt-0">
 
-            <div class="row">
+            <div class="row order--history">
                 {% for order in orders %}
-                <div class="col-3">
+                <div class="col-6 col-md-2">
+                    <p class="d-md-none fw-bold">Order No.</p>
                     <p>
-                        <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                        <a class="small" href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
                             {{ order.order_number|truncatechars:6 }}
                         </a>
                     </p>
                 </div>
-                <div class="col-3">
-                    <p>{{ order.date }}</p>
+                <div class="col-6 col-md-2">
+                    <p class="d-md-none fw-bold">Date</p>
+                    <p class="small">{{ order.date|date:"d M y" }}</p>
                 </div>
-                <div class="col-3">
+                <div class="col-12 col-md-5">
+                    <p class="d-md-none fw-bold">Item&#40;s&#41;</p>
                     <ul class="list-unstyled">
                         {% for item in order.lineitems.all %}
-                            <li class="small">
-                                {{ item.product.name }} x{{ item.quantity }}
-                            </li>
+                        <li class="mb-2">
+                            {{ item.product.name|upper }} x {{ item.quantity }}
+                        </li>
                         {% endfor %}
                     </ul>
                 </div>
-                <div class="col-3">
-                    <p>{{ order.grand_total }}</p>
+                <div class="d-none d-md-inline-block col-md-3 text-end">
+                    <p>€{{ order.grand_total }}</p>
                 </div>
                 <hr class="my-1">
                 {% endfor %}
