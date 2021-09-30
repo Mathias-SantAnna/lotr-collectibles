@@ -1,0 +1,46 @@
+{% load static %}
+
+<div class="container mt-5 mb-3 category--name d-none d-lg-block">
+    <div class="row">
+        <div class="col-3">
+            <div class="col-12">
+                <img class="d-block mx-auto mb-2 category--img" src="{% static 'images/figure.jpg' %}" alt="Categories">
+            </div>
+            <div class="col-12">
+                <a class="badge rounded-pill bg-success" href="{% url 'products' %}?category=collectible_figure,figures_of_fandom,vinyl_figure">
+                    <span class="p-1 p-md-3 mt-2">Figures</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="col-12">
+                <img class="d-block mx-auto mb-2 category--img" src="{% static 'images/statue.jpg' %}" alt="Categories">
+            </div>
+            <div class="col-12">
+                <a class="badge rounded-pill bg-success" href="{% url 'products' %}?category=1:10_scale_statue,1:6_scale_statue,1:4_scale_statue, miniature_statue">
+                    <span class="p-1 p-md-3 mt-2">Statues</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="col-12">
+                <img class="d-block mx-auto mb-2 category--img" src="{% static 'images/jewellery.jpg' %}" alt="Categories">
+            </div>
+            <div class="col-12">
+                <a class="badge rounded-pill bg-success" href="{% url 'products' %}?category=jewellery,prop_replica,helm">
+                    <span class="p-1 p-md-3 mt-2">Jewerly & Others</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="col-12">
+                <img class="d-block mx-auto mb-2 category--img" src="{% static 'images/sales.jpg' %}" alt="Categories">
+            </div>
+            <div class="col-12">
+                <a class="badge rounded-pill bg-success" href="{% url 'products' %}?sale">
+                    <span class="p-1 p-md-3 mt-2 text-uppercase">Sales</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div> 
