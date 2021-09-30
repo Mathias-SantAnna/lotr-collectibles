@@ -12,77 +12,77 @@
 {% endblock %}
 
 {% block content %}
-
-<section class="container mb-md-5 p-3 margin--top">
-    <h2 class="mt-5 mb-5 text-center">My Profile</h2>
-    <hr>
-    <div class="row">
-        <!-- Delivery Information -->
-        <div class="col-12 col-lg-5 pe-lg-5">
-            <p class="text-muted text-center">Default Delivery Information</p>
-            <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button class="btn btn-primary mt-4 mb-4">Update Information</button>
-            </form>
-        </div>
-        <!-- Order History -->
-        <div class="col-12 col-lg-7 ps-4 pe-4">
-            <p class="text-muted text-center">Order History</p>
-            <div class="row">
-                <div class="d-none d-md-inline col-2 fw-bold">
-                    <p>Order No.</p>
+    <div class="overlay"></div>
+    <section class="container mb-md-5 p-3 margin--top">
+        <h2 class="mt-5 mb-5 text-center">My Profile</h2>
+        <hr>
+        <div class="row">
+            <!-- Delivery Information -->
+            <div class="col-12 col-lg-5 pe-lg-5">
+                <p class="text-muted text-center">Default Delivery Information</p>
+                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-primary mt-4 mb-4">Update Information</button>
+                </form>
+            </div>
+            <!-- Order History -->
+            <div class="col-12 col-lg-7 ps-4 pe-4">
+                <p class="text-muted text-center">Order History</p>
+                <div class="row">
+                    <div class="d-none d-md-inline col-2 fw-bold">
+                        <p>Order No.</p>
+                    </div>
+                    <div class="d-none d-md-inline col-2 fw-bold">
+                        <p>Date</p>
+                    </div>
+                    <div class="d-none d-md-inline col-5 fw-bold">
+                        <p>Item&#40;s&#41;</p>
+                    </div>
+                    <div class="d-none d-md-inline col-3 fw-bold text-end">
+                        <p>Total</p>
+                    </div>
                 </div>
-                <div class="d-none d-md-inline col-2 fw-bold">
-                    <p>Date</p>
-                </div>
-                <div class="d-none d-md-inline col-5 fw-bold">
-                    <p>Item&#40;s&#41;</p>
-                </div>
-                <div class="d-none d-md-inline col-3 fw-bold text-end">
-                    <p>Total</p>
+                <hr class="mt-0">
+                <!-- Order Summary -->
+                <div class="row order--history">
+                    {% for order in orders %}
+                    <!-- Order Number -->
+                    <div class="col-6 col-md-2">
+                        <p class="d-md-none fw-bold">Order No.</p>
+                        <p>
+                            <a class="small" href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                                {{ order.order_number|truncatechars:6 }}
+                            </a>
+                        </p>
+                    </div>
+                    <!-- Order Date -->
+                    <div class="col-6 col-md-2">
+                        <p class="d-md-none fw-bold">Date</p>
+                        <p class="small">{{ order.date|date:"d M y" }}</p>
+                    </div>
+                    <!-- Order Products -->
+                    <div class="col-12 col-md-5">
+                        <p class="d-md-none fw-bold">Item&#40;s&#41;</p>
+                        <ul class="list-unstyled">
+                            {% for item in order.lineitems.all %}
+                            <li class="mb-2">
+                                {{ item.product.name|upper }} x {{ item.quantity }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- Order Total -->
+                    <div class="d-none d-md-inline-block col-md-3 text-end">
+                        <p>€{{ order.grand_total }}</p>
+                    </div>
+                    <hr class="my-1">
+                    {% endfor %}
+                    
                 </div>
             </div>
-            <hr class="mt-0">
-            <!-- Order Summary -->
-            <div class="row order--history">
-                {% for order in orders %}
-                <!-- Order Number -->
-                <div class="col-6 col-md-2">
-                    <p class="d-md-none fw-bold">Order No.</p>
-                    <p>
-                        <a class="small" href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
-                            {{ order.order_number|truncatechars:6 }}
-                        </a>
-                    </p>
-                </div>
-                <!-- Order Date -->
-                <div class="col-6 col-md-2">
-                    <p class="d-md-none fw-bold">Date</p>
-                    <p class="small">{{ order.date|date:"d M y" }}</p>
-                </div>
-                <!-- Order Products -->
-                <div class="col-12 col-md-5">
-                    <p class="d-md-none fw-bold">Item&#40;s&#41;</p>
-                    <ul class="list-unstyled">
-                        {% for item in order.lineitems.all %}
-                        <li class="mb-2">
-                            {{ item.product.name|upper }} x {{ item.quantity }}
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                <!-- Order Total -->
-                <div class="d-none d-md-inline-block col-md-3 text-end">
-                    <p>€{{ order.grand_total }}</p>
-                </div>
-                <hr class="my-1">
-                {% endfor %}
-                
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 {% endblock %}
 
 {% block postloadjs %}
