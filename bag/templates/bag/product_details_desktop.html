@@ -1,0 +1,77 @@
+{% load bag_tools %}
+
+<!-- Credit: MDB Tables @ https://mdbootstrap.com/docs/standard/data/tables/ -->
+<table class="table mb-5">
+    <!-- Product Details Headings -->
+    <thead>
+        <tr>
+            <th class="c--1" scope="col">Product</th>
+            <th class="text--left" scope="col">Description</th>
+            <th scope="col">Qty</th>
+            <th class="text-end" scope="col">Sub Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <!-- Product Details -->
+            {% for item in bag_items %}
+            <td>
+                {% if item.product.image %}
+                <img class="bag--product--image" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                {% else %}
+                <img class="bag--product--image" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                {% endif %}
+            </td>
+            <td class="text-start">
+                <p class="fw-bold">{{ item.product.name }}</p>
+                <p class="small text-muted">Product ID: {{ item.product.sku }}</p>
+                {% if not item.product.is_discount %}
+                <p>Price: €{{ item.product.price }}</p>
+                {% else %}
+                <p>Price: €{{ item.product.discount_price }}</p>
+                {% endif %}
+            </td>
+            <td>
+                <!-- Product Quantity Form -->
+                <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div>
+                            <div class="form-group mx-auto quantity--selector">
+                                <div class="input-group">
+                                    <!-- Decrement Button -->
+                                    <div class="input-group-prepend">
+                                        <button id="decrement-qty_{{ item.item_id }}" class="decrement-qty"
+                                            data-item_id="{{ item.item_id }}"><i class="fas fa-minus pt-2 fa-lg"></i>
+                                        </button>
+                                    </div>
+                                    <!-- Quantity Input Box -->
+                                    <input id="id_qty_{{ item.item_id }}" class="form-control qty_input" 
+                                            type="number" name="quantity" value="{{ item.quantity }}" 
+                                            min="1" max="9" data-item_id="{{ item.item_id }}">
+                                     <!-- Increment Button -->
+                                    <div class="input-group-append">
+                                        <button id="increment-qty_{{ item.item_id }}" class="increment-qty"
+                                            data-item_id="{{ item.item_id }}"><i class="fas fa-plus pt-2 fa-lg"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- Product Quantity Update & Remove Options -->
+                <a class="update-link text-info small pointer qty--update"><span class="color--1b4da0">Update</span></a>
+                <a id="remove_{{ item.item_id }}" class="remove-item small pointer qty--remove"><span class="color--e84610">Remove</span></a>
+            </td>
+            <td>
+                {% if not item.product.is_discount %}
+                <p class="text-end">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                {% else %}
+                <p class="text-end">€{{ item.product.discount_price | calc_subtotal:item.quantity }}</p>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table> 

@@ -18,246 +18,32 @@
 </div>
 <!-- /End of Credit -->
 
-<!-- Desktop Version with Tables -->
 <section class="container d-none d-lg-block text-center">
     <h2 class="mt-5 mb-5">Shopping bag</h2>
     <div class="row">
         <!-- Product Details Section -->
-        {% if bag_items %}
+    {% if bag_items %}
         <div class="col-9">
-            <!-- Credit: MDB Tables @ https://mdbootstrap.com/docs/standard/data/tables/ -->
-            <table class="table mb-5">
-                <!-- Product Details Headings -->
-                <thead>
-                    <tr>
-                        <th class="c--1" scope="col">Product</th>
-                        <th class="text--left" scope="col">Description</th>
-                        <th scope="col">Qty</th>
-                        <th class="text-end" scope="col">Sub Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <!-- Product Details -->
-                        {% for item in bag_items %}
-                        <td>
-                            {% if item.product.image %}
-                            <img class="bag--product--image" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                            {% else %}
-                            <img class="bag--product--image" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
-                            {% endif %}
-                        </td>
-                        <td class="text-start">
-                            <p class="fw-bold">{{ item.product.name }}</p>
-                            <p class="small text-muted">Product ID: {{ item.product.sku }}</p>
-                            {% if not item.product.is_discount %}
-                            <p>Price: €{{ item.product.price }}</p>
-                            {% else %}
-                            <p>Price: €{{ item.product.discount_price }}</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            <!-- Product Quantity Form -->
-                            <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
-                                {% csrf_token %}
-                                <div class="row">
-                                    <div>
-                                        <div class="form-group mx-auto quantity--selector">
-                                            <div class="input-group">
-                                                <!-- Decrement Button -->
-                                                <div class="input-group-prepend">
-                                                    <button id="decrement-qty_{{ item.item_id }}" class="decrement-qty"
-                                                        data-item_id="{{ item.item_id }}"><i class="fas fa-minus pt-2 fa-lg"></i>
-                                                    </button>
-                                                </div>
-                                                <!-- Quantity Input Box -->
-                                                <input id="id_qty_{{ item.item_id }}" class="form-control qty_input" 
-                                                        type="number" name="quantity" value="{{ item.quantity }}" 
-                                                        min="1" max="9" data-item_id="{{ item.item_id }}">
-                                                 <!-- Increment Button -->
-                                                <div class="input-group-append">
-                                                    <button id="increment-qty_{{ item.item_id }}" class="increment-qty"
-                                                        data-item_id="{{ item.item_id }}"><i class="fas fa-plus pt-2 fa-lg"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <!-- Product Quantity Update & Remove Options -->
-                            <a class="update-link text-info small pointer qty--update"><span class="color--1b4da0">Update</span></a>
-                            <a id="remove_{{ item.item_id }}" class="remove-item small pointer qty--remove"
-                                data-product_size="{{ item.size }}"><span class="color--e84610">Remove</span></a>
-                        </td>
-                        <td>
-                            {% if not item.product.is_discount %}
-                            <p class="text-end">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
-                            {% else %}
-                            <p class="text-end">€{{ item.product.discount_price | calc_subtotal:item.quantity }}</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <hr class="d-lg-none">
+            <div class="d-none d-lg-inline">
+                {% include "bag/product_details_desktop.html" %}
+            </div>
+            <div class="d-lg-none">
+                {% include "bag/product_details_mobile.html" %}
+            </div>
         </div>
-        <!-- Order Summary Section -->
-        <div class="col-3 mt-2">
-            <h5 class="fw-bold pt-2">Order Summary</h5>
-            <div class="mt-2 p-3 text-end prices--display">
-                <p class="fw-normal mt-3">Bag Total: €{{ total|floatformat:2 }}</p>
-                <p class="fw-normal mt-3"></p>
-                    <a type="button" data-mdb-toggle="modal" data-mdb-target="#deliveryCostModal"><span><i class="fas fa-truck fw-bold text-primary"></i></span></a> 
-                    Delivery : €{{ delivery|floatformat:2 }}
-                </p>
-                <hr class="my-2">
-                <p class="fw-bold mt-4">Grand Total: €{{ grand_total|floatformat:2 }}</p>
-                {% if free_collectible_delta > 0 %}
-                <p class="mb-1 color--e84610">
-                    You can get a <strong>Free Collectible</strong> by spending <strong>€{{ free_delivery_delta }}</strong> more
-                </p>
-                {% endif %}
-            </div>
-            <!-- Keep Shopping and Checkout Options -->
-            <div class="col-12 text-end mb-5">
-                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                    <span class="icon"><i class="fas fa-chevron-left"></i></span>
-                    <span class="text-uppercase">Keep Shopping</span>
-                </a>
-                <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
-                    <span class="text-uppercase">Secure Checkout</span>
-                    <span class="icon"><i class="fas fa-lock"></i></span>
-                </a>
-            </div>
-            <!-- If No Items In bag -->
-            {% else %}
+        <div class="d-none d-lg-inline col-lg-3 mt-lg-2">
+            {% include "bag/order_summary_desktop.html" %}
+        </div>
+         <!-- If No Items In bag -->   
+    {% else %}
+        <div>
             <p>Your shopping bag is empty.</p>
             <a class="btn btn-warning mt-5 mb-5 w-auto" href="{% url 'products' %}">
                 <i class="fas fa-chevron-left"></i> Keep Shopping
             </a>
-        {% endif %}
         </div>
-    </div>
-</section>
-
-<!-- Mobile and Tablet Versions with Bootstrap Grid -->
-<section class="container d-lg-none text-center">
-    <h2 class="mt-5">Shopping bag</h2>
-    <div class="row">
-        <!-- Product Details Section -->
-        {% if bag_items %}
-        <div>
-            <hr>
-            <div class="card">
-                <div class="row g-0">
-                    <!-- Product Details -->
-                    {% for item in bag_items %}
-                    <div class="col-md-4">
-                        {% if item.product.image %}
-                        <img class="img-fluid bag--product--image--mob" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                        {% else %}
-                        <img class="img-fluid bag--product--image--mob" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
-                        {% endif %}
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ item.product.name }}</h5>
-                            <p class="small text-muted">Product ID: {{ item.product.sku }}</p>
-                            <p class="d-inline d-md-none">Price:</p>
-                            {% if not item.product.is_discount %}
-                            <p class="d-inline d-md-none">€{{ item.product.price }}</p>
-                            {% else %}
-                            <p class="d-inline d-md-none">€{{ item.product.discount_price }}</p>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <!-- Product Quantity Form -->
-                    <div class="col-md-4">
-                        <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
-                            {% csrf_token %}
-                            <div class="row">
-                                <p>Qty</p>
-                                <div>
-                                    <div class="form-group mx-auto quantity--selector">
-                                        <div class="input-group">
-                                            <!-- Decrement Button -->
-                                            <div class="input-group-prepend">
-                                                <button id="decrement-qty_{{ item.item_id }}" class="decrement-qty"
-                                                    data-item_id="{{ item.item_id }}"><i class="fas fa-minus pt-2 fa-lg"></i>
-                                                </button>
-                                            </div>
-                                            <!-- Quantity Input Box -->
-                                            <input id="id_qty_{{ item.item_id }}" class="form-control qty_input" 
-                                                type="number" name="quantity" value="{{ item.quantity }}" 
-                                                min="1" max="9" data-item_id="{{ item.item_id }}">
-                                            <!-- Increment Button -->
-                                            <div class="input-group-append">
-                                                <button id="increment-qty_{{ item.item_id }}" class="increment-qty"
-                                                    data-item_id="{{ item.item_id }}"><i class="fas fa-plus pt-2 fa-lg"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <!-- Product Quantity Update & Remove Options -->
-                        <a class="update-link text-info small pointer qty--update"><span class="color--1b4da0">Update</span></a>
-                        <a id="remove_{{ item.item_id }}" class="remove-item small pointer qty--remove"
-                            data-product_size="{{ item.size }}"><span class="color--e84610">Remove</span></a>
-                    </div>
-                    <!-- Order Summary Section -->
-                    <div class="col-md-4">
-                        <p class="d-none d-md-inline">Price:</p>
-                        <p class="d-none d-md-inline">€{{ item.product.price }}</p>
-                    </div>
-                    <div class="col-md-4 mt-3 mt-md-0">
-                        <p class="d-inline">Sub Total</p>
-                        {% if not item.product.is_discount %}
-                        <p class="d-inline fw-bold">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
-                        {% else %}
-                        <p class="d-inline fw-bold">€{{ item.product.discount_price | calc_subtotal:item.quantity }}</p>
-                        {% endif %}
-                    </div>
-                    <hr class="mt-3">
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="mt-2 p-3 text-end prices--display">
-                <h6 class="">Bag Total: €{{ total|floatformat:2 }}</h6>
-                <!-- <h6 class="mt-3">Delivery: €{{ delivery|floatformat:2 }}</h6> -->
-                <h6 class="mt-3">
-                    <a class="fw-bold color--333" type="button" data-mdb-toggle="modal" data-mdb-target="#deliveryCostModal">
-                        <i class="fas fa-truck"></i></a> Delivery: €{{ delivery|floatformat:2 }}
-                </h6>
-                <hr class="my-2">
-                <h6 class="fw-bold mt-5">Grand Total: €{{ grand_total|floatformat:2 }}</h6>
-                {% if free_collectible_delta > 0 %}
-                <p class="mb-1 color--e84610">
-                    You can get free Collectible by spending <strong>€{{ free_collectible_delta }}</strong> more!
-                </p>
-                {% endif %}
-            </div>
-             <!-- Keep Shopping and Checkout Options -->
-            <div class="col-12 mb-5">
-                <a href="{% url 'products' %}" class="btn btn-warning mt-5 m-2">
-                    <i class="fas fa-chevron-left"></i> Keep Shopping
-                </a>
-                <a href="{% url 'checkout' %}" class="btn btn-success mt-3 mt-md-5 m-2">
-                    <i class="fas fa-lock"></i> Secure Checkout
-                </a>
-            </div>
-         <!-- If No Items In bag -->   
-        {% else %}
-            <div>
-                <p>Your shopping bag is empty.</p>
-                <a class="btn btn-warning mt-5 mb-5 w-auto mx-auto" href="{% url 'products' %}">
-                    <i class="fas fa-chevron-left"></i> Keep Shopping
-                </a>
-            </div>
-        {% endif %}
-        </div>
+    {% endif %}
     </div>
 </section>
 
@@ -298,9 +84,8 @@
     $('.remove-item').click(function (e) {
         let csrfToken = "{{ csrf_token }}";
         let itemId = $(this).attr('id').split('remove_')[1];
-        let size = $(this).data('product_size');
         let url = `/bag/remove/${itemId}/`;
-        let data = { 'csrfmiddlewaretoken': csrfToken, 'product_size': size };
+        let data = { 'csrfmiddlewaretoken': csrfToken };
 
         $.post(url, data)
             .done(function () {
