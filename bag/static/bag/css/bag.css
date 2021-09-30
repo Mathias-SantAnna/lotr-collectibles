@@ -18,6 +18,10 @@
     margin-left: 0.5rem;
 }
 
+.category--img {
+    width: 8rem;
+}
+
 .btn-outline-black {
     color: #262626;
     border-color: #000;
