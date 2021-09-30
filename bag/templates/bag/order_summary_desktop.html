@@ -1,0 +1,28 @@
+<!-- Order Summary Section -->
+
+<h5 class="fw-bold pt-2">Order Summary</h5>
+<div class="mt-2 p-3 text-end prices--display">
+    <p class="fw-normal mt-3">Bag Total: €{{ total|floatformat:2 }}</p>
+    <p class="fw-normal mt-3"></p>
+        <a type="button" data-mdb-toggle="modal" data-mdb-target="#deliveryCostModal"><span><i class="fas fa-truck fw-bold text-primary"></i></span></a> 
+        Delivery : €{{ delivery|floatformat:2 }}
+    </p>
+    <hr class="my-2">
+    <p class="fw-bold mt-4">Grand Total: €{{ grand_total|floatformat:2 }}</p>
+    {% if free_collectible_delta > 0 %}
+    <p class="mb-1 color--e84610">
+        You can get a <strong>Free Collectible</strong> by spending <strong>€{{ free_delivery_delta }}</strong> more
+    </p>
+    {% endif %}
+</div>
+<!-- Keep Shopping and Checkout Options -->
+<div class="col-12 text-end mb-5">
+    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+        <span class="icon"><i class="fas fa-chevron-left"></i></span>
+        <span class="text-uppercase">Keep Shopping</span>
+    </a>
+    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+        <span class="text-uppercase">Secure Checkout</span>
+        <span class="icon"><i class="fas fa-lock"></i></span>
+    </a>
+</div> 

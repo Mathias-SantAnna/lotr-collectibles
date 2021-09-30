@@ -1,0 +1,34 @@
+<!-- Product Quantity Form -->
+<form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+    {% csrf_token %}
+    <div class="row">
+        <p class="d-lg-none">Qty</p>
+        <div>
+            <div class="form-group mx-auto quantity--selector">
+                <div class="input-group">
+                    <!-- Decrement Button -->
+                    <div class="input-group-prepend">
+                        <button id="decrement-qty_{{ item.item_id }}" class="decrement-qty"
+                            data-item_id="{{ item.item_id }}"><i class="fas fa-minus pt-2 fa-lg"></i>
+                        </button>
+                    </div>
+                    <!-- Quantity Input Box -->
+                    <input id="id_qty_{{ item.item_id }}" class="form-control qty_input" 
+                        type="number" name="quantity" value="{{ item.quantity }}" 
+                        min="1" max="9" data-item_id="{{ item.item_id }}">
+                    <!-- Increment Button -->
+                    <div class="input-group-append">
+                        <button id="increment-qty_{{ item.item_id }}" class="increment-qty"
+                            data-item_id="{{ item.item_id }}"><i class="fas fa-plus pt-2 fa-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- Product Quantity Update & Remove Options -->
+<a class="update-link text-info small pointer qty--update"><span class="color--1b4da0">Update</span></a>
+<a id="remove_{{ item.item_id }}" class="remove-item small pointer qty--remove">
+    <span class="color--e84610">Remove</span>
+</a>
