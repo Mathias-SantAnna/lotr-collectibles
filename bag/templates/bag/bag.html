@@ -18,32 +18,32 @@
 </div>
 <!-- /End of Credit -->
 
-<section class="container d-none d-lg-block text-center">
-    <h2 class="mt-5 mb-5">Shopping bag</h2>
+<section class="container text-center">
+    <h2 class="mt-5 mb-lg-5">Shopping bag</h2>
     <div class="row">
         <!-- Product Details Section -->
-    {% if bag_items %}
-        <div class="col-9">
-            <hr class="d-lg-none">
-            <div class="d-none d-lg-inline">
-                {% include "bag/product_details_desktop.html" %}
+        {% if bag_items %}
+            <div class="col-lg-9">
+                <hr class="d-lg-none">
+                <div class="d-none d-lg-block">
+                    {% include "bag/product_details_desktop.html" %}
+                </div>
+                <div class="d-lg-none">
+                    {% include "bag/product_details_mobile.html" %}
+                </div>
             </div>
-            <div class="d-lg-none">
-                {% include "bag/product_details_mobile.html" %}
+            <div class="d-none d-lg-block col-lg-3 mt-lg-2">
+                {% include "bag/order_summary_desktop.html" %}
             </div>
-        </div>
-        <div class="d-none d-lg-inline col-lg-3 mt-lg-2">
-            {% include "bag/order_summary_desktop.html" %}
-        </div>
-         <!-- If No Items In bag -->   
-    {% else %}
-        <div>
-            <p>Your shopping bag is empty.</p>
-            <a class="btn btn-warning mt-5 mb-5 w-auto" href="{% url 'products' %}">
-                <i class="fas fa-chevron-left"></i> Keep Shopping
-            </a>
-        </div>
-    {% endif %}
+            <!-- If No Items In bag -->   
+        {% else %}
+            <div>
+                <p>Your shopping bag is empty.</p>
+                <a class="btn btn-warning mt-5 mb-5 w-auto" href="{% url 'products' %}">
+                    <i class="fas fa-chevron-left"></i> Keep Shopping
+                </a>
+            </div>
+        {% endif %}
     </div>
 </section>
 
