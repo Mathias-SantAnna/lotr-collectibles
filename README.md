@@ -316,6 +316,9 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 
 — **HTML5** —
 - [MDB Navbar](https://mdbootstrap.com/docs/standard/navigation/navbar/) for navigation bar
+- [MDB Cards](https://mdbootstrap.com/docs/standard/components/cards/) for displaying products
+- [MDB Modal](https://mdbootstrap.com/docs/standard/components/modal/) for displaying delivery cost
+- [MDB Footer](https://mdbootstrap.com/docs/standard/navigation/footer/) for footer
 - [Bootstrap Alerts](https://getbootstrap.com/docs/5.0/components/alerts/) for alert
 
 — **CSS3** —
@@ -334,5 +337,11 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 
 — **Images** —
 - Readme Banner: [Sideshow](https://www.sideshow.com/brands/the-lord-of-the-rings) 
+- Background Image: created by me using [canva](https://www.canva.com/) with lotr logo from [pinterest](https://www.pinterest.ie/pin/545146729867531349/) 
+- Popular Brand Logo: [Asmus](https://store.asmustoys.com/) 
+- Popular Brand Logo: [Iron Studios](https://ironstudios.com/) 
+- Popular Brand Logo: [Prime 1 Studio](https://www.prime1studio.com/) 
+- Popular Brand Logo: [Weta Workshop](https://www.wetanz.com/) 
+- Products info: [Sideshow](sideshow.com/) and also from all others above. 
 
 ## ACKNOWLEDGEMENTS
