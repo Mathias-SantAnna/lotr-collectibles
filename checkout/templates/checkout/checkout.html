@@ -66,12 +66,17 @@
                             <a type="button" data-mdb-toggle="modal" data-mdb-target="#deliveryCostModal"><span><i class="fas fa-truck fw-bold text-primary"></i></span></a> 
                             Delivery :
                         </p>
-
+                        {% if free_collectible_delta == 0 %}
+                            <p class="my-0">FREE Collectible:</p>
+                        {% endif %}
                         <h6 class="my-0 text-uppercase"><strong>Grand Total:</strong></h6>
                     </div>
                     <div class="col-4 col-md-3 text-end">
                         <p class="my-0">€{{ total | floatformat:2 }}</p>
                         <p class="my-0 mb-3">€{{ delivery | floatformat:2 }}</p>
+                        {% if free_collectible_delta == 0 %}
+                            <p class="my-0">€0.00</p>
+                        {% endif %}
                         <h5 class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></h5>
                     </div>
                 </div>
