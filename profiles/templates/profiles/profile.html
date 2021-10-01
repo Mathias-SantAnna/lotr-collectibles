@@ -45,7 +45,15 @@
                 </div>
                 <hr class="mt-0">
                 <!-- Order Summary -->
-                <div class="row order--history">
+                <div class="row p-1 order--history">
+                    {% if not orders %}
+                        <div class="col-12 text-center">
+                            <p class="text-center pt-3">There are no orders yet</p>
+                            <a class="btn btn-warning mt-5 mb-5 w-auto" href="{% url 'products' %}">
+                                <i class="fas fa-chevron-left"></i> Keep Shopping
+                            </a>
+                        </div>
+                    {% endif %}
                     {% for order in orders %}
                     <!-- Order Number -->
                     <div class="col-6 col-md-2">
