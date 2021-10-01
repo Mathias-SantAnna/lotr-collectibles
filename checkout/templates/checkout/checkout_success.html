@@ -149,7 +149,7 @@
                         <p class="mb-3 mb-md-0 fw-bold text-black">
                             {{ item.product.name }}{% if item.product_size %} - Size: {{ item.product_size|upper }}{% endif %}
                         </p>
-                        <p>QTY: {{ item.quantity }} @ &#128;
+                        <p>QTY: {{ item.quantity }} @ €
                             {% if not item.product.is_discount %}
                                 {{ item.product.price }}
                             {% else %}
