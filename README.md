@@ -10,6 +10,8 @@ There are two types of users for the website. One is shoppers whose primary goal
 
 **<ins>Shopper's User Story</ins>**
 
+<div align="right"><a href="#top">🔝</a></div>
+
 ## UX 5 PLANES
 
 ### Strategy Plane
@@ -291,6 +293,8 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 - [PostgreSQL](https://landing.aiven.io/en/aiven-for-postgresql/) (Heroku built-in) as database in production mode
 - [Google Fonts](https://fonts.google.com/) for fonts
 - [Font Awesome](https://fontawesome.com/) for icons
+- [Stripe](https://stripe.com/en-ie) for credit card payment
+- [AWS](https://aws.amazon.com/) (Amazon Web Services) for host static files and images for the website
 - [Gitpod](https://www.gitpod.io/) as Integrated Development Environment (IDE)
 - [Git](https://git-scm.com/) for local version control, keeping the files & documents
 - [GitHub](https://github.com/) for online version control and keeping the files & documents
@@ -300,11 +304,36 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 
 ### General Resources
 
+- Code Institute Course Materials
+- [Stack Overflow](https://stackoverflow.com/)
+- [YouTube](https://www.youtube.com/)
+- [W3schools](https://www.w3schools.com/)
+- [Google](https://www.google.com/)
+
 ### Tools
 
+- [Balsamiq](https://balsamiq.com/) for wireframes
+- [Adobe](https://www.adobe.com/ie/photoshop/online/resize-image.html) for resizing images
+- [PNG to ICO](https://hnet.com/png-to-ico/) for converting png to ico for favicon
+- [Canva](https://www.canva.com/) for creating logos and some images
+- [Multi Device Website Mockup Generator](http://techsini.com/multi-mockup/index.php) for mockup
+- [Autoprefixer](https://autoprefixer.github.io/) for parsing CSS and add vendor prefixes
+- [W3C Markup Validation Service](https://validator.w3.org/) for testing HTML code
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) for testing CSS code
+- [jshint](https://jshint.com/) for testing JavaScript code
+- [PEP8 Online](http://pep8online.com/) for checking Python code compliance
+- [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) for testing, style checking and debugging
+
+<div align="right"><a href="#top">🔝</a></div>
+
 ## TESTING
+Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/TESTING.md)**
+
+<div align="right"><a href="#top">🔝</a></div>
 
 ## PROJECT BARRIERS & SOLUTIONS
+
+<div align="right"><a href="#top">🔝</a></div>
 
 ## VERSION CONTROL
 
@@ -344,4 +373,8 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 - Popular Brand Logo: [Weta Workshop](https://www.wetanz.com/) 
 - Products info: [Sideshow](sideshow.com/) and also from all others above. 
 
+<div align="right"><a href="#top">🔝</a></div>
+
 ## ACKNOWLEDGEMENTS
+
+<div align="right"><a href="#top">🔝</a></div>
