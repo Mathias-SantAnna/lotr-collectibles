@@ -55,8 +55,24 @@
                         {% endif %}
                     </div>
                 </div>
-                <hr class="my-2">
                 {% endfor %}
+
+                {% if free_collectible_delta == 0 %}
+                    <div class="row mb-3">
+                        <div class="col-3 mb-1">
+                            <img class="w-100" src="{% static 'images/free-collectible.jpg' %}" alt="Free Golf Balls">
+                        </div>
+                        <div class="col-6">
+                            <p class="my-0"><strong>FREE Collectible</strong></p>
+                            <p class="my-0 small">Qty: 1</p>
+                        </div>
+                        <div class="col-3 text-end">
+                            <p class="my-0 small">€0.00</p>
+                        </div>
+                    </div>
+                {% endif %}
+                
+                <hr class="my-2">
                 <!-- Order Total -->
                 <div class="row prices--display pt-3 pb-3">
                     <div class="col-5 col-md-6 offset-3">
@@ -66,17 +82,11 @@
                             <a type="button" data-mdb-toggle="modal" data-mdb-target="#deliveryCostModal"><span><i class="fas fa-truck fw-bold text-primary"></i></span></a> 
                             Delivery :
                         </p>
-                        {% if free_collectible_delta == 0 %}
-                            <p class="my-0">FREE Collectible:</p>
-                        {% endif %}
                         <h6 class="my-0 text-uppercase"><strong>Grand Total:</strong></h6>
                     </div>
                     <div class="col-4 col-md-3 text-end">
                         <p class="my-0">€{{ total | floatformat:2 }}</p>
                         <p class="my-0 mb-3">€{{ delivery | floatformat:2 }}</p>
-                        {% if free_collectible_delta == 0 %}
-                            <p class="my-0">€0.00</p>
-                        {% endif %}
                         <h5 class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></h5>
                     </div>
                 </div>
@@ -182,8 +192,8 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
