@@ -92,6 +92,7 @@ class StripeWH_Handler:
                     grand_total=grand_total,
                     original_bag=bag,
                     stripe_pid=pid,
+                    free_collectible=free_collectible,
                 )
                 order_exists = True
                 break
@@ -119,6 +120,7 @@ class StripeWH_Handler:
                     phone_number=shipping_details.phone,
                     original_bag=bag,
                     stripe_pid=pid,
+                    free_collectible=free_collectible,
                 )
                 for item_id, item_data in json.loads(bag).items():
                     product = Product.objects.get(id=item_id)
