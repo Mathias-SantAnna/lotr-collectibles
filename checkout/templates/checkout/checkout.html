@@ -46,27 +46,48 @@
                     <div class="col-7">
                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                         <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                        {% if not item.product.is_discount %}
+                        <p class="my-0 small text-muted">Unit.Price: €{{ item.product.price }}</p>
+                        {% else %}
+                        <p class="my-0 small text-muted">Unit.Price: €{{ item.product.discount_price }}</p>
+                        {% endif %}
                     </div>
+                    <!-- Subtotal -->
                     <div class="col-3 text-end">
                         {% if not item.product.is_discount %}
-                        <p class="my-0 small text-muted">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                        <p class="my-0 small">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         {% else %}
                         <p class="my-0 small">€{{ item.product.discount_price | calc_subtotal:item.quantity }}</p>
                         {% endif %}
                     </div>
                 </div>
-                <hr class="my-2">
                 {% endfor %}
+                <!-- Free Collectible -->
+                {% if free_collectible_delta == 0 %}
+                    <div class="row mb-3">
+                        <div class="col-2 mb-1">
+                            <img class="w-100" src="{% static 'images/free-collectible.png' %}" alt="Free Collectible">
+                        </div>
+                        <div class="col-7">
+                            <p class="my-0"><strong>FREE Collectible</strong></p>
+                            <h6 class="card-title">The One Ring</h6>
+                            <p class="my-0 small text-muted">Qty: 1</p>
+                        </div>
+                        <div class="col-3 text-end">
+                            <p class="my-0 small">€0.00</p>
+                        </div>
+                    </div>
+                {% endif %}
+                
+                <hr class="my-2">
                 <!-- Order Total -->
                 <div class="row prices--display pt-3 pb-3">
                     <div class="col-5 col-md-6 offset-3">
                         <p class="my-0">Order Total:</p>
-                        <!-- <p class="my-0">Delivery:</p> -->
                         <p class="fw-normal my-0 mb-3">
                             <a type="button" data-mdb-toggle="modal" data-mdb-target="#deliveryCostModal"><span><i class="fas fa-truck fw-bold text-primary"></i></span></a> 
                             Delivery :
                         </p>
-
                         <h6 class="my-0 text-uppercase"><strong>Grand Total:</strong></h6>
                     </div>
                     <div class="col-4 col-md-3 text-end">
@@ -164,8 +185,8 @@
                     <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                 </div>
             <div class="modal-body">
-                You will get <span class="fw-bold">FREE delivery</span> for order <span class="text-decoration-underline ">€150</span> or more.
-                <br>10% on the order value will be charged as a delivery fee if your order is less than €150.
+                You will get <span class="fw-bold">FREE delivery</span> for order <span class="text-decoration-underline ">€200</span> or more.
+                <br>10% on the order value will be charged as a delivery fee if your order is less than €200.
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-mdb-dismiss="modal">Close</button>
@@ -177,8 +198,8 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}

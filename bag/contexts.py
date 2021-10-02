@@ -29,7 +29,6 @@ def bag_contents(request):
                     'item_id': item_id,
                     'quantity': quantity,
                     'product': product,
-                    'size': size,
                 })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
@@ -38,6 +37,19 @@ def bag_contents(request):
     else:
         delivery = 0
         free_delivery_delta = 0
+    
+    if total < settings.FREE_COLLECTIBLE_THRESHOLD:
+        free_collectible_delta = settings.FREE_COLLECTIBLE_THRESHOLD - total
+    
+    else:
+        free_collectible_delta = 0
+        
+    # else:
+    #     bag_items.append({
+    #                 'item_id': '23',
+    #                 'quantity': 1,
+    #                 'product': '<Product: MINI EPICS: FRODO BAGGINS>',
+    #             })
 
     grand_total = delivery + total
 
@@ -47,8 +59,9 @@ def bag_contents(request):
         'product_count': product_count,
         'delivery': delivery,
         'free_delivery_delta': free_delivery_delta,
-        'free_collectible_threshold': settings.FREE_COLLECTIBLE_THRESHOLD,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
+        'free_collectible_delta': free_collectible_delta,
+        'free_collectible_threshold': settings.FREE_COLLECTIBLE_THRESHOLD,
         'grand_total': grand_total,
     }
 

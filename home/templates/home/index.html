@@ -138,7 +138,7 @@
             We dispatch your product within 2 working days since the order has been made so you won't wait for long till
             you get it.
           </p>
-          <p>Click Here to see the cost of delivery</p>
+          <a class="fw-bold text-uppercase" type="button" data-mdb-toggle="modal" data-mdb-target="#deliveryCostModal">Delivery Cost</a>
         </div>
       </div>
     </div>
@@ -157,4 +157,25 @@
   </div>
   <!-- /End of Credit -->
 </section>
+
+<!-- Credit: MDB Modal @ https://mdbootstrap.com/docs/standard/components/modal/ -->
+<!-- Modal -->
+<div id="deliveryCostModal" class="modal fade" tabindex="-1" aria-labelledby="deliveryCostModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content rounded-0">
+          <div class="modal-header">
+              <h5 class="modal-title" id="deliveryCostModalLabel">Delivery Cost</h5>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+      <div class="modal-body">
+          You will get <span class="fw-bold">FREE delivery</span> for order <span class="text-decoration-underline ">€200</span> or more.
+          <br>10% on the order value will be charged as a delivery fee if your order is less than €200.
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-mdb-dismiss="modal">Close</button>
+      </div>
+      </div>
+  </div>
+</div>
+<!-- /End of Credit -->
 {% endblock %}

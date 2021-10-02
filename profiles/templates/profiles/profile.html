@@ -78,6 +78,11 @@
                                 {{ item.product.name|upper }} x {{ item.quantity }}
                             </li>
                             {% endfor %}
+                            {% if order.free_collectible %}
+                            <li class="mb-2">
+                                &#9679; FREE Collectible x 1
+                            </li>
+                            {% endif %}
                         </ul>
                     </div>
                     <!-- Order Total -->

@@ -27,6 +27,7 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    free_collectible = models.BooleanField(default=False, null=True, blank=True)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=100, null=False, blank=False, default='')
@@ -48,6 +49,14 @@ class Order(models.Model):
         else:
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
+        self.save()
+
+        """
+        Identify if users get free collectible or not
+        """
+        self.free_collectible = False
+        if self.order_total >= settings.FREE_COLLECTIBLE_THRESHOLD:
+            self.free_collectible = True
         self.save()
 
     def save(self, *args, **kwargs):

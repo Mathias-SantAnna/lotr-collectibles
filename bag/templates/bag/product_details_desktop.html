@@ -74,4 +74,7 @@
         </tr>
         {% endfor %}
     </tbody>
+    {% if free_collectible_delta == 0 %}
+        {% include "bag/free_collectible_desktop.html" %}
+    {% endif %}
 </table> 
