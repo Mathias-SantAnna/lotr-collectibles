@@ -9,6 +9,7 @@ def bag_contents(request):
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
+    free_collectible_delta = 0
 
     for item_id, item_data in bag.items():
         if isinstance(item_data, int):
@@ -29,7 +30,6 @@ def bag_contents(request):
                     'item_id': item_id,
                     'quantity': quantity,
                     'product': product,
-                    'size': size,
                 })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
@@ -38,6 +38,17 @@ def bag_contents(request):
     else:
         delivery = 0
         free_delivery_delta = 0
+    
+    if total < settings.FREE_COLLECTIBLE_THRESHOLD:
+        free_collectible_delta = settings.FREE_COLLECTIBLE_THRESHOLD - total
+    
+        
+    # else:
+    #     bag_items.append({
+    #                 'item_id': '23',
+    #                 'quantity': 1,
+    #                 'product': '<Product: MINI EPICS: FRODO BAGGINS>',
+    #             })
 
     grand_total = delivery + total
 
@@ -47,8 +58,9 @@ def bag_contents(request):
         'product_count': product_count,
         'delivery': delivery,
         'free_delivery_delta': free_delivery_delta,
-        'free_collectible_threshold': settings.FREE_COLLECTIBLE_THRESHOLD,
+        'free_collectible_delta': free_collectible_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
+        'free_collectible_threshold': settings.FREE_COLLECTIBLE_THRESHOLD,
         'grand_total': grand_total,
     }
 

@@ -70,6 +70,10 @@ body {
     background-color: rgba(255, 223, 0, 0.3);
 }
 
+.bg--color--ffdf00-07 {
+    background-color:rgba(255, 223, 0, 0.7)
+}
+
 li.no--bullets {
     list-style-type: none;
 }

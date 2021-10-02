@@ -9,11 +9,16 @@
     </p>
     <hr class="my-2">
     <p class="fw-bold mt-4">Grand Total: €{{ grand_total|floatformat:2 }}</p>
-    {% if free_collectible_delta > 0 %}
+    {% if free_delivery_delta %}
     <p class="mb-1 color--e84610">
-        You can get a <strong>Free Collectible</strong> by spending <strong>€{{ free_delivery_delta }}</strong> more
+        You can get a <strong>Free Delivery</strong> by spending <strong>€{{ free_delivery_delta }}</strong> more
     </p>
     {% endif %}
+    <!-- {% if not free_collectible_delta %}
+    <p class="mb-1 color--e84610">
+        You can get a <strong>Free Collectible</strong> by spending <strong>€{{ free_collectible_delta }}</strong> more
+    </p>
+    {% endif %} -->
 </div>
 <!-- Keep Shopping and Checkout Options -->
 <div class="col-12 text-end mb-5">
