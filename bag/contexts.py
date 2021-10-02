@@ -9,7 +9,6 @@ def bag_contents(request):
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
-    free_collectible_delta = 0
 
     for item_id, item_data in bag.items():
         if isinstance(item_data, int):
@@ -42,6 +41,8 @@ def bag_contents(request):
     if total < settings.FREE_COLLECTIBLE_THRESHOLD:
         free_collectible_delta = settings.FREE_COLLECTIBLE_THRESHOLD - total
     
+    else:
+        free_collectible_delta = 0
         
     # else:
     #     bag_items.append({
@@ -58,8 +59,8 @@ def bag_contents(request):
         'product_count': product_count,
         'delivery': delivery,
         'free_delivery_delta': free_delivery_delta,
-        'free_collectible_delta': free_collectible_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
+        'free_collectible_delta': free_collectible_delta,
         'free_collectible_threshold': settings.FREE_COLLECTIBLE_THRESHOLD,
         'grand_total': grand_total,
     }

@@ -51,6 +51,9 @@ class Order(models.Model):
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
+        """
+        Identify if users get free collectible or not
+        """
         self.free_collectible = False
         if self.order_total >= settings.FREE_COLLECTIBLE_THRESHOLD:
             self.free_collectible = True
