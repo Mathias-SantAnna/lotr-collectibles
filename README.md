@@ -354,7 +354,6 @@ Below are the processes of deploying the website to Heroku and setting up static
 
 1. Create an app in Heroku. Click *New*, put App name and select region<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/create-app1.png)<br><br>
-![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/create-app2.png)
 
 1. Add Heroku Postgres for the database<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/heroku-postgres.png)
@@ -385,7 +384,6 @@ Below are the processes of deploying the website to Heroku and setting up static
 1. Set up automatic deployment when git is pushed to GitHub. Go to Deployment on Heroku, search the GitHub repository, connect and click Enable Automatic Deploys<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/auto-deployment.png)<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/auto-deployment2.png)<br><br>
-![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/auto-deployment3.png)
 
 1. Generate a new secret key, set it up in Heroku and update `settings.py`. Change the setting of Debug mode that only True in Development mode<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/secret-key.png)<br><br>
