@@ -345,7 +345,118 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
 
 ## DEPLOYMENT
 
+The website of this project requires back-end technologies such as server, application, and database so the website is deployed in [Heroku](https://www.heroku.com/), which is a cloud platform with a service supporting several programming languages, because GitHub can only host a static website. Heroku Postgres is used for the database. [AWS services](https://aws.amazon.com/), which is also a cloud-based platform, is used to store static files and images as Heroku has *no files system to store new files* [*Reference from Code Institue Slack](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/reference-aws.png).
 
+
+Below are the processes of deploying the website to Heroku and setting up static files & images in AWS.
+
+— **HEROKU** —
+
+1. Create an app in Heroku. Click *New*, put App name and select region<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/create-app1.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/create-app2.png)
+
+1. Add Heroku Postgres for the database<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/heroku-postgres.png)
+
+1. Install `dj_database_url` and `psycopg2-binary` to use Heroku Postgres, and run `pip3 freeze > requirements.txt` command to add them on requirments.txt<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/requirements-txt.png)
+
+1. Update `settings.py` of the product (lotr_collectibles). Import `dj_database_url`, comment out sqlite databases and add dj databases variable temporary while the database is transferred to Heroku Postgres<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/databases.png)
+
+1. Run `python3 manage.py showmigrations` command to see the status of migrations (Currently not migrated). Run `python3 manage.py migrate` command to migrate<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/migrate.png)
+
+1. Import all products data. Run `python3 manage.py loaddata` command to load the **categories** first, **brands** next and **products** the last. The order of loading is important as all the products are associated with categories and brands
+
+1. Create a super user with `python3 manage.py createsuperuser` command for product admin
+
+1. Install `gunicorn` which acts as the webserver, and freeze it into requirments file with `pip3 freeze > requirements.txt` command<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/requirements-txt2.png)
+
+1. Create a **Procfile** which specifies the commands that are executed by the app on startup<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/procfile.png)
+
+1. Temporary disable collectstatic by setting `heroku config:set DISABLE_COLLECTSTATIC = 1` and host name of Heroku to allowed hosts in `settings.py`
+
+1. Initialise Heroku in git with `heroku git:remote -a lort-collectibles` and put git into Heroku with `git push heroku main`
+
+1. Set up automatic deployment when git is pushed to GitHub. Go to Deployment on Heroku, search the GitHub repository, connect and click Enable Automatic Deploys<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/auto-deployment.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/auto-deployment2.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/auto-deployment3.png)
+
+1. Generate a new secret key, set it up in Heroku and update `settings.py`. Change the setting of Debug mode that only True in Development mode<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/secret-key.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/secret-key2.png)
+
+1. Check Activity Feed to see Build in Progress to confirm automatic deployment is working
+
+— **AWS** —
+
+1. Open S3 and create a new bucket, which stores the files, by completing the name and region<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/create-bucket.png)
+
+1. Set up basic settings. Enable static website hosting so that give a new endpoint for accessing from the internet. Put `index.html` and `error.html` as default values<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/bucket-settings.png)
+
+1. Set up CORS configuration which is the access between Heroku and this S3 Bucket<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/cors.png)
+
+1. Set up Bucket Policy. Generate a policy with AWS policy generator. Add /* at the end of Resource to allow access to all recources in the bucket<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/bucket-policy.png)
+
+1. Create a user to access to the bucket. Go to IAM (Identity and Access Management) and create a group for user to live in. Then, create a policy by importing pre-built policy<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/iam-group.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/iam-policy.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/iam-import-policy.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/iam-s3-policy.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/iam-review-policy.png)
+
+1. Attach the policy to the group<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/attach-policy.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/attach-policy2.png)
+
+1. Create a user and add it to the group. When the user is added to the group, it creates csv file containing Access Key ID and Secret access key which are used to authenticate them from Django app. *It is very important to download the file and save it as you cannot download it again<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/create-user.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/create-user2.png)
+
+— **Connecting to DJANGO** —
+
+1. Install two new packages, `pip3 install boto3`, `pip3 install django-storages`, and run `pip3 freeze > requirements.txt` command to add them on requirements.txt<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/requirements-txt3.png)
+
+1. Update `settings.py` to tell Django which bucket it should be communicating with *It is very important to keep AWS access keys secrets as these can be used to store or move data in the bucket and you will be charged by Amazon for it<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/django-aws-settings.png)
+
+1. Add these secret keys on Heroku and set USE_AWS = True<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/heroku-config-vars.png)
+
+1. Create `custome_storages.py` to tell Django to use S3 to store static files and upload images when it is in production<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/custom-storages.png)
+
+1. Add `AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'` to tell Django where the static files come from in production and add some settings for Static and Media files on `settings.py`<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/settings-static.png)
+
+1. Add all the update in git, commit it and push it to GitHub. Heroku runs `python3 manage.py` to collectstatic during the process which also searches through all the apps and project folders looking for static files. Then, it uses S3 domain settings in conjunction with the custom storage classes that tells the location at the URL where the things should be saved when it is in production. This can be confirmed in S3 bucket<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/static-folders-s3.png)
+
+1. Add Cache control on `settings.py` as static files do not change often and to improve the performance for users<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/cache-control.png)
+
+1. Upload product images via S3. Create a folder, and upload images<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/create-folder.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/upload.png)
+
+1. Verify superuser's email address on Heroku Postgres. Login admin and check the VERIFIED and PRIMARY boxes<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/verify.png)
+
+1. Add Stripe keys to Heroku Config Vars and create a new webhook endpoint<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/stripe-config-vars.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/endpoint.png)
+
+<div align="right"><a href="#top">🔝</a></div>
 
 ## CREDITS
 
