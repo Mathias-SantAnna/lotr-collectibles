@@ -119,16 +119,16 @@ WSGI_APPLICATION = 'lotr_collectibles.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.parse('postgres://pixjmxhatrhngw:4efeae6795957ecea9a609d28e54974953156a497e358ecee6b2d3dda84df11d@ec2-34-255-134-200.eu-west-1.compute.amazonaws.com:5432/ddojbai7aa7o9u')
-}
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
 
 
 # Password validation
