@@ -333,11 +333,19 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
 
 ## PROJECT BARRIERS & SOLUTIONS
 
+ **Heroku App Deployment** —
+
+ On the deployment part, I succeed when building up the app but the app crashes, and in the logs --tail it shows an error to the GET method. What was happening was that heroku couldn't load the static files.
+ <br>
+ I had to roll back a few commits and start again the deployment. I missed one step of adding SECRET KEY, and also did a typo in settings.py. In the end that worked out for me.
+
 <div align="right"><a href="#top">🔝</a></div>
 
 ## VERSION CONTROL
 
 ## DEPLOYMENT
+
+
 
 ## CREDITS
 
