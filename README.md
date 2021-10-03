@@ -448,7 +448,10 @@ Below are the processes of deploying the website to Heroku and setting up static
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/upload.png)
 
 1. Verify superuser's email address on Heroku Postgres. Login admin and check the VERIFIED and PRIMARY boxes<br><br>
-![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/verify.png)
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/verify1.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/verify2.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/verify3.png)<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/verify4.png)
 
 1. Add Stripe keys to Heroku Config Vars and create a new webhook endpoint<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/stripe-config-vars.png)<br><br>
