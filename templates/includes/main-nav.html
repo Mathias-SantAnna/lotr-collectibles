@@ -1,0 +1,65 @@
+<div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav w-auto mx-auto">
+        <li class="nav-item d-block d-md-none">
+            <a class="logo-font  nav-link text-white mr-5" href="{% url 'home' %}" id="home-link">
+                Home
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="logo-font  nav-link text-white mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Products
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+                
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font  nav-link text-white mr-5" href="#" id="Figures-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Figures
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="Figures-link">
+                <a href="{% url 'products' %}?category=collectible_figure,figures_of_fandom,vinyl_figure" class="dropdown-item">All Figures</a>
+                <a href="{% url 'products' %}?category=collectible_figure" class="dropdown-item">Collectible Figure</a>
+                <a href="{% url 'products' %}?category=figures_of_fandom" class="dropdown-item">Figures of Fandom</a>
+                <a href="{% url 'products' %}?category=vinyl_figure" class="dropdown-item">Vinyl Figure</a>
+                
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font  nav-link text-white mr-5" href="#" id="Statues-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Statues
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="Statues-link">
+                <a href="{% url 'products' %}?category=1:10_scale_statue,1:6_scale_statue,1:4_scale_statue, miniature_statue" class="dropdown-item">All Statues</a>
+                <a href="{% url 'products' %}?category=1:10_scale_statue" class="dropdown-item">1:10 Scale Statue</a>
+                <a href="{% url 'products' %}?category=1:6_scale_statue" class="dropdown-item">1:6 Scale Statue</a>
+                <a href="{% url 'products' %}?category=1:4_scale_statue" class="dropdown-item">1:4 Scale Statue</a>
+                <a href="{% url 'products' %}?category=miniature_statue" class="dropdown-item">Miniature Statue</a>
+                
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font  nav-link text-white" href="#" id="Jewellery-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Jewellery
+                    & Others
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="Jewellery-link">
+                <a href="{% url 'products' %}?category=jewellery,prop_replica,helm" class="dropdown-item">All Jewellery
+                    & Others</a>
+                <a href="{% url 'products' %}?category=jewellery" class="dropdown-item">Jewellery</a>
+                <a href="{% url 'products' %}?category=prop_replica" class="dropdown-item">Prop Replica</a>
+                <a href="{% url 'products' %}?category=helm" class="dropdown-item">Helm</a>
+                
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="logo-font font-weight-bold nav-link text-danger text-uppercase" href="{% url 'products' %}?sale">Sales</a>
+        </li>
+    </ul>
+</div>

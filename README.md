@@ -339,11 +339,11 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
  <br>
  I had to roll back a few commits and start again the deployment. I missed one step of adding SECRET KEY, and also did a typo in settings.py. In the end that worked out for me.
 
-— **Images nos loading (AWS - S3 Bucket)** —
+— **Images not loading (AWS - S3 Bucket)** —
 
   In the begging I thought that the issue was with the connection between the databases (sqlite -> Postgres). Because once I've deployed I continued adding more products, but I notice that in the deployed website (heroku) they weren't been added.
   <br>
-  Because I had already a session with my mentor to show my progress with MS4S, we end up trying to fix this issue. 
+  Because I had already a session with my mentor to show my progress with the Milestone Project, we end up trying to fix this issue. 
   So we tried to check if there was something wrong in the setting, with the paths and base directory, I tried to see if I had more than one DB sqlite, and it was only one, everything was fine. I also tried to add a new product to see if the rows in the postgres DB would go up, but they haven't changed at all. 
   After a while, we figured that I had to leave the var DISABLE_COLLECTSTATIC=1 in Heroku, and DEBUG=True in the setting.py to see the issue in detail.
   <br>

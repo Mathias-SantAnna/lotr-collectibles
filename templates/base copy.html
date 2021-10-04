@@ -61,25 +61,24 @@
 
 <body>
     <header class="container-fluid fixed-top header--border">
-        <div class="row pt-lg-2 d-none d-lg-flex mb-0 main--header">
+        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex main--header">
             <!-- Website Logo -->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a class="nav-link main-logo-link" href="{% url 'home' %}">
+                <a class="navbar-brand mt-2 mt-lg-0" href="{% url 'home' %}">
                     <img class="main--logo" src="{% static 'images/logo.png' %}" alt="Website main logo"
                         loading="lazy" />
                 </a>
             </div>
             <!-- Search Form -->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'products' %}">
-                    <div class="input-group w-100">
+                <form class="d-flex input-group pt-2 float-end float-lg-none mx-lg-auto w--85" method="GET"
+                    action="{% url 'products' %}">
                     <input class="form-control" type="text" name="q" placeholder="Search Products"
                         aria-label="Search" />
                     <button class="btn btn-outline-primary border-0" type="submit" data-mdb-ripple-color="dark"
                         aria-label="Search button">
                         <i class="fas fa-search font-weight-bold text-white"></i>
                     </button>
-                    </div>
                 </form>
             </div>
             <!-- User Account -->
@@ -125,17 +124,42 @@
             </div>
         </div>
         <!-- Navbar -->
-        <div class="row">
-            <nav class="navbar navbar-expand-lg main--header w-100">
-                
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle Button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
-                {% include 'includes/mobile-top-header.html' %}
-                {% include 'includes/main-nav.html' %}
-            </nav>
-        </div>
-        
+
+                <!-- Collapsible Wrapper -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="{% url 'products' %}?category=collectible_figure,figures_of_fandom,vinyl_figure">Figures</a>
+                        </li>
+                        <li class="vl d-none d-lg-inline"> &nbsp;&#124;&nbsp; </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="{% url 'products' %}?category=1:10_scale_statue,1:6_scale_statue,1:4_scale_statue, miniature_statue">Statues</a>
+                        </li>
+                        <li class="vl d-none d-lg-inline"> &nbsp;&#124;&nbsp; </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'products' %}?category=jewellery,prop_replica,helm">Jewerly
+                                & Others</a>
+                        </li>
+                        <li class="vl d-none d-lg-inline"> &nbsp;&#124;&nbsp; </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="{% url 'products' %}?sale">Sale</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <!-- /End of Credit -->
     </header>
 
