@@ -227,7 +227,7 @@ This is an e-commerce website that has a lot of products with images containing 
 <div align="right"><a href="#top">🔝</a></div>
 
 ## WEBSITE DEVELOPMENT PLAN
-This is a full-stack website that contains both front-end & back-end, so many Django apps, features and functions, therefore a good website development plan is required to maximise the efficiency of the development. GitHub project planner, which has a Kanban planner, is used for this project. Below is the summary of core tasks* for the website and more detailed tasks are listed on [GitHub Projects](https://github.com/Mathias-SantAnna/lotr-collectibles/projects/1). This gives not only very clear planning but also making sure nothing is missed during the process.<br>
+This is a full-stack website that contains both front-end & back-end, so many Django apps, features and functions, therefore a good website development plan is required to maximize the efficiency of the development. GitHub project planner, which has a Kanban planner, is used for this project. Below is the summary of core tasks* for the website and more detailed tasks are listed on [GitHub Projects](https://github.com/Mathias-SantAnna/lotr-collectibles/projects/1). This gives not only very clear planning but also making sure nothing is missed during the process.<br>
 **Follow the same process as Code Institute Mini Project, Boutique Ado*
 
 1. Planning The Website with UX5 Planes
@@ -347,11 +347,11 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
   So we tried to check if there was something wrong in the setting, with the paths and base directory, I tried to see if I had more than one DB sqlite, and it was only one, everything was fine. I also tried to add a new product to see if the rows in the postgres DB would go up, but they haven't changed at all. 
   After a while, we figured that I had to leave the var DISABLE_COLLECTSTATIC=1 in Heroku, and DEBUG=True in the setting.py to see the issue in detail.
   <br>
-  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/aws-bucket-issue1.png)<br><br>
+  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/aws-bucket-issue1.png)<br><br>
   The tutors pointed that the issue was with the AWS Bucket permissions, The action called : "PutObject" had a access denied. 
   After I changed the code like in the image below the images were loading as they should.
   <br>
-  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/aws-bucket-issue2.png)<br><br>
+  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/aws-bucket-issue2.png)<br><br>
 
   
 
@@ -374,7 +374,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 1. Add Heroku Postgres for the database<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/heroku-postgres.png)
 
-1. Install `dj_database_url` and `psycopg2-binary` to use Heroku Postgres, and run `pip3 freeze > requirements.txt` command to add them on requirments.txt<br><br>
+1. Install `dj_database_url` and `psycopg2-binary` to use Heroku Postgres, and run `pip3 freeze > requirements.txt` command to add them on requirements.txt<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/requirements-txt.png)
 
 1. Update `settings.py` of the product (lotr_collectibles). Import `dj_database_url`, comment out sqlite databases and add dj databases variable temporary while the database is transferred to Heroku Postgres<br><br>
@@ -387,7 +387,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 
 1. Create a super user with `python3 manage.py createsuperuser` command for product admin
 
-1. Install `gunicorn` which acts as the webserver, and freeze it into requirments file with `pip3 freeze > requirements.txt` command<br><br>
+1. Install `gunicorn` which acts as the webserver, and freeze it into requirements file with `pip3 freeze > requirements.txt` command<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/requirements-txt2.png)
 
 1. Create a **Procfile** which specifies the commands that are executed by the app on startup<br><br>
@@ -418,7 +418,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 1. Set up CORS configuration which is the access between Heroku and this S3 Bucket<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/cors.png)
 
-1. Set up Bucket Policy. Generate a policy with AWS policy generator. Add /* at the end of Resource to allow access to all recources in the bucket<br><br>
+1. Set up Bucket Policy. Generate a policy with AWS policy generator. Add /* at the end of Resource to allow access to all resources in the bucket<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/bucket-policy.png)
 
 1. Create a user to access to the bucket. Go to IAM (Identity and Access Management) and create a group for user to live in. Then, create a policy by importing pre-built policy<br><br>
@@ -447,7 +447,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 1. Add these secret keys on Heroku and set USE_AWS = True<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/heroku-config-vars.png)
 
-1. Create `custome_storages.py` to tell Django to use S3 to store static files and upload images when it is in production<br><br>
+1. Create `custom_storages.py` to tell Django to use S3 to store static files and upload images when it is in production<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/custom-storages.png)
 
 1. Add `AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'` to tell Django where the static files come from in production and add some settings for Static and Media files on `settings.py`<br><br>
