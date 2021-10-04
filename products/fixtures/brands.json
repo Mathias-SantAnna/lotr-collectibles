@@ -19,7 +19,7 @@
         "pk": 3,
         "model": "products.brand",
         "fields": {
-            "name": "irons_tudios",
+            "name": "iron_studios",
             "friendly_name": "Iron Studios"
         }
     },
