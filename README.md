@@ -281,7 +281,6 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 
 <div align="right"><a href="#top">🔝</a></div>
 
-
 ## TECHNOLOGIES USED
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML) for markup
