@@ -339,6 +339,12 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
  <br>
  I had to roll back a few commits and start again the deployment. I missed one step of adding SECRET KEY, and also did a typo in settings.py. In the end that worked out for me.
 
+  **Databases not connecting with each other** —
+
+  Once I've deployed I continued adding more products, but I notice that in the deployed website (heroku) they weren't been added.
+  So I tried to check if there was something wrong in the setting, with the paths and base directory, I tried to see if I had more than one DB sqlite, and it was only one, everything was fine... I also tried to add a new product to see if the rows in the postgres DB would go up, but they haven't changed at all.
+  I will check with the tutors to see if they can help me out.
+
 <div align="right"><a href="#top">🔝</a></div>
 
 ## VERSION CONTROL
