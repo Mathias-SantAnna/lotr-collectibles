@@ -333,17 +333,27 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
 
 ## PROJECT BARRIERS & SOLUTIONS
 
- **Heroku App Deployment** —
+— **Heroku App Deployment** —
 
  On the deployment part, I succeed when building up the app but the app crashes, and in the logs --tail it shows an error to the GET method. What was happening was that heroku couldn't load the static files.
  <br>
  I had to roll back a few commits and start again the deployment. I missed one step of adding SECRET KEY, and also did a typo in settings.py. In the end that worked out for me.
 
-  **Databases not connecting with each other** —
+— **Images nos loading (AWS - S3 Bucket)** —
 
-  Once I've deployed I continued adding more products, but I notice that in the deployed website (heroku) they weren't been added.
-  So I tried to check if there was something wrong in the setting, with the paths and base directory, I tried to see if I had more than one DB sqlite, and it was only one, everything was fine... I also tried to add a new product to see if the rows in the postgres DB would go up, but they haven't changed at all.
-  I will check with the tutors to see if they can help me out.
+  In the begging I thought that the issue was with the connection between the databases (sqlite -> Postgres). Because once I've deployed I continued adding more products, but I notice that in the deployed website (heroku) they weren't been added.
+  <br>
+  Because I had already a session with my mentor to show my progress with MS4S, we end up trying to fix this issue. 
+  So we tried to check if there was something wrong in the setting, with the paths and base directory, I tried to see if I had more than one DB sqlite, and it was only one, everything was fine. I also tried to add a new product to see if the rows in the postgres DB would go up, but they haven't changed at all. 
+  After a while, we figured that I had to leave the var DISABLE_COLLECTSTATIC=1 in Heroku, and DEBUG=True in the setting.py to see the issue in detail.
+  <br>
+  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/aws-bucket-issue1.png)<br><br>
+  The tutors pointed that the issue was with the AWS Bucket permissions, The action called : "PutObject" had a access denied. 
+  After I changed the code like in the image below the images were loading as they should.
+  <br>
+  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/aws-bucket-issue2.png)<br><br>
+
+  
 
 <div align="right"><a href="#top">🔝</a></div>
 
