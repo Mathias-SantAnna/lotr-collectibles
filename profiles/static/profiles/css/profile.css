@@ -21,3 +21,22 @@
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+.margin--top {
+    margin-top: 8.5rem !important;
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 65px;
+    }
+
+    body {
+        height: calc(100vh - 65px);
+    }
+
+    .margin--top {
+        margin-top: 4rem;
+    }
+}

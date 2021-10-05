@@ -7,8 +7,9 @@
 
 {% block content %}
 <section class="text-center container">
+    <h2 class="mt-5">404<br>Page NOT Found</h2>
     <div>
-        <img class="" src="{% static 'images/404.png' %}" alt="Error 404 - Page Not Found">
+        <img class="error w-50" src="{% static 'images/404-500.png' %}" alt="Error 404 - Page Not Found">
     </div>
     <div class="mb-5 mt-3">
         <a class="btn btn-warning mt-5 m-2" href="{% url 'home' %}">
@@ -16,4 +17,4 @@
         </a>
     </div>
 </section>
-{% endblock %} 
+{% endblock %}
