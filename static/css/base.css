@@ -307,16 +307,6 @@ h4 {
     border: none;
 }
 
-.btt--button {
-    bottom: 0.625rem;
-    position: fixed;
-    right: 0.625rem;
-}
-
-.btt--link {
-    cursor: pointer;
-}
-
 .quantity--selector {
     width: 7rem;
 }

@@ -139,49 +139,47 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <!-- Credit: W3Schools @ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top -->
-    <script>
-        const mybutton = document.getElementById("myBtn");
+{{ block.super }}
+<!-- Credit: W3Schools @ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top -->
+<script>
+    const mybutton = document.getElementById("myBtn");
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    $('.btt--link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
+<!-- /End of Credit -->
+<script type="text/javascript">
+    $('#sort-selector').change(function () {
+        let selector = $(this);
+        let currentUrl = new URL(window.location);
 
-        window.onscroll = function() {scrollFunction()};
+        let selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            let sort = selectedVal.split("_")[0];
+            let direction = selectedVal.split("_")[1];
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
-            mybutton.style.display = "block";
-            } else {
-            mybutton.style.display = "none";
-            }
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+
+            window.location.replace(currentUrl);
         }
-
-
-		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
-	</script>
-    <!-- /End of Credit -->
-
-    <script type="text/javascript">
-        $('#sort-selector').change(function() {
-            let selector = $(this);
-            let currentUrl = new URL(window.location);
-
-            let selectedVal = selector.val();
-            if(selectedVal != "reset"){
-                let sort = selectedVal.split("_")[0];
-                let direction = selectedVal.split("_")[1];
-
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
-
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
-
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
+    })
+</script>
 
 {% endblock %} 
