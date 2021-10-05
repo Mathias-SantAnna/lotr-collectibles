@@ -165,11 +165,11 @@
 
     <!-- Credit: MDB Footer @ https://mdbootstrap.com/docs/standard/navigation/footer/ -->
     <!-- Footer -->
-    <footer class="footer text-center bg-light text-muted">
+    <footer class="text-center bg-light text-muted">
         <!-- Grid container -->
         <div class="container-fluid p-4">
             <!-- Section: Social media -->
-            <section class="mb-4 social--media">
+            <div class="mb-4 social--media">
                 <a class="btn btn-outline-light facebook" href="https://www.facebook.com/" role="button" target="_blank"
                     rel="noopener"><i class="fab fa-facebook-square"></i></a>
                 <a class="btn btn-outline-light twitter" href="https://twitter.com/" role="button" target="_blank"
@@ -178,40 +178,29 @@
                     target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
                 <a class="btn btn-outline-light youtube" href="https://www.youtube.com/" role="button" target="_blank"
                     rel="noopener"><i class="fab fa-youtube"></i></a>
-            </section>
+            </div>
             <!-- Section: Form -->
-            <section class="">
+            <div>
                 <form method="POST" action="{% url 'home' %}">
                     <div class="row d-flex justify-content-center">
-                        <div class="col-auto mb-4 mb-md-0">
-                            <p class="pt-2">
-                                <strong>Sign up for our newsletter</strong>
-                            </p>
+                        <div class="col-auto">
+                            <p class="pt-2 font-weight-bold">Sign up for newsletter</p>
                         </div>
-
-                        <div class="col-md-5 col-12 mb-4 mb-md-0">
-                            <!-- Email input -->
+                        <div class="col-md-5 col-12">
                             <div class="form-outline mb-4">
                                 {% csrf_token %}
-                                {{ subscription_form }}
+                                {{ subscription_form.as_p }}
                             </div>
                         </div>
-
-                        <div class="col-auto mb-4 mb-md-0">
-                            <!-- Submit button -->
-                            <button type="submit" class="btn color--Hgreen text-white mb-4">
-                                Subscribe
-                            </button>
+                        <div class="col-auto">
+                            <button class="btn btn-primary mb-4" type="submit">Subscribe</button>
                         </div>
                     </div>
                 </form>
-            </section>
-            <!-- Section: Text -->
-            <section class="mb-2">
-                <small>
-                    Subscribe to newsletters and receive our special offers and weekly Collectibles blog
-                </small>
-            </section>
+                <p class="small d-none d-md-block mb-4">
+                    Subscribe to newsletters and receive our special offers and weekly golf blog
+                </p>
+            </div>
         </div>
         <!-- Copyright -->
         <div class="text-center mb-2 p-3 bg--color--000-05" >
