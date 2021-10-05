@@ -53,7 +53,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
+{% include 'bag/includes/quantity_input_script.html' %}
 
 <script>
     // Update quantity on click
@@ -65,7 +65,7 @@
     // Remove item and reload on click
     $('.remove-item').click(function (e) {
         let csrfToken = "{{ csrf_token }}";
-        let itemId = $(this).attr('id').split('remove_')[1];
+        let itemId = $(this).attr('class').split('remove_')[1];
         let url = `/bag/remove/${itemId}/`;
         let data = { 'csrfmiddlewaretoken': csrfToken };
 

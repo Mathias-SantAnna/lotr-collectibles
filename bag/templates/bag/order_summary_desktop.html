@@ -3,7 +3,7 @@
 <h5 class="fw-bold pt-2">Order Summary</h5>
 <div class="text-end mt-2 p-3  prices--display">
     <p class="fw-normal mt-3">Bag Total: €{{ total|floatformat:2 }}</p>
-    <p class="fw-normal mt-3"></p>
+    <p class="fw-normal mt-3">
         <a data-mdb-toggle="modal" data-mdb-target="#deliveryCostModal"><span><i class="fas fa-truck fw-bold text-primary"></i></span></a> 
         Delivery : €{{ delivery|floatformat:2 }}
     </p>
@@ -14,11 +14,6 @@
         You can get a <strong>Free Delivery</strong> by spending <strong>€{{ free_delivery_delta }}</strong> more
     </p>
     {% endif %}
-    <!-- {% if not free_collectible_delta %}
-    <p class="mb-1 color--e84610">
-        You can get a <strong>Free Collectible</strong> by spending <strong>€{{ free_collectible_delta }}</strong> more
-    </p>
-    {% endif %} -->
 </div>
 <!-- Keep Shopping and Checkout Options -->
 <div class="col-12 text-end mb-5">

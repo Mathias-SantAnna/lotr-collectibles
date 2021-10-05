@@ -12,9 +12,9 @@
         </tr>
     </thead>
     <tbody>
+         <!-- Product Details -->
+         {% for item in bag_items %}
         <tr>
-            <!-- Product Details -->
-            {% for item in bag_items %}
             <td>
                 {% if item.product.image %}
                 <img class="bag--product--image" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
