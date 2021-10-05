@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+
 def bag_contents(request):
 
     bag_items = []
@@ -43,13 +44,6 @@ def bag_contents(request):
     
     else:
         free_collectible_delta = 0
-        
-    # else:
-    #     bag_items.append({
-    #                 'item_id': '23',
-    #                 'quantity': 1,
-    #                 'product': '<Product: MINI EPICS: FRODO BAGGINS>',
-    #             })
 
     grand_total = delivery + total
 
