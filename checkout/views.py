@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (render, redirect, reverse,
+                              get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -13,7 +14,6 @@ from bag.contexts import bag_contents
 import stripe
 import json
 
-# Create your views here.
 
 @require_POST
 def cache_checkout_data(request):
@@ -30,6 +30,7 @@ def cache_checkout_data(request):
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later')
         return HttpResponse(content=e, status=400)
+
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -77,21 +78,24 @@ def checkout(request):
                             order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your bag wasn't\
+                        found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                            args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, 'There is nothing in the shopping bag at the moment')
+            messages.error(request, 'There is nothing in the shopping bag\
+                at the moment')
             return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
@@ -121,7 +125,7 @@ def checkout(request):
                 order_form = OrderForm()
         else:
             order_form = OrderForm()
-    
+
     if not stripe_public_key:
         messages.warning(request, 'Stripe Public Key is missing. \
             Did you forget to set it in your enviroment?')
@@ -161,7 +165,6 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-
 
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
