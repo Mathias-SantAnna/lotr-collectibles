@@ -265,7 +265,9 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 
 ### Features Left To Implement
 
-- **Displaying number of product images per product:** This would probably be possible to implement by using the same principle as Carousel, however, cannot confirm it for sure and do not have time to work on this, decide to leave it out in this project
+- **Displaying number of product images per product:** This would probably be possible to implement by using the same principle as Carousel, however, cannot confirm it for sure and do not have time to work on this, decide to leave it out in this 
+
+- **Product Rating:** This might be possible to implement, but unfortunately due to a lack of time I decide to leave it out in this project.
 
 - **Enlarging image when hovering:** Find a few ways of enlarging (zooming) images on hover, however, not sure if these are the same as enlarging images of products that are used in e-commerce websites. Currently, no time to look at the details so decide to leave it out in this project
 
@@ -274,8 +276,6 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 - **More detailed categories and advertisement:** This is to have more detailed categories (e.g. There are only 11 categories but actual e-commerce website, there should be more categories available = more products) and more detailed advertisement such as having different colours, guidance for size etc. Currently have no time to work on this, decide to leave it out in this project
 
 - **Creating an account with social media:** Look at a tutorial and not sure if this can be implemented easily. All the testing is done and confirmed all the functions are working, and afraid of breaking something unintentionally by linking social account login, decide to leave this for this project but this is something would like to try with my own project as a challenge
-
-- **Product comparison:** This seems to be a very advanced feature and do not even know how to look up for this with my current skill and knowledge so decide to leave it out in this project
 
 - **Payment in different currencies:** This might be possible with Stripe rather than Django, but not sure how to achieve this. As this is not an important feature with the current project and do not have time to look at it, decide to leave it out in this project
 
@@ -487,6 +487,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 - [Bootstrap Alerts](https://getbootstrap.com/docs/5.0/components/alerts/) for alert
 
 — **CSS3** —
+- [Hover.css](https://ianlunn.github.io/Hover/) for floating logos with shadow
 
 — **JavaScript** —
 - [W3Schools](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top) for scroll back to top button

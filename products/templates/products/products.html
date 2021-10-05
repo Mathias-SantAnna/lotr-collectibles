@@ -24,14 +24,14 @@
     Spend <span class="font-weight-bold">€{{ free_collectible_threshold }}</span> or more and get a Special Collecrible for 
     <span class="font-weight-bold text-uppercase">free</span>!
 </div>
-
+<!-- Products Display -->
 <section class="container text-center {% if products|length < 1 %}mb-5{% endif %}">
     {% if current_categories == None and sale != True %}
         <h2 class="mt-5">All Products</h2>
     {% elif sale == True %}
         <h2 class="mt-5">Sale</h2>
     {% endif %}
-
+<!-- By Categories -->
     {% for c in current_categories %}
     {% if c.name == 'collectible_figure' and 'figures_of_fandom' and 'vinyl_figure' %}
         <h2 class="mt-5">Figures</h2>
@@ -41,7 +41,7 @@
         <h2 class="mt-5">Jewerly & Others</h2>
     {% endif %}
     {% endfor %}
-
+<!-- By Brands -->
     {% for b in current_brands %}
     {% if b.name == 'iron_studios' %}
         <h3 class="mt-3 text-muted font-weight-bold">Iron Studios</h3>
@@ -53,7 +53,7 @@
         <h3 class="mt-3 text-muted font-weight-bold">Asmus</h3>
     {% endif %}
     {% endfor %}
-
+    <!-- Search Feature -->
     <div>
         <p class="text-muted mt-3 text-center text-md-left">
             {% if search_term or current_categories or current_sorting != 'None_None' %}
@@ -68,7 +68,6 @@
             {% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
         </p>
     </div>
-
     <div class="mt-3 category--name">
         {% for c in current_categories %}
         <a class="badge rounded-pill bg-success" href="{% url 'products' %}?category={{ c.name }}">
@@ -76,6 +75,7 @@
         </a>
         {% endfor %}
     </div>
+    <!-- Product Sort -->
     {% if products|length > 1 %}
         <div class="mt-3 mt-lg-0 sort--selector--field">
             <i class="fas fa-filter"></i>
@@ -90,6 +90,7 @@
             </select>
         </div>
     {% endif %}
+    <!-- Product Card -->
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for product in products %}
         <div class="col">
@@ -118,6 +119,7 @@
                         <li class="no--bullets text-muted">{{ product.category.friendly_name }}</li>
                     </ul>
                 </div>
+                <!-- SuperUser features -->
                 {% if request.user.is_superuser %}
                 <div class="card-footer">
                     <a class="card-link" href="{% url 'edit_product' product.id %}">Edit</a>
@@ -128,6 +130,7 @@
         </div>
         {% endfor %}
     </div>
+    <!-- Button Back to the Top -->
     {% if products|length > 1 %}
         <div id="myBtn" class="btt--button">
             <a class="btt--link">
@@ -139,47 +142,46 @@
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
-<!-- Credit: W3Schools @ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top -->
-<script>
-    const mybutton = document.getElementById("myBtn");
-    
-    window.onscroll = function() {scrollFunction()};
-    
-    function scrollFunction() {
-      if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
-    
-    $('.btt--link').click(function (e) {
-        window.scrollTo(0, 0)
-    })
-</script>
-<!-- /End of Credit -->
-<script type="text/javascript">
-    $('#sort-selector').change(function () {
-        let selector = $(this);
-        let currentUrl = new URL(window.location);
-
-        let selectedVal = selector.val();
-        if (selectedVal != "reset") {
-            let sort = selectedVal.split("_")[0];
-            let direction = selectedVal.split("_")[1];
-
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
-
-            window.location.replace(currentUrl);
+    {{ block.super }}
+    <!-- Credit: W3Schools @ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top -->
+    <script>
+        const mybutton = document.getElementById("myBtn");
+        
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+        if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
+            mybutton.style.display = "block";
         } else {
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
-
-            window.location.replace(currentUrl);
+            mybutton.style.display = "none";
         }
-    })
-</script>
+        }
+        
+        $('.btt--link').click(function (e) {
+            window.scrollTo(0, 0)
+        })
+    </script>
+    <!-- /End of Credit -->
+    <script type="text/javascript">
+        $('#sort-selector').change(function () {
+            let selector = $(this);
+            let currentUrl = new URL(window.location);
 
+            let selectedVal = selector.val();
+            if (selectedVal != "reset") {
+                let sort = selectedVal.split("_")[0];
+                let direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %} 

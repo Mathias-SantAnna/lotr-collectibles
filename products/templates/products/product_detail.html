@@ -24,13 +24,13 @@
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
                 {% if product.image %}
-                <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" >
-                </a>
+                    <a href="{{ product.image.url }}" target="_blank">
+                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" >
+                    </a>
                 {% else %}
-                <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                </a>
+                    <a href="">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    </a>
                 {% endif %}
             </div>
         </div>
@@ -39,10 +39,13 @@
                 <h3 class="mb-0">{{ product.name }}</h3>
                 <ul class="mt-2 mb-3 list-group list-group-flush ">
                     <li class="no--bullets h5 {% if not product.is_discount %}font-weight-bold{% endif %}">
-                        {% if product.is_discount %}<s>Price: €{{ product.price }}</s>
-                        {% else %}Price: €{{ product.price }}{% endif %}</li>
+                        {% if product.is_discount %}
+                            <s>Price: €{{ product.price }}</s>
+                        {% else %}
+                            Price: €{{ product.price }}
+                        {% endif %}</li>
                     {% if product.is_discount %}
-                    <li class="no--bullets font-weight-bold h5 text-uppercase">Sale: €{{ product.discount_price }}</li>
+                        <li class="no--bullets font-weight-bold h5 text-uppercase">Sale: €{{ product.discount_price }}</li>
                     {% endif %}
                 </ul>
                 {% if product.category %}
@@ -51,11 +54,6 @@
                         <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
                     </a>
                 </p>
-                {% endif %}
-                {% if product.rating %}
-                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                {% else %}
-                <small class="text-muted">No Rating</small>
                 {% endif %}
                 <p class="mt-3">{{ product.description }}</p>
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
@@ -108,6 +106,6 @@
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
+    {{ block.super }}
+    {% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}
