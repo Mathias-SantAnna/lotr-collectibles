@@ -6,18 +6,18 @@ This is an e-commerce website for collectibles products that I create for **Mile
 
 ## USER STORIES
 
-There are two types of users for the website. I am a full-stack web developer and create an e-commerce website to meet the primary goals of the users and their stories.
+There are two types of users for the website. One is shoppers whose primary goal is to view collectibles products and purchase them online. The other one is the shop owner whose primary goal is to sell collectibles products and run a business. I am a full-stack web developer and create an e-commerce website to meet the primary goals of the users and their stories.
 
 **<ins>Shopper's User Story</ins>**
 
-![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/master/readme/ux/shopper-user-story1.png)
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/ux/shopper-user-story1.png)
 
 > **Note:**<br>
 > **ID9**: Search function works with a keyword only
 
 **<ins>Owner's User Story</ins>**
 
-![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/master/readme/ux/owner-user-story.png)
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/ux/owner-user-story.png)
 
 > **Note:**<br>
 > **ID5**: In a real e-commerce website, products should never be deleted but make them unavailable or something instead. As this is an educational purpose website that CRUD should be implemented, there is a delete products function
@@ -137,9 +137,11 @@ Below is the flowchart of the website to show the core relationships between the
 
 — **Back-end** —<br>
 
-Users have options to purchase products as guest users or account holder users. Guest users cannot save personal details for their next shopping as personal details such as name, email address, shipping address etc belong to their order in the database. Account holder users who create an account with their <ins>email address</ins> and <ins>username</ins>, user name (user profile) is linked with their order so that personal details can be retrieved. Each product belongs to a category, a brand and these are identified by id. Each order has a unique order number which is generated when the order is processed and orders have shopper's and product details.<br>
-SQLite, which is Django built-in database is used for development mode and Heroku Postgre is used for production mode. AWS (Amazon Web Services) is used to hold all static files and folders for the website for production mode.
+Users have options to purchase products as guest users or account holder users. Guest users cannot save personal details for their next shopping as personal details such as name, email address, shipping address etc belong to their order in the database. Account holder users who create an account with their <ins>email address</ins> and <ins>username</ins>, user name (user profile) is linked with their order so that personal details can be retrieved. Each product belongs to a category, a brand and these are identified by id. Each order has a unique order number which is generated when the order is processed and orders have shopper's and product details.
 <br>
+SQLite, which is Django built-in database is used for development mode and Heroku Postgre is used for production mode. AWS (Amazon Web Services) is used to hold all static files and folders for the website for production mode. 
+
+Below is the chart of the database to show the data relationships.
 
 ![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/back-end-chart.png)<br>
 
@@ -371,6 +373,47 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
 
 ## VERSION CONTROL
 
+[Git](https://git-scm.com/) as a local repository and [GitHub](https://github.com/) as a remote repository are used for the project, and below is how they are used as the version control for the project.
+
+— **Setting Up** —
+
+1. Create a **remote repository** in GitHub by clicking **"New repository"** on the main page<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/version-control/version-control1.png)
+
+2. Use **Code Institute Template**, put the repository name and click Create Repository making sure to select public<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/version-control/version-control2.png)
+
+3. Open the repository with [Gitpod](https://www.gitpod.io/) which is my Integrated Development Environment (IDE). By using Code Institue Template, initialisation including initial commit is done so no need to do `git init` command when open IDE, or to use `git push -u origin main` command for my first commit. `gitignore` file, which is very important for the project including some confidential information, is created with Code Institute template so not necessary to create it, however, it is checked to include files such as pycache, *.sqlite3, env.py etc<br><br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/version-control/version-control3.png)
+
+— **Commitments** —
+
+- When a section or even a group of work is completed, it is committed in git and pushed into GitHub to make sure to keep the history of the work logged properly and not to lose the work in unexpected situations. Below commands are used for this
+
+```
+* git status | To check the status of new/modified folders, files, and documents
+* git add . | To put all new and updated work on the stage in git
+  git add <specific file> is used when different types of work are done but do not want to commit everything on the same commitment
+* git commit -m "Example commit" | To commit the work on the stage in git before pushing it to GitHub
+* git push | To update the repository in GitHub for main branch
+  git push origin <branch name> is used when pushing git into GitHub for sub-branches
+```
+
+— **Branches** —
+
+- When some testing is needed, create a branch and test it on the branch instead of using the main branch. When the testing is successful, then merge the branch into the main and when it is not, leave the branch unmerged and keep working on the main branch. Below commands are used for this
+
+```
+* git branch <branch name> | To create a new branch
+* git checkout <branch name> | To switch branch
+* git branch | To check current branch
+* git merge <branch name> | To merge sub-branch into main, do this on main branch
+```
+
+> **Note:**<br>
+> There are no static files available in the main branch on production mode for some reason so free-collectibles branch is used for update and the same code is transferred to the main without merging<br>
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/version-control/version-control4.png)
+
 ## DEPLOYMENT
 
 The website of this project requires back-end technologies such as server, application, and database so the website is deployed in [Heroku](https://www.heroku.com/), which is a cloud platform with a service supporting several programming languages, because GitHub can only host a static website. Heroku Postgres is used for the database. [AWS services](https://aws.amazon.com/), which is also a cloud-based platform, is used to store static files and images as Heroku has *no files system to store new files* [*Reference from Code Institue Slack](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/reference-aws.png).
@@ -424,7 +467,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 1. Open S3 and create a new bucket, which stores the files, by completing the name and region<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/create-bucket.png)
 
-1. Set up basic settings. Enable static website hosting so that give a new endpoint for accessing from the internet. Put `index.html` and `error.html` as default values<br><br>
+1. Set up basic settings. Enable static website hosting so that it gives a new endpoint for accessing from the internet. Put `index.html` and `error.html` as default values<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/bucket-settings.png)
 
 1. Set up CORS configuration which is the access between Heroku and this S3 Bucket<br><br>
@@ -433,7 +476,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 1. Set up Bucket Policy. Generate a policy with AWS policy generator. Add /* at the end of Resource to allow access to all resources in the bucket<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/bucket-policy.png)
 
-1. Create a user to access to the bucket. Go to IAM (Identity and Access Management) and create a group for user to live in. Then, create a policy by importing pre-built policy<br><br>
+1. Create a user to access the bucket. Go to IAM (Identity and Access Management) and create a group for user to live in. Then, create a policy by importing pre-built policy<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/iam-group.png)<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/iam-policy.png)<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/iam-import-policy.png)<br><br>
@@ -465,7 +508,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 1. Add `AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'` to tell Django where the static files come from in production and add some settings for Static and Media files on `settings.py`<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/settings-static.png)
 
-1. Add all the update in git, commit it and push it to GitHub. Heroku runs `python3 manage.py` to collectstatic during the process which also searches through all the apps and project folders looking for static files. Then, it uses S3 domain settings in conjunction with the custom storage classes that tells the location at the URL where the things should be saved when it is in production. This can be confirmed in S3 bucket<br><br>
+1. Add all the updates in git, commit it and push it to GitHub. Heroku runs `python3 manage.py` to collectstatic during the process which also searches through all the apps and project folders looking for static files. Then, it uses S3 domain settings in conjunction with the custom storage classes that tell the location at the URL where the things should be saved when it is in production. This can be confirmed in S3 bucket<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/static-folders-s3.png)
 
 1. Add Cache control on `settings.py` as static files do not change often and to improve the performance for users<br><br>
@@ -520,7 +563,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 - Popular Brand Logo: [Iron Studios](https://ironstudios.com/) 
 - Popular Brand Logo: [Prime 1 Studio](https://www.prime1studio.com/) 
 - Popular Brand Logo: [Weta Workshop](https://www.wetanz.com/) 
-- Products info: [Sideshow](sideshow.com/) and also from all others above. 
+- All Products info and images: From all above and [Sideshow](sideshow.com/) as well. 
 
 <div align="right"><a href="#top">🔝</a></div>
 

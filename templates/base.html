@@ -20,8 +20,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
         type="text/css" />
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
     <!-- MDB -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" type="text/css" />
@@ -178,7 +179,6 @@
                 <a class="btn btn-outline-light youtube" href="https://www.youtube.com/" role="button" target="_blank"
                     rel="noopener"><i class="fab fa-youtube"></i></a>
             </section>
-
             <!-- Section: Form -->
             <section class="">
                 <form method="POST" action="{% url 'home' %}">
@@ -206,7 +206,6 @@
                     </div>
                 </form>
             </section>
-
             <!-- Section: Text -->
             <section class="mb-4">
                 <small>
@@ -214,7 +213,6 @@
                 </small>
             </section>
         </div>
-
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             &copy; LoTR Collectibles <span id="copyright"></span>
@@ -223,18 +221,18 @@
     <!-- /End of Credit -->
 
     {% block postloadjs %}
-    <script type="text/javascript">
-        $('.toast').toast('show');
-    </script>
+        <script type="text/javascript">
+            $('.toast').toast('show');
+        </script>
     {% endblock %}
 
     {% block corejs %}
-    <!-- MDB -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+        <!-- MDB -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
 
-    <script>
-        document.getElementById("copyright").textContent = new Date().getFullYear();
-    </script>
+        <script>
+            document.getElementById("copyright").textContent = new Date().getFullYear();
+        </script>
     {% endblock %}
 
     {% block extra_js %}
