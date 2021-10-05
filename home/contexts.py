@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.contrib import messages
 from .forms import SubscriptionForm
 
@@ -9,6 +8,7 @@ def subscription_form_contents(request):
         subscription_form = SubscriptionForm(request.POST)
         if subscription_form.is_valid:
             subscription_form.save()
+            subscription_form = SubscriptionForm()
             messages.success(request, 'Thank you very much for signing up for our newsletter')
     else:
         subscription_form = SubscriptionForm()
@@ -17,4 +17,4 @@ def subscription_form_contents(request):
         'subscription_form': subscription_form,
         }
 
-    return context 
+    return context
