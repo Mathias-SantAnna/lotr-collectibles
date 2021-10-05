@@ -7,9 +7,9 @@ def subscription_form_contents(request):
     if request.method == 'POST':
         subscription_form = SubscriptionForm(request.POST)
         if subscription_form.is_valid:
-            subscription_form.save()
+            #subscription_form.save()
             subscription_form = SubscriptionForm()
-            messages.success(request, 'Thank you very much for signing up for our newsletter')
+            messages.success(request, 'Thank you very much for subscribing to our newsletter')
     else:
         subscription_form = SubscriptionForm()
 

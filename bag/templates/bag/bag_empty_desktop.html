@@ -1,23 +1,26 @@
 {% load static %}
 
-<div class="container mt-5 mb-3 category--name d-none d-lg-block">
+<div class="container mt-5 mb-3 d-none d-lg-block category--name ">
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="col-3">
-            <div class="card h-100 w-75">    
+            <div class="card h-100 w-75">
                 <div class="col-12">
-                    <img class="d-block mx-auto category--img card-img-top img-fluid mt-2" src="{% static 'images/figure.jpg' %}" alt="Categories">
+                    <img class="d-block mx-auto category--img card-img-top img-fluid mt-2"
+                        src="{% static 'images/figure.jpg' %}" alt="Categories">
                 </div>
                 <div class="col-12 card-body ">
-                    <a class="badge btn-success" href="{% url 'products' %}?category=collectible_figure,figures_of_fandom,vinyl_figure">
+                    <a class="badge btn-success"
+                        href="{% url 'products' %}?category=collectible_figure,figures_of_fandom,vinyl_figure">
                         <span class="p-1 p-md-3 mt-2">Figures</span>
                     </a>
                 </div>
             </div>
         </div>
         <div class="col-3">
-            <div class="card h-100 w-75">    
+            <div class="card h-100 w-75">
                 <div class="col-12">
-                    <img class="d-block mx-auto category--img card-img-top img-fluid mt-2" src="{% static 'images/jewellery.jpg' %}" alt="Categories">
+                    <img class="d-block mx-auto category--img card-img-top img-fluid mt-2"
+                        src="{% static 'images/jewellery.jpg' %}" alt="Categories">
                 </div>
                 <div class="col-12 card-body ">
                     <a class="badge btn-success" href="{% url 'products' %}?category=jewellery,prop_replica,helm">
@@ -27,9 +30,10 @@
             </div>
         </div>
         <div class="col-3">
-            <div class="card h-100 w-75">    
+            <div class="card h-100 w-75">
                 <div class="col-12">
-                    <img class="d-block mx-auto category--img card-img-top img-fluid mt-2" src="{% static 'images/sales.jpg' %}" alt="Categories">
+                    <img class="d-block mx-auto category--img card-img-top img-fluid mt-2"
+                        src="{% static 'images/sales.jpg' %}" alt="Categories">
                 </div>
                 <div class="col-12 card-body ">
                     <a class="badge bg-danger" href="{% url 'products' %}?sale">
@@ -37,18 +41,20 @@
                     </a>
                 </div>
             </div>
-        </div>       
+        </div>
         <div class="col-3">
-            <div class="card h-100 w-75">    
+            <div class="card h-100 w-75">
                 <div class="col-12">
-                    <img class="d-block mx-auto category--img card-img-top img-fluid mt-2" src="{% static 'images/statue.jpg' %}" alt="Categories">
+                    <img class="d-block mx-auto category--img card-img-top img-fluid mt-2"
+                        src="{% static 'images/statue.jpg' %}" alt="Categories">
                 </div>
                 <div class="col-12 card-body ">
-                    <a class="badge btn-success" href="{% url 'products' %}?category=1:10_scale_statue,1:6_scale_statue,1:4_scale_statue, miniature_statue">
+                    <a class="badge btn-success"
+                        href="{% url 'products' %}?category=1:10_scale_statue,1:6_scale_statue,1:4_scale_statue, miniature_statue">
                         <span class="p-1 p-md-3 mt-2">Statues</span>
                     </a>
                 </div>
             </div>
-        </div>       
+        </div>
     </div>
-</div> 
+</div>
