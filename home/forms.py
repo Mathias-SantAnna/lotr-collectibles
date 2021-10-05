@@ -12,5 +12,6 @@ class SubscriptionForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         for field in self.fields:
-            self.fields[field].widget.attrs['class'] = 'form-control'
-            self.fields[field].label = False 
+            self.fields[field].widget.attrs['class'] = \
+                'form-control subscription--input'
+            self.fields[field].label = False
