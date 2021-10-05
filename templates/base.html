@@ -182,7 +182,7 @@
 
             <!-- Section: Form -->
             <section class="">
-                <form action="">
+                <form method="POST" action="{% url 'home' %}">
                     <div class="row d-flex justify-content-center">
                         <div class="col-auto mb-4 mb-md-0">
                             <p class="pt-2">
@@ -193,8 +193,8 @@
                         <div class="col-md-5 col-12 mb-4 mb-md-0">
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <input type="email" id="form5Example2" class="form-control" />
-                                <label class="form-label" for="form5Example2">Email address</label>
+                                {% csrf_token %}
+                                {{ subscription_form }}
                             </div>
                         </div>
 

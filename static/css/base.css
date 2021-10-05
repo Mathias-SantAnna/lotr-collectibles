@@ -92,10 +92,6 @@ header {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.margin--top {
-    margin-top: 10rem;
-}
-
 .main--header {
     background-color: #231703;
     padding-top: .2rem;
@@ -104,7 +100,6 @@ header {
 .main--alert {
 	background-color: rgba(255, 223, 0, 0.7);
 	border-radius: 0;
-	margin-top: 9rem;
 }
 
 .alert {
@@ -429,7 +424,7 @@ h4 {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 140px;
     }
 
     .navbar-expand-lg .navbar-nav .nav-link {
@@ -450,6 +445,10 @@ h4 {
         width: 75%;
     }
 
+    .fa-lg {
+        line-height: 1.6rem;
+    }
+
     .login,
     .password_reset,
     .auth--p,
@@ -460,16 +459,20 @@ h4 {
     #signup_form {
         width: 30%;
     }
+
+    .btn-complete-order {
+        width: 48%;
+    }
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 116px;
+        padding-top: 65px;
     }
 
     body {
-        height: calc(100vh - 116px);
+        height: calc(100vh - 65px);
     }
 
     .display-4.logo-font.text-black {
@@ -477,7 +480,7 @@ h4 {
     }
 
     .main--alert {
-        margin-top: 4rem;
+        margin-top: 0 !important;
     }
 
     .navbar-nav .nav-link {
@@ -510,6 +513,11 @@ h4 {
     .btn.btn-black.rounded-0.btn-lg {
         padding: .375rem .375rem;
         font-size: .75rem;
+    }
+
+    .input-group {
+        width: 120%;
+        line-height: 1;
     }
 
     #btn-mobile-search {

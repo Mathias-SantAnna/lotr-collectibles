@@ -85,3 +85,26 @@ select option[value=""] {
 .the-one-ring--spinner {
     width: 10rem;
 }
+
+.prices--display {
+	background-color: #fdfad5e0;
+}
+
+.margin--top {
+    margin-top: 8.5rem;
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 65px;
+    }
+
+    body {
+        height: calc(100vh - 65px);
+    }
+
+    .margin--top {
+        margin-top: 4rem;
+    }
+}

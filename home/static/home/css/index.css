@@ -144,18 +144,9 @@
 }
 /* /End of Credit */
 
-#reasons--for--purchase,
-.prices--display {
-	background-color: #096d2c85;
-}
 
-.catch--phrase {
-	background-color: rgba(232, 70, 16, 0.2);
-	font-size: 2rem;
-	padding: 0.7rem 1.2rem;
-	position: absolute;
-	right: 2rem;
-	top: 0.5rem;
+.main--alert {
+	margin-top: 8.5rem;
 }
 
 /* -- Media Query: Tablet Screen Size Bigger Than 48rem / 768px -- */

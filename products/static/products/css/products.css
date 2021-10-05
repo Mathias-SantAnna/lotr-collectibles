@@ -24,3 +24,26 @@
 .lead {
     font-size: 1.3rem;
 }
+
+.margin--top {
+    margin-top: 10rem;
+}
+
+.main--alert {
+	margin-top: 8.5rem;
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 65px;
+    }
+
+    body {
+        height: calc(100vh - 65px);
+    }
+
+    .main--alert {
+        margin-top: 4rem !important;
+    }
+}

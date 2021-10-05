@@ -79,7 +79,7 @@
 
     </div>
 </div>
-<div class="mt-2 p-3 text-end prices--display">
+<div class="mt-2 p-3 text-end prices--display card">
     <h6 class="">Bag Total: €{{ total|floatformat:2 }}</h6>
     <h6 class="mt-3">
         <a class="fw-bold color--333" type="button" data-mdb-toggle="modal" data-mdb-target="#deliveryCostModal">
@@ -93,12 +93,14 @@
     </p>
     {% endif %}
 </div>
- <!-- Keep Shopping and Checkout Options -->
-<div class="col-12 mb-5">
-    <a href="{% url 'products' %}" class="btn btn-warning mt-5 m-2">
-        <i class="fas fa-chevron-left"></i> Keep Shopping
+<!-- Keep Shopping and Checkout Options -->
+<div class="col-12 text-end mb-5">
+    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+        <span class="icon"><i class="fas fa-chevron-left"></i></span>
+        <span class="text-uppercase">Keep Shopping</span>
     </a>
-    <a href="{% url 'checkout' %}" class="btn btn-success mt-3 mt-md-5 m-2">
-        <i class="fas fa-lock"></i> Secure Checkout
+    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+        <span class="text-uppercase">Secure Checkout</span>
+        <span class="icon"><i class="fas fa-lock"></i></span>
     </a>
 </div> 
