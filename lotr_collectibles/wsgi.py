@@ -1,5 +1,4 @@
-"""
-WSGI config for lotr_collectibles project.
+"""WSGI config for lotr_collectibles project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

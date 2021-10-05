@@ -38,10 +38,10 @@ def bag_contents(request):
     else:
         delivery = 0
         free_delivery_delta = 0
-    
+
     if total < settings.FREE_COLLECTIBLE_THRESHOLD:
         free_collectible_delta = settings.FREE_COLLECTIBLE_THRESHOLD - total
-    
+
     else:
         free_collectible_delta = 0
 
@@ -59,4 +59,4 @@ def bag_contents(request):
         'grand_total': grand_total,
     }
 
-    return context 
+    return context

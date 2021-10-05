@@ -145,6 +145,8 @@
     {{ block.super }}
     <!-- Credit: W3Schools @ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top -->
     <script>
+        /*jshint esversion: 6 */
+
         const mybutton = document.getElementById("myBtn");
         
         window.onscroll = function() {scrollFunction()};
@@ -159,10 +161,12 @@
         
         $('.btt--link').click(function (e) {
             window.scrollTo(0, 0)
-        })
+        });
     </script>
     <!-- /End of Credit -->
     <script>
+        /*jshint esversion: 6 */
+        
         $('#sort-selector').change(function () {
             let selector = $(this);
             let currentUrl = new URL(window.location);

@@ -56,23 +56,25 @@
 {% include 'bag/includes/quantity_input_script.html' %}
 
 <script>
+    /*jshint esversion: 6 */
+
     // Update quantity on click
     $('.update-link').click(function (e) {
-        let form = $(this).prev('.update-form');
-        form.submit();
-    })
+    let form = $(this).prev('.update-form');
+    form.submit();
+    });
 
     // Remove item and reload on click
     $('.remove-item').click(function (e) {
-        let csrfToken = "{{ csrf_token }}";
-        let itemId = $(this).attr('class').split('remove_')[1];
-        let url = `/bag/remove/${itemId}/`;
-        let data = { 'csrfmiddlewaretoken': csrfToken };
-
-        $.post(url, data)
-            .done(function () {
-                location.reload();
-            });
-    })
+    let csrfToken = "{{ csrf_token }}";
+    let itemId = $(this).attr('class').split('remove_')[1];
+    let url = `/bag/remove/${itemId}/`;
+    let data = { 'csrfmiddlewaretoken': csrfToken };
+    
+    $.post(url, data)
+    .done(function () {
+        location.reload();
+    });
+    });
 </script>
 {% endblock %}
