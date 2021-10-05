@@ -391,7 +391,7 @@ h4 {
 }
 
 .margin--top {
-    margin-top: 12rem !important;
+    margin-top: 8.5 !important;
 }
 
 /* -- Media Query: Tablet Screen Size Bigger Than 48rem / 768px -- */
@@ -449,6 +449,10 @@ h4 {
     }
 
     .w--75 {
+        width: 75%;
+    }
+
+    .w--lg--75 {
         width: 75%;
     }
 

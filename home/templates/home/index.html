@@ -95,19 +95,19 @@
 <section id="popular--brand" class="text-center container">
   <h2 class="mt-4 mb-md-4 ">Shop by Brand</h2>
   <div class="row mt-3 mt-md-3 mt-lg-5">
-    <div class="col-3 hvr-float-shadow">
+    <div class="col-6 col-lg-3 hvr-float-shadow">
       <a href="{% url 'products' %}?brand=iron_studios"><span class="vertical--align--middle"></span>
         <img class="brand--logo" src="{% static 'images/ironstudios.png' %}" alt="Popular Brand Iron Studios"></a>
     </div>
-    <div class="col-3 hvr-float-shadow">
+    <div class="col-6 col-lg-3 hvr-float-shadow">
       <a href="{% url 'products' %}?brand=prime_1_studio"><span class="vertical--align--middle"></span>
         <img class="brand--logo" src="{% static 'images/prime1studio.png' %}" alt="Popular Brand Prime 1 Studio"></a>
     </div>
-    <div class="col-3 hvr-float-shadow">
+    <div class="col-6 col-lg-3 hvr-float-shadow">
       <a href="{% url 'products' %}?brand=weta_workshop"><span class="vertical--align--middle"></span>
         <img class="brand--logo" src="{% static 'images/wetaworkshop.png' %}" alt="Popular Brand Weta Workshop"></a>
     </div>
-    <div class="col-3 hvr-float-shadow">
+    <div class="col-6 col-lg-3 hvr-float-shadow">
       <a href="{% url 'products' %}?brand=asmus"><span class="vertical--align--middle"></span>
         <img class="brand--logo" src="{% static 'images/asmus-collectible.png' %}" alt="Popular Brand Asmus Collectible"></a>
     </div>
@@ -115,46 +115,39 @@
 </section>
 
 <section id="reasons--for--purchase" class="text-center container-fluid">
-  <h2 class="pt-5 pb-5 text-white">Why Shopping with Us?</h2>
-  <!-- Credit: MDB Cards @ https://mdbootstrap.com/docs/standard/components/cards/ -->
-  <div class="row">
-    <div class="col-4 d-flex align-items-stretch">
-      <div class="card mb-5 center w--80">
-        <div class="card-header"><i class="fas fa-credit-card pt-2 fa-2x"></i></div>
-        <div class="card-body">
-          <h5 class="card-title">Secure Payment</h5>
-          <p class="card-text">
-            Our credit card payment is very secure, so you don't have to worry about providing the details online.
-          </p>
+  <h2 class="pt-5 pb-5 text-black">Why Shopping with Us?</h2>
+  <!-- Credit: MDB Pills @ https://mdbootstrap.com/docs/standard/navigation/pills/ -->
+    <ul class="nav nav-pills nav-justified mb-3 mx-auto w--lg--75" id="ex1" role="tablist">
+        <!-- Headings of Why Shopping with Eagle Golf -->
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="ex3-tab-1" data-mdb-toggle="pill" href="#ex3-pills-1" role="tab"
+                aria-controls="ex3-pills-1" aria-selected="true">Secure Payment <i class="fas fa-truck d-none d-md-inline"></i></a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="ex3-tab-2" data-mdb-toggle="pill" href="#ex3-pills-2" role="tab"
+                aria-controls="ex3-pills-2" aria-selected="false">Express Delivery <i class="fas fa-euro-sign d-none d-md-inline"></i></a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="ex3-tab-3" data-mdb-toggle="pill" href="#ex3-pills-3" role="tab"
+                aria-controls="ex3-pills-3" aria-selected="false">Help to Save the Children <i class="fas fa-credit-card d-none d-md-inline"></i></a>
+        </li>
+    </ul>
+    <div class="tab-content" id="ex2-content">
+        <!-- Reasons of Why Shopping with Eagle Golf -->
+        <div class="tab-pane fade p-lg-4 show active" id="ex3-pills-1" role="tabpanel" aria-labelledby="ex3-tab-1">
+          Our credit card payment is very secure, so you don't have to worry about providing the details online.
         </div>
-      </div>
-    </div>
-    <div class="col-4 d-flex align-items-stretch">
-      <div class="card mb-5 center w--80">
-        <div class="card-header"><i class="fas fa-truck pt-2 fa-2x"></i></div>
-        <div class="card-body">
-          <h5 class="card-title">Express Delivery</h5>
-          <p class="card-text">
-            We dispatch your product within 2 working days since the order has been made so you won't wait for long till
-            you get it.
-          </p>
-          <a class="fw-bold text-uppercase" type="button" data-mdb-toggle="modal" data-mdb-target="#deliveryCostModal">Delivery Cost</a>
+        <div class="tab-pane p-lg-4 fade" id="ex3-pills-2" role="tabpanel" aria-labelledby="ex3-tab-2">
+          We dispatch your product within 2 working days since the order has been made so you won't wait for long till
+          you get it.
+        <a class="fw-bold text-uppercase" type="button" data-mdb-toggle="modal" data-mdb-target="#deliveryCostModal">Delivery Cost</a>
         </div>
-      </div>
-    </div>
-    <div class="col-4 d-flex align-items-stretch">
-      <div class="card mb-5 center w--80">
-        <div class="card-header"><i class="fas fa-hand-holding-heart pt-2 fa-2x"></i></div>
-        <div class="card-body">
-          <h5 class="card-title">Help to Save the Children</h5>
-          <p class="card-text">
-            A percentage of your purchase goes to Save the Children (Africa project). With your support, their teams are
-            working across the continent to deliver emergency hunger and nutrition programs to save vulnerable children.
-          </p>
+        <div class="tab-pane p-lg-4 fade" id="ex3-pills-3" role="tabpanel" aria-labelledby="ex3-tab-3">
+          A percentage of your purchase goes to Save the Children (Africa project). 
+          <br> Support to deliver emergency hunger and nutrition programs to save vulnerable children.
         </div>
-      </div>
     </div>
-  </div>
+    <!-- /End of Credit -->
   <!-- /End of Credit -->
 </section>
 

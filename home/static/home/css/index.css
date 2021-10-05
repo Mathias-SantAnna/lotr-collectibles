@@ -145,10 +145,6 @@
 /* /End of Credit */
 
 
-.main--alert {
-	margin-top: 8.5rem;
-}
-
 /* -- Media Query: Tablet Screen Size Bigger Than 48rem / 768px -- */
 @media only screen and (min-width: 48rem) {
 	.shop--now--btn {
