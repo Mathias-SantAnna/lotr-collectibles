@@ -9,7 +9,7 @@ class SubscribeEmail(admin.ModelAdmin):
     )
 
     list_display = (
-        'subscribe_email', 
+        'subscribe_email',
         'subscribed',)
 
-admin.site.register(Newsletter, SubscribeEmail) 
+admin.site.register(Newsletter, SubscribeEmail)
