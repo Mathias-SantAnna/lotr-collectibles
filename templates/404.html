@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}
+- Error 404
+{% endblock %}
+
+{% block content %}
+<section class="text-center container">
+    <div>
+        <img class="" src="{% static 'images/404.png' %}" alt="Error 404 - Page Not Found">
+    </div>
+    <div class="mb-5 mt-3">
+        <a class="btn btn-warning mt-5 m-2" href="{% url 'home' %}">
+            <span>Home</span>
+        </a>
+    </div>
+</section>
+{% endblock %} 
