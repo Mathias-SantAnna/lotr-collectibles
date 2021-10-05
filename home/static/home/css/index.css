@@ -92,6 +92,10 @@
 	width: 7rem;
 }
 
+.subscription--input {
+	border: solid 1px #757575 !important;
+}
+
 /* Credit: Hover.css @ https://ianlunn.github.io/Hover/ */
 /* Float Shadow */
 .hvr-float-shadow {
