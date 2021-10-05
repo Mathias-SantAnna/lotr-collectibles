@@ -6,9 +6,21 @@ This is an e-commerce website for collectibles products that I create for **Mile
 
 ## USER STORIES
 
-There are two types of users for the website. One is shoppers whose primary goal is to view the products and purchase them online. The other one is the shop owner whose primary goal is to sell their products and run a business. I am a full-stack web developer and create an e-commerce website to meet the primary goals of the users and their stories.
+There are two types of users for the website. I am a full-stack web developer and create an e-commerce website to meet the primary goals of the users and their stories.
 
 **<ins>Shopper's User Story</ins>**
+
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/master/readme/ux/shopper-user-story1.png)
+
+> **Note:**<br>
+> **ID9**: Search function works with a keyword only
+
+**<ins>Owner's User Story</ins>**
+
+![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/master/readme/ux/owner-user-story.png)
+
+> **Note:**<br>
+> **ID5**: In a real e-commerce website, products should never be deleted but make them unavailable or something instead. As this is an educational purpose website that CRUD should be implemented, there is a delete products function
 
 <div align="right"><a href="#top">🔝</a></div>
 
@@ -26,7 +38,7 @@ To achieve the user's primary goals and stories outlined in the User Stories sec
 | Viewing product details                     |     5      |            4            |
 | Search Function                             |     4      |            5            |
 | Sorting Function                            |     4      |            5            |
-| Modifying products in shopping cart         |     5      |            4            |
+| Modifying products in shopping bag         |     5      |            4            |
 | Checkout Function                           |     5      |            4            |
 | Secure payment                              |     5      |            4            |
 | Written confirmation after purchase         |     5      |            5            |
@@ -45,7 +57,7 @@ Below are the additional functions and features that can improve the website, ho
 | Enlarging image when hovering                   |     3      |            2            |
 | Refinements options*                            |     3      |            2            |
 | More detailed categories and advertisement      |     3      |            2            |
-| Creating an account with social media           |     3      |            2            |
+| Creating account with social media              |     3      |            2            |
 | Product comparison**                            |     3      |            1            |
 | Payment in different currencies                 |     2      |            1            |
 
@@ -56,8 +68,8 @@ Based on the requirements of achieving user's and owner's goals and stories, bel
 - Simple design Home page that the purpose of the website is obvious to anybody and even first-time users know how to navigate the website. Clearly displayed group of categories (e.g. Action Figures | Statues | Others) that have categories in it (e.g. Others --> Jewelry | Prop Replica | Games)
 - Product pages by the group of categories where users can view all the products belong to the group. Users are navigated to categories in this group from this page
 - Product pages by category where users can view all the products belong to the category
-- Product details page where uses can see all the product details. Users can also select options (e.g. Size) and put the product in the cart
-- Shopping Cart page where users can see all the selected products before purchase. Users can change the quantity of the product or remove it
+- Product details page where uses can see all the product details. Users can also select options (e.g. Size) and put the product in the bag
+- Shopping Bag page where users can see all the selected products before purchase. Users can change the quantity of the product or remove it
 - Checkout page where users can provide shipping details and credit card details
 - Checkout success page where users get confirmation of purchase
 - Register page where users can create an account to keep the shipping address saved and to view order histories
@@ -75,15 +87,15 @@ Based on the requirements of achieving user's and owner's goals and stories, bel
 The website consists of below core `HTML` pages and has some `CSS` and `JavaScript` 
 
 - **Home** (`index.html`)<br>
-The main page of the website. There is a logo, search function, navigation to *Group of Categories & Categories*, *Register* & *Login* and *Shopping Cart* pages, a hero image with Shop Now button. There are icons of popular brands that users can click and view the products of the brand. There is a section of "Why LoTR Collectibles?" which provides a few reasons for buying products with the shop. There is a footer with a form to subscribe to newsletter and some social icons. **The same header and footer are used across all html files*
+The main page of the website. There is a logo, search function, navigation to *Group of Categories & Categories*, *Register* & *Login* and *Shopping bag* pages, a hero image with Shop Now button. There are icons of popular brands that users can click and view the products of the brand. There is a section of "Why LoTR Collectibles?" which provides a few reasons for buying products with the shop. There is a footer with a form to subscribe to newsletter and some social icons. **The same header and footer are used across all html files*
 
 - **Products** (`products.html`, `products/<category_name>.html`)<br>
 The pages where users can see products by a group of categories & category and have an access to the product details page.
 
 - **Product Details** (`product/<product_id>.html`)<br>
-The pages where users can see product details, with an option to select criteria (e.g. size) and add it in the shopping cart.
+The pages where users can see product details, with an option to select criteria (e.g. size) and add it in the shopping bag.
 
-- **Shopping Cart** (`cart.html`)<br>
+- **Shopping bag** (`bag.html`)<br>
 The page where users can view all the selected products and details. Users can adjust the quantity and there is an option to remove products. There is a button link to a checkout page for the final step of shopping. 
 
 - **Checkout** (`checkout.html`)<br>
@@ -119,7 +131,7 @@ The admin panel, which can be created with Django project, where Admin can take 
 - **CSS** & **JavaScript** (`.css` & `.js`)<br>
 CSS and JavaScript files of those HTML files are created within the same app folder.
 
-<br>
+Below is the flowchart of the website to show the core relationships between the pages. (Most of the pages are linked to each other subject to permission)<br>
 
 ![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/front-end-chart.png)<br>
 
@@ -154,9 +166,9 @@ The website is created as a desktop-first because it is easy to picture the whol
 </details>
 
 <details>
-<summary>Shopping Cart (cart.html)</summary><br>
+<summary>Shopping bag (bag.html)</summary><br>
 
-![Wireframe: Shopping Cart](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/shopping-cart.png)
+![Wireframe: Shopping bag](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/shopping-bag.png)
 </details>
 
 <details>
@@ -236,7 +248,7 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 1. The Base Template (Creating base template)
 1. The Home Page (Navigation bar, Header and Footer)
 1. Products Set-Up (Creating Products app, Installing data, Filtering & Searching)
-1. The Shopping Cart (Adding and adjusting products)
+1. The Shopping bag (Adding and adjusting products)
 1. Toasts (Real-time notification)
 1. Checkout with Stripe (Function, Form, Testing Stripe)
 1. Profile (Displaying personal details and order history)
@@ -265,7 +277,7 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 
 ### Features Left To Implement
 
-- **Displaying number of product images per product:** This would probably be possible to implement by using the same principle as Carousel, however, cannot confirm it for sure and do not have time to work on this, decide to leave it out in this 
+- **Displaying number of product images per product:** This would probably be possible to implement by using the same principle as Carousel, however, cannot confirm it for sure and do not have time to work on this, decide to leave it out in this project.
 
 - **Product Rating:** This might be possible to implement, but unfortunately due to a lack of time I decide to leave it out in this project.
 
