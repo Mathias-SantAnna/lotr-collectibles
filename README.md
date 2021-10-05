@@ -550,6 +550,8 @@ Below are the processes of deploying the website to Heroku and setting up static
 — **Python** —
 
 ### Contents
+- All Products contents: From [Weta Workshop](https://www.wetanz.com/), [Iron Studios](https://ironstudios.com/), [Prime 1 Studio](https://www.prime1studio.com/), [Asmus](https://store.asmustoys.com/), and [Sideshow](sideshow.com/) as well.
+- All other contents: Self-written
 
 ### Media
 
@@ -563,7 +565,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 - Popular Brand Logo: [Iron Studios](https://ironstudios.com/) 
 - Popular Brand Logo: [Prime 1 Studio](https://www.prime1studio.com/) 
 - Popular Brand Logo: [Weta Workshop](https://www.wetanz.com/) 
-- All Products info and images: From all above and [Sideshow](sideshow.com/) as well. 
+- All Products images: From all above and [Sideshow](sideshow.com/) as well. 
 
 <div align="right"><a href="#top">🔝</a></div>
 

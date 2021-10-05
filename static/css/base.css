@@ -74,6 +74,10 @@ body {
     background-color:rgba(255, 223, 0, 0.7)
 }
 
+.bg--color--000-05 {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 li.no--bullets {
     list-style-type: none;
 }
