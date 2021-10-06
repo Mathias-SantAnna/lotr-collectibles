@@ -165,6 +165,36 @@ When the JavaScript code is finished, it is put through a code validation test u
 
 — **Code Validation** —
 
+When the Python code is finished, a code validation test is run through [PEP8 &#40;Python Enhancement Proposal&#41; online](http://pep8online.com) to verify if the code adheres to readability and consistency rules and best practices for Python code.
+
+The validator customizes and checks a number of `py` files, which are shown below.
+
+**lotr App**
+
+- `asgi.py`, `settings.py`, `urls.py` and `wsgi.py`: There is *line too long* error and it is all corrected.
+
+**bag App**
+
+- `apps.py`, `contexts.py`, `urls.py` and `views.py`: There are *trailing whitespace*, *two blank lines*, *no newline at end of file*, *line too long* warnings and errors, and they are all corrected.
+
+**checkout App**
+
+- `init.py`, `admin.py`, `apps.py`, `forms.py`, `models.py`, `signals.py`, `urls.py`, `views.py`, `webhook_handler.py` and `webhooks.py`: There are *no newline at end of file*, *trailing whitespace*, *line too long*, *too many blank lines*, *at least two spaces before inline comment*, *expected 2 blank lines*, *blank line contains whitespace* warnings and errors and they are all corrected.
+
+**home App**
+
+- `admin.py`, `apps.py`, `contexts.py`, `forms.py`, `models.py`, `urls.py` and `views.py`: There are *trailing whitespace*, *no newline at end of file* and *line too long* warnings and errors and they are all corrected.
+
+**products App**
+
+- `admin.py`, `apps.py`, `forms.py`, `models.py`, `urls.py`, `views.py` and `widgits.py`: There are *no newline at end of file*, *line too long*, *blank line contains whitespace* warnings and errors and they are all corrected.
+
+**profiles App**
+
+- `apps.py`, `forms.py`, `models.py`, `urls.py`, and `views.py`: There are *no newline at end of file*, *line too long* and *trailing whitespace* warnings and errors and they are all corrected.
+
+> **Note**<br>
+> All Python code complies with PEP8 guidance except [4 Allauth Password Validators](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/auth-pwd-validators.png) that cannot be broken into separate lines
 
 <div align="right"><a href="#testing-top">🔝</a></div>
 
@@ -172,51 +202,51 @@ When the JavaScript code is finished, it is put through a code validation test u
 
 — **Functions** —
 
-There are some functionalities, which are run by `views.py` file in each app (in some cases by `contexts.py`), on the website. A manual test is carried out to see if these functions work as expected.
+On the website, there are various features that are controlled by the `views.py` file in each app (and in some situations, by `contexts.py`). To see if these functions work as expected, a manual test is performed.
 
-**cart App:**
+**bag App:**
 
-- View Cart: Products in the cart can be viewed by clicking the cart icon or a process your order button &#10004;
-- Add Cart: Products can be added from the product page by clicking an add to shopping cart button. If the same product has different sizes (and right or left for golf clubs), they are added separately &#10004;
-- Adjust Cart: Products can be adjusted in the cart. Change the quantity of the product and remove it &#10004;
-- Special Offer: Free Golf Balls appear for any order €250 or more. This is not run by `views.py` but should work when the total purchase is €250 or more &#10004;
-- Display: Price per product, discount price and total value including shipping cost show based on the products in the cart &#10004;
+- View bag: Products in the bag can be viewed by simply clicking the bag icon or a process your order button &#10004;
+- Add bag: Products can be added from the product page by clicking an add to shopping bag button.  &#10004;
+- Adjust bag: Products can be adjusted in the bag. Change the quantity of the product and remove it &#10004;
+- Special Offer: Free collectibles appear for any order €300 or more. This is not run by `views.py` but should work when the total purchase is €300 or more &#10004;
+- Display: Price per product, discount price and total value including delivery cost show based on the products in the bag &#10004;
 
 **checkout App:**
 
-- Checkout: Checkout is done by completing the form & credit card details and clicking a complete order button. Products in the cart can be views by clicking the cart icon or a process your order button &#10004;
-- Checkout Success: When the order is completed, it creates an order in the database and saves the info. It also shows checkout success page for users &#10004;
-- Confirmation email: When the order is succeeded (means payment in Stripe goes through), a confirmation email is sent &#10004;
-- Stripe: When the order is completed, it creates a record of [payment_intent, charge.succeeded and payment_intent.succeeded](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/stripe-function.png) &#10004;
+- Checkout: Checkout is completed by filling out the form and entering your credit card information, then hitting the "Complete Order" button. Products in the bag can be views by clicking the bag icon or a process your order button &#10004;
+- Checkout Success: When the order is completed, it generates an order in the database and saves the information. It also displays the user's checkout success page &#10004;
+- Confirmation email: A confirmation email is sent when the order is completed (that is, when the Stripe payment is completed) &#10004;
+- Stripe: When the order is processed, it creates a record of [payment_intent, charge.succeeded and payment_intent.succeeded](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/stripe-function.png) &#10004;
 
 **home App:**
 
-- Subscribe to our newsletter: When a unique and valid email is submitted, it saves in the database with Subscribed = True status &#10004;
+- Sign up for our newsletter here: When a valid and unique email address is submitted, it is saved in the database as Subscribed = True status &#10004;
 
 **products App:**
 
-- Product Display: Products are displayed by group of categories, category, brand, sale products and all products. They can be sorted by price, category and product name both ascending and descending order. Products can be searched by a keyword &#10004;
-- Product Details Display: Product details can be viewed by clicking an image of the product. It displays product category, ID, description, price, size (if applicable), discount price (if applicable) &#10004;
-- Product Add, Edit and Delete: Only authorised user (admin) is allowed to do these &#10004;
+- Product Display: Products are organized into groups of categories, categories, brands, sale items, and all items. They can be sorted in both ascending and descending order by price, category, and product name. A keyword can be used to search for products. &#10004;
+- Product Details Display: By clicking on a product image, you can get more information about it. It shows product category, ID, description, price, size (if applicable), discount price (if applicable) &#10004;
+- Only an authorised user (admin) is able to add, edit, and delete products. &#10004;
 
 **profile App:**
 
-- Profile: Access to the profile page where users can update the personal details and access to the order history &#10004;
-- Profile (Admin): For admin user, Edit and Delete buttons appear on each product and there is a page for Adding product &#10004;
+- Profile: Users get access to the profile page, where they may change their personal information and see their order history. &#10004;
+- Profile (Admin): Edit and Delete buttons appear on each product for admin users, and there is a page for adding products. &#10004;
 
 ---
 
 ### Defensive Programme
 
-There are some pages that only authorised users have access to. This is to test and confirm that non-authorised users have no access to these pages.
+There are some pages that are only accessible to permitted users. This is to ensure that non-authorized users are unable to access certain sites.
 
-- **Profile page**: Only logged in users have access to the profile page. When `/profile/` is typed on URL, unless users are logged in, users are directed to the login page
+- **Profile page**: The profile page is only accessible to logged-in users. Users are led to the login page if they type `/profile/` into the URL unless they are already logged in.
 
-- **Add Product page**: Only admin has access to the page. When `/products/add/` is typed on URL, if users are not logged in, users are directed to the login page. If users are logged in, then users are directed to the home page with [an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/add-product.png) unless Admin user 
+- **Add Product page**: Only the administrator has access to this page. If users are not logged in when they type `/products/add/` into the URL, they are taken to the login page. If users are logged in, they are taken to the main page, which includes a search box [an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/add-product.png) unless Admin user 
 
 - **Edit Product page and Delete product function**: Same as "Add Product"
 
-- **Order History**: Only the user who purchased the product has access to the order history. When the order history URL is typed and if users are not the user who purchased the product, the users are redirected to the profile page with [an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/product-history.png)
+- **Order History**: Only the person who purchased the product gets access to the order history. Users are sent to the profile page with the order history URL specified if they are not the user who purchased the product showing [an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/product-history.png)
 
 <div align="right"><a href="#testing-top">🔝</a></div>
 
@@ -226,10 +256,10 @@ There are some pages that only authorised users have access to. This is to test 
 
 — **Visibilities and functionalities** —
 
-The website is available on the major web browsers, such as **Chrome**, **Safari**, **Firefox**, **Opera** and **Microsoft Edge**. To make sure all the visual contents are shown and functions work properly on those browsers, the below tests are carried out on all of them. *Except Chrom that is used to build the website
+All major browsers, including **Chrome**, **Safari**, **Firefox**, **Opera**, and **Microsoft Edge**, are compatible with the website. All of them are subjected to the tests outlined below to guarantee that all visual elements are displayed and that functionality works properly in those browsers. Except for Chrom, which was used to construct the website.
 
-1. Open the website on the browser to do a visual test. Look at all the pages to see if everything appears as expected (both desktop and mobile sizes)
-2. Try all the functions outlined on the Python Functions test
+1. Open the webpage in a browser to run a visual test. Check all of the pages to make sure they're in order (both desktop and mobile sizes).
+2. Use all of the functions provided in the Python Functions test.
 
 <details>
 <summary>Python Functions</summary><br>
@@ -238,7 +268,7 @@ The website is available on the major web browsers, such as **Chrome**, **Safari
 </details><br>
 
 > **Note**<br>
-> All the above visibilities and functions work without any problem on each browser, except a small issue on Firefox that browser [default input display causes an issue on Firefox](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/firefox-input.png) so it is fixed by making it inactive by putting `input[type=number] {-moz-appearance: textfield;}` on `base.css`
+> All of the above visibility and functionality operate flawlessly in each browser. [default input display causes an issue on Firefox](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/firefox-input.png) so it is fixed by making it inactive by putting `input[type=number] {-moz-appearance: textfield;}` on `base.css`
 
 <div align="right"><a href="#testing-top">🔝</a></div>
 
@@ -248,7 +278,7 @@ The website is available on the major web browsers, such as **Chrome**, **Safari
 
 — **Evidence Of Achieving The Website From UX Point Of View** —
 
-There are some key features to achieve the primary goals of the website from user's point of view (both shoppers and the owner) and this is to confirm that all the features planned on **Strategy** and **Scope Planes** are implemented on the website based on the tests carried out in the testing section.
+There are several critical features to meet the website's primary goals from the user's perspective (both shoppers and the owner), and this is to validate that all the features planned on the website are implemented. **Strategy** and **Scope Planes** are implemented on the website based on the tests carried out in the testing section.
 
 <ins>Strategy Plane</ins>
 
@@ -264,23 +294,23 @@ There are some key features to achieve the primary goals of the website from use
 
 ### Unsolved Issues
 
-There are a few issues in the project that are addressed to get them solved however they remain unsolved issues due to a lack of my current skill and/or time
+A few issues in the project are addressed in order to solve them, but they remain unsolved issues owing to my present expertise and/or time constraints.
 
 **Low Performance on Mobile Size**
 
-- Cannot improve it because of my current skillset (that may need to plan and build the website from the Performance point of view) and time. Hope to have the skillset in the near future as I continue learning 
+- I'm unable to improve it due to my present skill set (which may require me to plan and develop the website from a performance standpoint) and lack of time. As I continue to learn, I hope to have the expertise in the near future.
 
 **Increment and Decrement Buttons**
 
-- For the products that have a size and all golf clubs that have right and left, increment & decrement buttons are not disabled. If `id` is used for this, one of them works but the other one does not (and `id` cannot be used for duplicate id error on html validation). If `class` is used, when one of them is disabled, another one is also disabled. By setting a unique class, this would work but do not know how to implement this in JavaScript using Django template and it is not a major issue, leave it as an unsolved issue 
+- For the products increment & decrement buttons are not disabled. If `id` is used for this, one of them works but the other one does not (and `id` cannot be used for html validation's duplicate id error). When the keyword `class` is used, when one of them is disabled, the other is disabled as well. Setting a unique class might work, but I'm not sure how to achieve it in JavaScript using a Django template, and since it's not a big deal, I'll leave it as an unsolved problem.
 
 **Sorting Products By Price Including Discounted Price**
 
-- Sort function on the product pages, it sorts by the original price but it does not consider the discount price. Therefore, some products [do not look like sorted by price correctly](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/sort.png). The original price field and discount price field are in the different tables so they cannot be directly compared so this cannot be solved unless the current database structure is changed
+- On product pages, the sort function sorts by the original price but ignores the reduced price. As a result, some products [do not look like sorted by price correctly](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/sort.png). Because the original price field and the discount price field are in separate tables, they can't be compared directly, hence this problem can't be remedied unless the database structure is modified.
 
 **Save Delivery Info On Checkout**
 
-- On the checkout page, logged in users can save the delivery info if they wish to. There is a check box as an option, however even the box is unticked, the details are saved for some reason. Looked at the code but cannot figure out why this happens, and as it is not a major issue, leave it as an unsolved issue
+- If logged in users wish, users can save the delivery information on the checkout page. There is a check box for this, however even if it is unticked, the information is saved for some reason. I looked through the code but couldn't figure out why this occurred, so I'm going to leave it as an unsolved problem.
 
 **Register Page**
 
@@ -288,13 +318,13 @@ There are a few issues in the project that are addressed to get them solved howe
 
 **Full Name**
 
-- For registered users, when they go to the checkout page, they see some fields are pre-filled if they update Default Delivery Information on the profile page. There is a full name field that picks up the first name and last name of users personal info. To retrieve the data from the fields, users must input the details. Try to get first name and last name at the time of registration but cannot add these fields as they are controlled by Allauth. Try to add first name and last name fields on the profile page but that causes some issues on Stripe. It is not a major issue, decide to leave it as an unsolved issue 
+- If registered users edit Default Delivery Information on their profile page, several fields are pre-filled when they proceed to the checkout page. A full name field collects the first and last names of users' personal information. Users must enter details in order to retrieve data from the fields. Tried to get a first and last name upon registration, but these fields are restricted by Allauth, therefore it is not possible to add them. Attempting to add first and last name fields to the profile page produces Stripe difficulties. Because it isn't a serious problem, decide to leave it unresolved.
 
 **Error Message of Subscribe to Newsletter Form**
 
-- During the final checking of the website before submission, notice that when the "Update Information" button is clicked, the [error message for Subscribe to Newsletters comes up](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/error-message.png). Check `contexts.py` in the  Home App that has Subscribe to Newsletters function and `views.py` in the Profile App that has Update Information function to see if there are any errors on them, like the same variable being used and that might cause the issue. Cannot find any obvious errors on them and not sure how to solve the problem so post it to Code Institute slack. Get feedback to suggest something wrong with it but not the solution so contact tutor support. It is [confirmed that when the "Update Information" button is clicked, Subscribe to Newsletters function is NOT working](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/posts-from-tutor.png) (meaning both Update Information and Subscribe to Newsletters functions are working independently and correctly) and the tutor thinks a browser is causing the issue but cannot identify it. Try to use a different browser but get the same result. Look for the solution or similar issues on the internet but cannot find it. Approx. 4 hours of time is spent but cannot identify and solve the issue, decided to leave it as an unsolved issue 
+- Notice that when the "Update Information" option is clicked during the last examination of the website before submission, the [error message for Subscribe to Newsletters comes up](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/error-message.png). Check `contexts.py` in the Home App, which has the Subscribe to Newsletters function, and `views.py` in the Profile App, which has the Update Information function, for any mistakes, such as the same variable being used, which could be the source of the problem. I couldn't discover any clear mistakes on them, and I wasn't sure how to fix them, so I posted it on the Code Institute slack. Obtain feedback to propose a flaw, but not the cure, therefore call tutor support. It is [confirmed that when the "Update Information" button is clicked, Subscribe to Newsletters function is NOT working](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/posts-from-tutor.png) (meaning both Update Information and Subscribe to Newsletters functionalities work independently and appropriately), and the instructor suspects a browser is to blame but can't pinpoint it. Try using a different browser, but the problem persists. Search the internet for the answer or comparable issues but are unable to locate it. After spending around 6 hours trying to identify and address the problem but failing to do so, it was decided to leave it as an unsolved issue.
 
 > **Note**<br>
-> Strangely enough, this only happens with the "Update Information" button on the Profile page. There is a form that does a POST action on the Product Details page, and when the button is clicked, no error message comes up 
+> Surprisingly, this only occurs when the "Update Information" button on the Profile page is pressed. On the Product Details page, there is a form that performs a POST operation, but no error notice appears when the button is pressed.
 
 <div align="right"><a href="#testing-top">🔝</a></div>
