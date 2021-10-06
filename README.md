@@ -366,7 +366,14 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
   <br>
   ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/aws-bucket-issue2.png)<br><br>
 
-  
+— **Order Summary been smashed down** —
+
+  I have a order summary been pushed down when the bootstrap hidden classes (.d-none etc) are there in bag.html,
+  when I add more products it completely disappears,
+  on mobile it's working fine though.
+  I inspect the code carefully, and checked many times the templates to see where did I made a mistake, but I created too many commits and now I can't see where it was correct before.
+  When I have up to 2 products in the bag It shows the Order Summary in the bottom. even though I had it as class="d-none d-lg-block col-lg-3 mt-lg-2
+
 
 <div align="right"><a href="#top">🔝</a></div>
 

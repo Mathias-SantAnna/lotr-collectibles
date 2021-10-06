@@ -58,65 +58,77 @@ Any text, including special characters, can be entered into the form (e.g. £, @
 
 **Subscribe To Newsletter Form**
 
-The form is available on all the pages on the website so try to submit an email from a few different pages to make sure it works. All the emails are submitted from any page and saved in the database so [it works fine](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/subscribe-newsletters-success.png). If the email has no @ mark, it gives a warning message that @ mark must be included. There should not be duplicated emails in the system so if the email address already exists, [it displays an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/subscribe-newsletters-error.png). 
+Because the form is available on all of the website's pages, try sending an email from a few different ones to see whether it works. All emails are submitted and preserved in the database from any page. [it works fine](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/subscribe-newsletters-success.png). If the email has no @ mark, it gives a warning message that @ mark must be included. There should not be duplicated emails in the system so if the email address already exists, [it displays an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/subscribe-newsletters-error.png). 
 
 **Register and Login Forms**
 
-Users must be unique so if the email address or username already exists in the database, [it displays an error message for register page](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/register-form-email.png). Also, when the passwords do not match, [it displays an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/register-form-password.png). This is similar for the login page that if the email or user name does not exist in the database, [it displays an error message and if password is incorrect, it also displays an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/login-form.png).
+If an email address or username already exists in the database, the user must be unique, [it displays an error message for register page](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/register-form-email.png). Also, when the passwords do not match, [it displays an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/register-form-password.png). This is similar for the login page that if the email or user name does not exist in the database, [it displays an error message and if password is incorrect, it also displays an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/login-form.png).
 
 **Add Product, Checkout and Stripe Form**
 
-When mandatory fields are not filled in or the form is invalid, [it displays an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/add-product-form.png). For credit card details, it is validated by Stripe and if it is invalid details, [it displays an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/stripe-form.png).
+When mandatory fields are left blank or the form is incorrect, [it displays an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/add-product-form.png). For credit card details, it is validated by Stripe and if it is invalid details, [it displays an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/stripe-form.png).
 
 > **Note**<br>
-> `{% csrf_token %}` which is a secure random token is used to prevent CSRF attacks on all the forms. (and unless there is {% csrf_token %}POST method will not work)<br>
+> `{% csrf_token %}` is a safe and random token used to prevent CSRF attacks on all the forms. (and unless there is {% csrf_token %}POST method will not work)<br>
 > Based on the manual test, all the forms on the website work properly
 
 ---
 
 — **Quality** —
 
-A quality check test is carried out by using [Lighthouse](https://developers.google.com/web/tools/lighthouse), which is an open-source and one of the automated DevTools for improving the quality of web pages. It has audits for performance, accessibility, progressive web apps, SEO.
+A quality control test is performed using [Lighthouse](https://developers.google.com/web/tools/lighthouse), which is an open-source and one of the automated DevTools for improving the quality of web pages. It includes audits for performance, accessibility, progressive web apps, SEO.
 
 **Home Page** (`index.html`)
 
-- Mobile Size: ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/home-mobile.png)
+- Mobile Size: 
+<br>![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/home-mobile.png)
 
-- Desktop Size: ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/home-desktop.png)
+- Desktop Size: 
+<br>![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/home-desktop.png)
 
 **Products Page** (`products.html`)
 
-- Mobile Size: ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/products-mobile.png)
+- Mobile Size: 
+<br>![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/products-mobile.png)
 
-- Desktop Size: ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/products-desktop.png)
+- Desktop Size: 
+<br>![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/products-desktop.png)
 
 **Product Details Page** (`products/<product id>.html`)
 
-- Mobile Size: ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/product-details-mobile.png)
+- Mobile Size: 
+<br>![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/product-details-mobile.png)
 
-- Desktop Size: ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/product-details-desktop.png)
+- Desktop Size: 
+<br>![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/product-details-desktop.png)
 
 **bag Page** (`bag.html`)
 
-- Mobile Size: ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/bag-mobile.png)
+- Mobile Size: 
+<br>![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/bag-mobile.png)
 
-- Desktop Size: ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/bag-desktop.png)
+- Desktop Size: 
+<br>![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/bag-desktop.png)
 
 **Checkout Page** (`checkout.html`)
 
-- Mobile Size: ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/checkout-mobile.png)
+- Mobile Size: 
+<br>![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/checkout-mobile.png)
 
-- Desktop Size: ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/checkout-desktop.png)
+- Desktop Size: 
+<br>![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/checkout-desktop.png)
 
 **Profile Page** (`profile.html`)
 
-- Mobile Size: ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/profile-mobile.png)
+- Mobile Size: 
+<br>![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/profile-mobile.png)
 
-- Desktop Size: ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/profile-desktop.png)
+- Desktop Size: 
+<br>![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/profile-desktop.png)
 
 > **Note**<br>
-> Improve **Accessibility** on those pages by adding `aria-label` on button elements that have no text and by not using headlines (h5 & h6) for `Heading elements are not in a sequentially-descending order` error. Accessibility is now improved on all the pages and 90 plus scores show on the pages, except the `checkout` page which still shows 88 because there are many fields that have no label for the fields and that brings down the score (There are no labels deliberately to keep the neat style)<br>
-There are some issues on Performance especially low scores on mobile size. The main issues are caused by the type and size of images, unused CSS and JavaScript CDNs. I recall having the same issues on my previous project that I could not improve the Performance. (e.g. When changing the size or type of the image, it causes another type of error and when trying to limit the use of CDNs, Bootstrap and JavaScript do not work on certain pages) Ideally, the score should be more than 90 for all the categories on both mobile and desktop sizes and anything below should be looked at and improved as much as possible, however, as almost coming to the end of the project and I am afraid of breaking something by trying to improve the Performance, I decide to leave it as it is.  
+> Improve **Accessibility** on those pages by adding `aria-label` on button elements that have no text and by not using headlines (h5 & h6) for `Heading elements are not in a sequentially-descending order` error.  Accessibility has been improved on all the pages and 90 plus scores show on the pages, except the `checkout` page which still shows 88 because there are a lot of fields that don't have a label, which lowers the score (There are no labels deliberately to keep the neat style)<br>
+There are some performance difficulties, particularly low scores on mobile size. The type and size of images, as well as unused CSS and JavaScript CDNs, are the main causes of problems. I remember having the similar problems with my prior project, when I couldn't seem to enhance the performance. (e.g. When changing the size or type of the image, it causes another type of error and when trying to limit the use of CDNs, Bootstrap and JavaScript do not work on certain pages) Ideally, the score for all categories should be greater than 90 on both mobile and desktop sizes, and anything below that should be investigated and improved as much as possible. However, because I am nearing the end of the project and am afraid of breaking something by attempting to improve the Performance, I have decided to leave it as is.
 
 
 <div align="right"><a href="#testing-top">🔝</a></div>
@@ -125,12 +137,12 @@ There are some issues on Performance especially low scores on mobile size. The m
 
 — **Code Validation** —
 
-As the CSS code is completed, a code validation test is carried out by using [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/), which is a validator by the World Wide Web Consortium that allows checking Cascading Style Sheets, to make sure that CSS complies with the standards set by the World Wide Web Consortium.
+When the CSS code is finished, a code validation test is run using [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/), which is a validator by the World Wide Web Consortium that allows checking Cascading Style Sheets, to ensure that CSS meets with the standards set by the World Wide Web Consortium.
 
 **`base.css`, `bag.css`, `checkout.css`, `index.css`, `products.css` and `profile.css`** are tested and there are [no errors on any of CSS files](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/css-validation.png).
 
 > **Note**<br>
-> There are some [warnings](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/css-warnings.png) related to WebKit, which is one of [web browser rendering engines](https://stackoverflow.com/questions/3468154/what-is-webkit-and-how-is-it-related-to-css), for base.css, index.css and product.css. By looking at the [Stack Overflow](https://stackoverflow.com/questions/52490004/what-are-all-of-these-w3c-css-validation-warnings-about) post and a [Code Institue Slack](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/css-webkit.png) threads, no further actions are required so decide to leave as it is
+> There are some [warnings](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/css-warnings.png) related to WebKit, which is one of [web browser rendering engines](https://stackoverflow.com/questions/3468154/what-is-webkit-and-how-is-it-related-to-css), for base.css, index.css and product.css. By looking at the [Stack Overflow](https://stackoverflow.com/questions/52490004/what-are-all-of-these-w3c-css-validation-warnings-about) post and a [Code Institue Slack](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/css-webkit.png) threads, no further actions are required so decided to leave  it alone.
 
 <div align="right"><a href="#testing-top">🔝</a></div>
 
@@ -140,10 +152,10 @@ As the CSS code is completed, a code validation test is carried out by using [W3
 
 — **Code Validation** —
 
-As the JavaScript code is completed, a code validation test is carried out by using [JSHint](https://jshint.com/), which is a static code analysis tool used in software development for checking if JavaScript source code complies with coding rules.
+When the JavaScript code is finished, it is put through a code validation test using [JSHint](https://jshint.com/), which is a static code analysis tool utilized in software development for verifying if JavaScript source code complies with coding rules.
 
 **`quantity_input_script.html`** (js code in bag app), **`stripe_elements.js`**, **`quantity_input_script.html`** (js code in product app), **`countryfield.js`** and js script on **`bag.html`** are tested. There is a warning of `'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).` so solve the warning by putting `/*jshint esversion: 6 */`.<br> 
-`$` shows on all the files as an undefined variable but this is jQuery symbol so can be ignored. `Stripe` on `stripe_elements.js` shows as an undefined variable but this comes from Stripe document so it can be ignored.
+`$` this appears as an undefined variable in all files, but it is a jQuery symbol, so it can be disregarded. `Stripe` on `stripe_elements.js` shows as an undefined variable but this derives from Stripe document so it can be ignored.
 
 <div align="right"><a href="#testing-top">🔝</a></div>
 
