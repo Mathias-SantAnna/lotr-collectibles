@@ -27,18 +27,18 @@
 <!-- Products Display -->
 <section class="container text-center {% if products|length < 1 %}mb-5{% endif %}">
     {% if current_categories == None and sale != True %}
-        <h2 class="mt-5">All Products</h2>
+        <h2 class="mt-5 text-uppercase">All Products</h2>
     {% elif sale == True %}
-        <h2 class="mt-5">Sale</h2>
+        <h2 class="mt-5 text-uppercase ">Sales</h2>
     {% endif %}
 <!-- By Categories -->
     {% for c in current_categories %}
     {% if c.name == 'collectible_figure' and 'figures_of_fandom' and 'vinyl_figure' %}
-        <h2 class="mt-5">Figures</h2>
+        <h2 class="mt-5 text-uppercase ">Figures</h2>
     {% elif c.name == '1:10_scale_statue' and '1:6_scale_statue' and '1:4_scale_statue' and 'miniature_statue' %}
-        <h2 class="mt-5">Statues</h2>
+        <h2 class="mt-5 text-uppercase">Statues</h2>
     {% elif c.name == 'jewellery' and 'prop_replica' and 'helm' %}
-        <h2 class="mt-5">Jewerly & Others</h2>
+        <h2 class="mt-5 text-uppercase">Jewerly & Others</h2>
     {% endif %}
     {% endfor %}
 <!-- By Brands -->
