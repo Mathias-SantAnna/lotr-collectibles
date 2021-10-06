@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -19,7 +19,7 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messeges.error(request,
+            messages.error(request,
                            'Update failed. Please ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
@@ -35,11 +35,19 @@ def profile(request):
     return render(request, template, context)
 
 
+@login_required
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
+    order_user = str(order.user_profile)
+
+    if order_user != str(request.user):
+        messages.error(request, (
+            f'This order number {order_number} does not belong to you.'
+        ))
+        return redirect('profile')
 
     messages.info(request, (
-        f'This is a past confirmation for order number {order_number}. '
+        f'This is a past confirmation for order number {order_number}.'
         'A confirmation email was sent on the order date.'
     ))
 

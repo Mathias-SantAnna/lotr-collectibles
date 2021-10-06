@@ -105,20 +105,21 @@
                 </a>
                 {% endif %}
                 <div class="card-body mt-2">
-                    <h5 class="card-title">{{ product.name }}</h5>
-
+                    <div class="fs-5 card-title">{{ product.name }}</div>
                 </div>
-                <div class="">
-                    <ul class="mt-2 mb-3 list-group list-group-flush ">
-                        <li class="no--bullets h5 {% if not product.is_discount %}font-weight-bold{% endif %}">
-                            {% if product.is_discount %}<s>Price: €{{ product.price }}</s>
-                            {% else %}Price: €{{ product.price }}{% endif %}</li>
+                <ul class="mt-2 mb-3 list-group list-group-flush ">
+                    <li class="fs-5 {% if not product.is_discount %}font-weight-bold{% endif %}">
                         {% if product.is_discount %}
-                        <li class="on--sale no--bullets font-weight-bold h5 text-uppercase">Sale: €{{ product.discount_price }}</li>
+                            <s>Price: €{{ product.price }}</s>
+                        {% else %}
+                            Price: €{{ product.price }}
                         {% endif %}
-                        <li class="no--bullets text-muted">{{ product.category.friendly_name }}</li>
-                    </ul>
-                </div>
+                    </li>
+                    {% if product.is_discount %}
+                    <li class="fs-5 on--sale font-weight-bold text-uppercase">Sale: €{{ product.discount_price }}</li>
+                    {% endif %}
+                    <li class="text-muted">{{ product.category.friendly_name }}</li>
+                </ul>
                 <!-- SuperUser features -->
                 {% if request.user.is_superuser %}
                 <div class="card-footer">
