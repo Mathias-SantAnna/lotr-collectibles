@@ -446,6 +446,7 @@ h4 {
     .add--product {
         width: 50%;
     }
+
     #signup_form {
         width: 50%;
     }
@@ -479,13 +480,13 @@ h4 {
         width: 90%;
     }
 
-    .w--75 {
+    /* .w--75 {
         width: 75%;
     }
 
     .w--lg--75 {
         width: 75%;
-    }
+    } */
 
     .fa-lg {
         line-height: 1.6rem;
@@ -498,6 +499,7 @@ h4 {
     .add--product {
         width: 30%;
     }
+    
     #signup_form {
         width: 30%;
     }
@@ -525,16 +527,9 @@ h4 {
         font-size: 2rem;
     }
 
-    /* .main--alert {
-        margin-top: 0 !important;
-    } */
-
     .navbar-nav .nav-link {
         padding-left: .5rem;
     }
-    /* .nav-link {
-        padding: 0.15rem;
-    } */
 
     .nav-link i.fa-lg {
         font-size: 1rem;
