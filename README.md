@@ -2,25 +2,25 @@
 
 # Lord Of The Rings Collectibles <a name="top"></a>
 
-This is an e-commerce website for collectibles products that I create for **Milestone Project 4 (Full Stack Frameworks with Django)** in [Code Institute](https://codeinstitute.net/), Ireland. The use of the website is for educational purposes only, however, all the functionalities work as if it is an actual e-commerce website. It is a mobile responsive website and the link to the website is available [HERE](https://lotr-collectibles.herokuapp.com/).
+This is an e-commerce website for collectibles products that I created for **Milestone Project 4 (Full Stack Frameworks with Django)** in [Code Institute](https://codeinstitute.net/), Ireland. The use of the website is for educational purposes only, yet all of the features function as if it were a legitimate e-commerce site. It is a mobile-friendly website and the link to the website is available [HERE](https://lotr-collectibles.herokuapp.com/).
 
 ## USER STORIES
 
-There are two types of users for the website. One is shoppers whose primary goal is to view collectibles products and purchase them online. The other one is the shop owner whose primary goal is to sell collectibles products and run a business. I am a full-stack web developer and create an e-commerce website to meet the primary goals of the users and their stories.
+For the website, there are two sorts of users. One type of consumer is someone who wants to look at collectibles and buy them online. The store owner, on the other hand, is primarily concerned with selling collectibles and running a business. I am a full-stack web developer who created an e-commerce website to help users achieve their core goals and tell their stories.
 
 **<ins>Shopper's User Story</ins>**
 
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/ux/shopper-user-story1.png)
 
 > **Note:**<br>
-> **ID9**: Search function works with a keyword only
+> **ID9**: Only a keyword is used in the search function.
 
 **<ins>Owner's User Story</ins>**
 
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/ux/owner-user-story.png)
 
 > **Note:**<br>
-> **ID5**: In a real e-commerce website, products should never be deleted but make them unavailable or something instead. As this is an educational purpose website that CRUD should be implemented, there is a delete products function
+> **ID5**: Products should never be deleted on a real e-commerce website; instead, they should be made unavailable or something similar. There is a delete products feature because this is an instructional website that should use CRUD.
 
 <div align="right"><a href="#top">🔝</a></div>
 
@@ -28,7 +28,7 @@ There are two types of users for the website. One is shoppers whose primary goal
 
 ### Strategy Plane
 
-To achieve the user's primary goals and stories outlined in the User Stories section, all the functions and features on the tables below are minimum requirements and they are implemented in the website. (On a scale of 1 [least] - 5 [most])
+All of the functions and features listed in the tables below are minimal needs for achieving the user's major goals and stories defined in the User Stories section, and they are implemented in the website. (On a scale of 1 [least] - 5 [most])
 
 
 | Opportunity                                 | Importance | Viability / Feasibility |
@@ -48,8 +48,7 @@ To achieve the user's primary goals and stories outlined in the User Stories sec
 | Email subscription                          |     3      |            4            |
 | Add, Edit, Remove products (Admin only)     |     4      |            4            |
 
-Below are the additional functions and features that can improve the website, however, these are not mandatory to achieve the current user goals and stories. Some are not implemented due to a lack of my current skills & knowledge and some are due to a lack of time.
-
+Listed below are the extra functions and features that can improve the website, although they are not required to accomplish the present user goals and stories. Some are not executed because I don't have the necessary skills and knowledge yet, while others are due to a lack of time.
 | Opportunity                                     | Importance | Viability / Feasibility |
 | :------------------------------------------     | :--------: | :---------------------: |
 | Displaying number of product images per product |     4      |            2            |
@@ -63,91 +62,91 @@ Below are the additional functions and features that can improve the website, ho
 
 ### Scope Plane
 
-Based on the requirements of achieving user's and owner's goals and stories, below is the list of required pages with the features and functions. CRUD (Create, Read, Update, and Delete) functions are implemented on the website as it is required for admin user's product management.
+The following is a list of required pages with features and functions based on the needs of accomplishing user and owner objectives and stories. The admin user's product management requires the implementation of CRUD (Create, Read, Update, and Delete) functions on the website.
 
-- Simple design Home page that the purpose of the website is obvious to anybody and even first-time users know how to navigate the website. Clearly displayed group of categories (e.g. Action Figures | Statues | Others) that have categories in it (e.g. Others --> Jewelry | Prop Replica | Games)
-- Product pages by the group of categories where users can view all the products belong to the group. Users are navigated to categories in this group from this page
-- Product pages by category where users can view all the products belong to the category
-- Product details page where uses can see all the product details. Users can also select options (e.g. Size) and put the product in the bag
-- Shopping Bag page where users can see all the selected products before purchase. Users can change the quantity of the product or remove it
-- Checkout page where users can provide shipping details and credit card details
-- Checkout success page where users get confirmation of purchase
-- Register page where users can create an account to keep the shipping address saved and to view order histories
-- Login page where users can log in to the page
-- Profile page where users can see the personal details and order histories
-- Logout function that users can safely log out the website and takes users back to the home page
-- Product Management pages (admin only) where admin can add, edit, and delete products
-- 404 & 500 pages where users are taken back to home page safely when they visit a page does not exist or an invalid page
+- The aim of the website is evident to everybody, and even first-time users know how to browse the website because of the simple design of the Home page. Groups of categories (e.g. Action Figures | Statues | Others) with subcategories (e.g. Others --> Jewelry | Prop Replica | Helm) are clearly displayed.
+- Users can examine all of the products that belong to the group on product pages organized by category. This page directs users to the categories in this group.
+- Product pages by category, which allow consumers to see all of the products that fall under that category.
+- Users may view all of the product details on the product details page. Users can also choose preferences (for example, kind) and place the product in a bag.
+- Users can view all of their selected products on the Shopping Bag page before making a purchase. Users can alter the product's quantity or remove it entirely.
+- Users can give shipping information and credit card information on the checkout page.
+- Users receive confirmation of their purchase on the checkout success page.
+- Users can establish an account on this website to preserve their shipping addresses and examine order history.
+- Users can log in to the page via the login page.
+- Users can view their personal information and order histories on the profile page.
+- Users can safely log out of the website using the logout function, which returns them to the main page.
+- Admins can add, update, and delete products on the Product Management pages (only for admins).
+- When users visit a page that does not exist or is invalid, they are safely redirected to the home page through 404 and 500 pages.
 <br>
 
 ### Structure Plane
 
 — **Front-end** —
 
-The website consists of below core `HTML` pages and has some `CSS` and `JavaScript` 
+The website is composed of below core `HTML` pages and has some `CSS` and `JavaScript` 
 
 - **Home** (`index.html`)<br>
-The main page of the website. There is a logo, search function, navigation to *Group of Categories & Categories*, *Register* & *Login* and *Shopping bag* pages, a hero image with Shop Now button. There are icons of popular brands that users can click and view the products of the brand. There is a section of "Why LoTR Collectibles?" which provides a few reasons for buying products with the shop. There is a footer with a form to subscribe to newsletter and some social icons. **The same header and footer are used across all html files*
+This is the website's main page. There is a logo, as well as a search function, navigation to *Group of Categories & Categories*, *Register* & *Login* and *Shopping bag* pages, a hero image with Shop Now button included. Users can click on the icons of well-known brands to see the brands' items easily shopping by brand. There is a section called "Why LoTR Collectibles?" that explains why you should buy from the shop. There is a footer with a subscription form to register to newsletter and some social icons. **All of the html files have the same header and footer.*
 
 - **Products** (`products.html`, `products/<category_name>.html`)<br>
-The pages where users can see products by a group of categories & category and have an access to the product details page.
+Users can view products by a group of categories and categories, as well as access the product details page, on these sites.
 
 - **Product Details** (`product/<product_id>.html`)<br>
-The pages where users can see product details, with an option to select criteria (e.g. size) and add it in the shopping bag.
+The pages where users can view product details and add items to their shopping bag by selecting criteria (e.g. kind).
 
 - **Shopping bag** (`bag.html`)<br>
-The page where users can view all the selected products and details. Users can adjust the quantity and there is an option to remove products. There is a button link to a checkout page for the final step of shopping. 
+Users may examine all of the selected products and their details on this page. Users have the ability to change the number and remove products. For the final phase of the purchase process, there is a button that takes you to a checkout page.
 
 - **Checkout** (`checkout.html`)<br>
-The page where users can process the purchase. Strip, which is a secured platform for credit card payment, is used on the website for processing payments.  
+This is the page where users can complete their purchase. Stripe, a secure platform for credit card payments, is utilized to process payments on the website.
 
 - **Checkout Success** (`checkout_success.html`)<br>
-The confirmation page where users are lead to when the payment process is completed. Users can see the order number, shipping address, product details. This page is accessible for registered users from Profile.
+When the payment procedure is complete, users are directed to a confirmation page. The order number, shipping address, and product details are all visible to users. This page can be accessed from the Profile page for registered users.
 
 - **Register** (`signup.html`)<br>
-The page where users can create an account to save their details for next shopping and keep their purchase histories. A form with a built-in function is created with Django Allauth package.
+Users can establish an account on this page to save their information for future purchasing and to keep track of their purchases. The Django Allauth package is used to generate a form with a built-in function.
 
 - **Login** (`login.html`)<br>
-The page where users can log in to the website and access to the Profile page to see the personal details and purchase histories. A form with a built-in function is created with Django Allauth package.
+Users can use this page to log in to the website and visit the Profile page to view their personal information and purchasing history. The Django Allauth package is used to generate a form with a built-in function.
 
 - **Profile** (`profile.html`)<br>
-The page where users can see personal details and purchase histories.
+Users can view their personal information and purchase histories on this website.
 
 - **Add Products** (`add_products.html`)<br>
-The page where only *Admin* has access and add a new product on the website.
+Only *Admin* has access to this page, which allows them to add a new product to the website.
 
 - **Edit Products** (`edit_products.html`)<br>
-The page where only *Admin* has access and edit products.
+Only *Admin* has access to this page and may edit products.
 
 - **Page 404 & 500** (`404.html`, `500.html`)<br>
-The error pages that appear when the page is not found or invalid and where users are led to the Home page safely.
+When a page is not accessible or is invalid, the error pages appear, and users are safely sent to the Home page.
 
 - **Base Templates** (`base.html` and `base.css`)<br>
-The template documents that have core components of html and css and are used among other html files.
+The template papers contain fundamental html and css components and are used in conjunction with other html files.
 
 - **Admin** (`/admin`)<br>
-The admin panel, which can be created with Django project, where Admin can take control of products and other data.
+The admin panel, which can be built with a Django project and allows the administrator to manage products and other data.
 
 - **CSS** & **JavaScript** (`.css` & `.js`)<br>
-CSS and JavaScript files of those HTML files are created within the same app folder.
+CSS and JavaScript files of those HTML files are created in the same folder as the app.
 
-Below is the flowchart of the website to show the core relationships between the pages. (Most of the pages are linked to each other subject to permission)<br>
+The website's flowchart, which depicts the key relationships between the pages, is shown below. (The majority of the pages are connected to one another with permission.)<br>
 
 ![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/front-end-chart.png)<br>
 
 — **Back-end** —<br>
 
-Users have options to purchase products as guest users or account holder users. Guest users cannot save personal details for their next shopping as personal details such as name, email address, shipping address etc belong to their order in the database. Account holder users who create an account with their <ins>email address</ins> and <ins>username</ins>, user name (user profile) is linked with their order so that personal details can be retrieved. Each product belongs to a category, a brand and these are identified by id. Each order has a unique order number which is generated when the order is processed and orders have shopper's and product details.
+Users can purchase things as either guest users or account holders. Guest users are unable to preserve personal information for future purchases since personal information such as their name, email address, shipping address, and other details are associated with their order in the database. Account holder users who register an account with their <ins>email address</ins> and <ins>username</ins>, user name (user profile) is connected with their order sallowing personal information to be obtained. Each product is assigned to a category and a brand, both of which are identifiable by an id. Each order has a unique order number that is produced when the order is processed, as well as information on the shopper and the goods.
 <br>
-SQLite, which is Django built-in database is used for development mode and Heroku Postgre is used for production mode. AWS (Amazon Web Services) is used to hold all static files and folders for the website for production mode. 
+In development mode, SQLite, a Django built-in database, is used, whereas in production mode, Heroku Postgre is used. All static files and folders for the website in production mode are stored on AWS (Amazon Web Services).
 
-Below is the chart of the database to show the data relationships.
+The database's data relationships are displayed in the chart below.
 
 ![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/back-end-chart.png)<br>
 
 ### Skeleton Plane
 
-The website is created as a desktop-first because it is easy to picture the whole image of the website, however, it is a fully mobile responsive website as well so shoppers using a mobile phone have no difficulties looking for products and purchase them. Below are the wireframes of the core pages of the website.<br>
+The website is designed to be seen on a desktop because it is easier to visualize the entire image of the website; however, it is also fully mobile responsive, so consumers using a mobile phone will have no trouble finding and purchasing things. The wireframes for the website's main pages are shown here. <br>
 
 <details>
 <summary>Home (index.html)</summary><br>
@@ -180,13 +179,13 @@ The website is created as a desktop-first because it is easy to picture the whol
 </details>
 
 <details>
-<summary>Checkout Success (checkout_success.html)</summary><br>
+<summary>Checkout Complete (checkout_complete.html)</summary><br>
 
-![Wireframe: Checkout Success](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/checkout-success.png)
+![Wireframe: Checkout Success](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/checkout-complete.png)
 </details>
 
 > **Note:**<br>
-> No product image and product details on the website
+> There is no image of the product or information about it on the website.
 
 <details>
 <summary>Register (signup.html)</summary><br>
@@ -225,7 +224,7 @@ The website is created as a desktop-first because it is easy to picture the whol
 
 — **Colours** —
 
-This is an e-commerce website that has a lot of products with images containing different colours, **White** (#FFFFFF) is used as the main background colour to keep the entire image of the website settled. The shop colour is **Hunter Green** (#09572A) and this is used for some icons and fonts. **Back Chocolate** (#231703) is used as the main font colour, **Maximum Yellow Red** (#E7BA55) is used for buttons and alerts to stand them out. **Middle Green Yellow** (#9AB250) is used for other things that need user's attention. These are the base colours and similar colours are used on the different parts and sections on the website.
+This is an e-commerce site with a number of products and photos that include a variety of colors, **White** (#FFFFFF) is chosen as the main background color to keep the website's overall image consistent. The shop colour is **Hunter Green** (#09572A) and this is used for some icons and fonts. **Back Chocolate** (#231703) is used as the main font colour, **Maximum Yellow Red** (#E7BA55) is utilized for buttons and alerts to stand them out. **Middle Green Yellow** (#9AB250) is utilized for anything else that requires the user's attention. These are the base colours and similar colours utilized across the website in various aspects and sections.
 
 > **Note:**<br>
 > **Hunter Green** (#09572A) is not used for any fonts or icons but used for the colour of toast success
@@ -234,14 +233,14 @@ This is an e-commerce website that has a lot of products with images containing 
 
 — **Typography** —
 
-**Abril Fatface** is used for all the texts because good readability is an important factor for e-commerce websites from the user's point of view. Also resemble a book title, which is the case for better website UX. Uses as second font **Roboto**, which is one very popular google fonts.
+All of the texts are written in **Abril Fatface** because readability is a crucial feature for e-commerce websites from the user's perspective. Also, if you want a better website UX, make it look like a book title. Uses **Roboto** as a second typeface, which is a popular Google font.
 
 ![image](https://raw.githubusercontent.com/Mathias-SantAnna/lotr-collectibles/main/readme/ux/abril-fat-face.png)
 
 <div align="right"><a href="#top">🔝</a></div>
 
 ## WEBSITE DEVELOPMENT PLAN
-This is a full-stack website that contains both front-end & back-end, so many Django apps, features and functions, therefore a good website development plan is required to maximize the efficiency of the development. GitHub project planner, which has a Kanban planner, is used for this project. Below is the summary of core tasks* for the website and more detailed tasks are listed on [GitHub Projects](https://github.com/Mathias-SantAnna/lotr-collectibles/projects/1). This gives not only very clear planning but also making sure nothing is missed during the process.<br>
+Because this is a full-stack website with both front-end and back-end components, as well as numerous Django apps, features, and functions, a good website development plan is essential to maximize development efficiency. This project makes use of the GitHub project planner, which includes a Kanban planner. The website's key activities* are summarized below, with additional detailed tasks given on [GitHub Projects](https://github.com/Mathias-SantAnna/lotr-collectibles/projects/1). This allows for not just precise planning but also ensures that nothing is neglected during the process.<br>
 **Follow the same process as Code Institute Mini Project, Boutique Ado*
 
 1. Planning The Website with UX5 Planes
@@ -262,7 +261,7 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 1. Final Check Before Submission
 
 > **Note:**<br>
-> **CSS**: In previous projects, get confused by Bootstrap CSS classes and my own CSS classes so for this project, two dashes (a kind of BEM methodology) is used on all CSS classes 
+> **CSS**: Because I used to get confused by Bootstrap CSS classes and my own CSS classes in past projects, I utilized two dashes (a form of BEM methodology) on all CSS classes in this project.
 
 <div align="right"><a href="#top">🔝</a></div>
 
@@ -271,27 +270,27 @@ This is a full-stack website that contains both front-end & back-end, so many Dj
 ### Existing Features
 
 - Create with **HTML5**, **CSS3** (with Material Design for Bootstrap), **JavaScript**, **Python** (Django Framework), **Stripe**, **AWS** and **Heroku**
-- It consists of 1 product with 5 apps in Django
-- It consists of 1 base html template and 12 main html files. (Excluding sub html files and some allauth html files)
-- Modal for "Delivery Cost" information
-- Toast for user's action
-- All the features planned on [Strategy Plane](https://github.com/Mathias-SantAnna/lotr-collectibles/tree/main/readme/features/strategy-plane.png) and [Scope Plane](https://github.com/Mathias-SantAnna/lotr-collectibles/tree/main/readme/features/scope-plane.png)
+- It is composed of 1 Django product with 5 apps. 
+- It is formed of 1 base html template and 12 major html files. (With the exception of sub html files and a few allauth html files.)
+- Modal for information on "Delivery Cost"
+- A toast is made for the user's action.
+- All of the features that have been planned [Strategy Plane](https://github.com/Mathias-SantAnna/lotr-collectibles/tree/main/readme/features/strategy-plane.png) and [Scope Plane](https://github.com/Mathias-SantAnna/lotr-collectibles/tree/main/readme/features/scope-plane.png)
 
 ### Features Left To Implement
 
-- **Displaying number of product images per product:** This would probably be possible to implement by using the same principle as Carousel, however, cannot confirm it for sure and do not have time to work on this, decide to leave it out in this project.
+- **Displaying number of product images per product:** This would most likely be possible to create using the same approach as Carousel, but because I can't be certain and don't have time to work on it, I've decided to leave it out of this project.
 
 - **Product Rating:** This might be possible to implement, but unfortunately due to a lack of time I decide to leave it out in this project.
 
-- **Enlarging image when hovering:** Find a few ways of enlarging (zooming) images on hover, however, not sure if these are the same as enlarging images of products that are used in e-commerce websites. Currently, no time to look at the details so decide to leave it out in this project
+- **Enlarging image when hovering:** On hover, there are a couple options for enlarging (zooming) photographs, however I'm not sure if they are the same as enlarging product images for e-commerce companies. I don't have time to dig into the intricacies right now, therefore I've decided to keep it out of this project.
 
-- **Refinements options:** This might be implemented by different combinations of filter, however, currently have no skill to achieve this so decide to leave it out in this project
+- **Refinements options:** This could be done using other filter combinations, but I don't have the skills to do it right now, so I'm going to leave it out of this project.
 
-- **More detailed categories and advertisement:** This is to have more detailed categories (e.g. There are only 11 categories but actual e-commerce website, there should be more categories available = more products) and more detailed advertisement such as having different colours, guidance for size etc. Currently have no time to work on this, decide to leave it out in this project
+- **More detailed categories and advertisement:** This is to have more detailed categories (e.g., there are only 10 categories, but a true e-commerce website should have more categories available = more products) and more detailed advertisements (e.g., different colors, size, features, etc.). Because I don't have time to work on it right now, I've decided to leave it out of this project.
 
-- **Creating an account with social media:** Look at a tutorial and not sure if this can be implemented easily. All the testing is done and confirmed all the functions are working, and afraid of breaking something unintentionally by linking social account login, decide to leave this for this project but this is something would like to try with my own project as a challenge
+- **Creating an account with social media:** Looking at a tutorial, I'm not sure if this can be done quickly. All of the testing has been completed, and all of the functions have been confirmed to work; however, due to the risk of breaking something unintentionally by linking social account login, I have decided to leave this for this project; however, this is something I would like to try in the future as a challenge with my own project.
 
-- **Payment in different currencies:** This might be possible with Stripe rather than Django, but not sure how to achieve this. As this is not an important feature with the current project and do not have time to look at it, decide to leave it out in this project
+- **Payment in different currencies:** This might be feasible with Stripe instead of Django, but I'm not sure how. Because this isn't a critical feature in the current project and I don't have time to investigate it, I've decided to leave it out.
 
 <div align="right"><a href="#top">🔝</a></div>
 
@@ -383,12 +382,12 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
 2. Use **Code Institute Template**, put the repository name and click Create Repository making sure to select public<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/version-control/version-control2.png)
 
-3. Open the repository with [Gitpod](https://www.gitpod.io/) which is my Integrated Development Environment (IDE). By using Code Institue Template, initialisation including initial commit is done so no need to do `git init` command when open IDE, or to use `git push -u origin main` command for my first commit. `gitignore` file, which is very important for the project including some confidential information, is created with Code Institute template so not necessary to create it, however, it is checked to include files such as pycache, *.sqlite3, env.py etc<br><br>
+3. Open the repository with [Gitpod](https://www.gitpod.io/) which is my Integrated Development Environment (IDE). Initialization, including initial commit, is done using the Code Institue Template, thus there is no need to do `git init` command when open IDE, or to use `git push -u origin main` command for my first commit. `gitignore` file, which is highly crucial for the project and contains certain secret information. It is made using a Code Institute template, so it is not necessary to develop it, however, it is verified to include files such as pycache, *.sqlite3, env.py etc<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/version-control/version-control3.png)
 
 — **Commitments** —
 
-- When a section or even a group of work is completed, it is committed in git and pushed into GitHub to make sure to keep the history of the work logged properly and not to lose the work in unexpected situations. Below commands are used for this
+- When a portion or even a group of work is finished, it is committed in git and pushed to GitHub to ensure that the work's history is properly logged and that the work is not lost in unexpected circumstances. For this, the commands listed below are utilized.
 
 ```
 * git status | To check the status of new/modified folders, files, and documents
@@ -401,7 +400,7 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
 
 — **Branches** —
 
-- When some testing is needed, create a branch and test it on the branch instead of using the main branch. When the testing is successful, then merge the branch into the main and when it is not, leave the branch unmerged and keep working on the main branch. Below commands are used for this
+- During testing process the creation of a branch is required instead of testing it utilizing the main branch. If the testing goes well, merge the branch into the main branch; if it doesn't, leave it alone and continue working on the main branch. For this, the commands listed below are utilized.
 
 ```
 * git branch <branch name> | To create a new branch
@@ -411,15 +410,14 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
 ```
 
 > **Note:**<br>
-> There are no static files available in the main branch on production mode for some reason so free-collectibles branch is used for update and the same code is transferred to the main without merging<br>
-![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/version-control/version-control4.png)
+> Due to the lack of static files in the main branch on production mode, the free-collectibles branch is utilized for updates, and the same code is transferred to the main branch without merging<br>
 
 ## DEPLOYMENT
 
-The website of this project requires back-end technologies such as server, application, and database so the website is deployed in [Heroku](https://www.heroku.com/), which is a cloud platform with a service supporting several programming languages, because GitHub can only host a static website. Heroku Postgres is used for the database. [AWS services](https://aws.amazon.com/), which is also a cloud-based platform, is used to store static files and images as Heroku has *no files system to store new files* [*Reference from Code Institue Slack](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/reference-aws.png).
+This project's website demands back-end technology such as a server, application, and database, so it is deployed in [Heroku](https://www.heroku.com/), which is a cloud platform with a service supporting several programming languages, because GitHub can only host a static website. Heroku Postgres is used for the database. [AWS services](https://aws.amazon.com/), which is also a cloud-based platform, is utilized to store static files and images as Heroku has *no files system to store new files* [*Reference from Code Institue Slack](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/reference-aws.png).
 
 
-Below are the processes of deploying the website to Heroku and setting up static files & images in AWS.
+The steps for deploying the website to Heroku and setting up static files and images in AWS are outlined below.
 
 — **HEROKU** —
 
@@ -438,7 +436,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 1. Run `python3 manage.py showmigrations` command to see the status of migrations (Currently not migrated). Run `python3 manage.py migrate` command to migrate<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/migrate.png)
 
-1. Import all products data. Run `python3 manage.py loaddata` command to load the **categories** first, **brands** next and **products** the last. The order of loading is important as all the products are associated with categories and brands
+1. Import all products data. Run `python3 manage.py loaddata` command to load the **categories** first, **brands** next and **products** the last. Because all products are related with categories and brands, the sequence in which they are loaded is crucial.
 
 1. Create a super user with `python3 manage.py createsuperuser` command for product admin
 
@@ -456,11 +454,11 @@ Below are the processes of deploying the website to Heroku and setting up static
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/auto-deployment.png)<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/auto-deployment2.png)<br><br>
 
-1. Generate a new secret key, set it up in Heroku and update `settings.py`. Change the setting of Debug mode that only True in Development mode<br><br>
+1. Create a new secret key, add it to Heroku, and keep it up to date `settings.py`. Change the setting of Debug mode that only True in Development mode<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/secret-key.png)<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/secret-key2.png)
 
-1. Check Activity Feed to see Build in Progress to confirm automatic deployment is working
+1. Check the Activity Feed for Builds in Progress to ensure that the automatic deployment is working.
 
 — **AWS** —
 
@@ -476,7 +474,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 1. Set up Bucket Policy. Generate a policy with AWS policy generator. Add /* at the end of Resource to allow access to all resources in the bucket<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/bucket-policy.png)
 
-1. Create a user to access the bucket. Go to IAM (Identity and Access Management) and create a group for user to live in. Then, create a policy by importing pre-built policy<br><br>
+1. Create a user to obtain access to the bucket. Go to IAM (Identity and Access Management) and create a group for user to live in. Then, create a policy by importing pre-built policy<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/iam-group.png)<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/iam-policy.png)<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/iam-import-policy.png)<br><br>
@@ -487,7 +485,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/attach-policy.png)<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/attach-policy2.png)
 
-1. Create a user and add it to the group. When the user is added to the group, it creates csv file containing Access Key ID and Secret access key which are used to authenticate them from Django app. *It is very important to download the file and save it as you cannot download it again<br><br>
+1. Make a new user and add it to the group. When a user is added to a group, a csv file with the Access Key ID and Secret access key is created, which is used to authenticate them with the Django app. * It is critical to download and save the file because you will not be able to do it again.<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/create-user.png)<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/create-user2.png)
 
@@ -496,7 +494,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 1. Install two new packages, `pip3 install boto3`, `pip3 install django-storages`, and run `pip3 freeze > requirements.txt` command to add them on requirements.txt<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/requirements-txt3.png)
 
-1. Update `settings.py` to tell Django which bucket it should be communicating with *It is very important to keep AWS access keys secrets as these can be used to store or move data in the bucket and you will be charged by Amazon for it<br><br>
+1. Update `settings.py` to tell Django which bucket it should communicate with *It's critical to keep your AWS access keys private since they can be used to store or move data in the bucket, and Amazon will charge you for it.<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/django-aws-settings.png)
 
 1. Add these secret keys on Heroku and set USE_AWS = True<br><br>
@@ -508,7 +506,7 @@ Below are the processes of deploying the website to Heroku and setting up static
 1. Add `AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'` to tell Django where the static files come from in production and add some settings for Static and Media files on `settings.py`<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/settings-static.png)
 
-1. Add all the updates in git, commit it and push it to GitHub. Heroku runs `python3 manage.py` to collectstatic during the process which also searches through all the apps and project folders looking for static files. Then, it uses S3 domain settings in conjunction with the custom storage classes that tell the location at the URL where the things should be saved when it is in production. This can be confirmed in S3 bucket<br><br>
+1. Add all the updates in git, commit it and push it to GitHub. Heroku runs `python3 manage.py` to collectstatic during the process it also looks for static files in all of the apps and project folders. Then, when it's in production, it leverages S3 domain settings in conjunction with custom storage classes to provide the URL where things should be saved. This can be confirmed in S3 bucket<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/static-folders-s3.png)
 
 1. Add Cache control on `settings.py` as static files do not change often and to improve the performance for users<br><br>
@@ -570,5 +568,13 @@ Below are the processes of deploying the website to Heroku and setting up static
 <div align="right"><a href="#top">🔝</a></div>
 
 ## ACKNOWLEDGEMENTS
+
+I would like to thank:
+
+- My deer friend and personal mentor, **Rimom Costa**, for going through the project with me and giving a lots of advice and taking so much time for teaching and helping me when I needed the most. (If it wasn't for him I wouldn't have finished it)
+
+- For all Code Institute Tutors, **Scott**, **Johann**, **Kevin**, **Michael**, **Stephen**, **Jo**, **Igor** and **Sheryl**, for giving me a guidance on how to solve different issues
+- **Ed Bradley** for the meeting about MS3 and explainig very carefully each subject.
+- **Brian Macharia** for giving me advice on some subjects and helping with the project. He has mentored this project since the beginning being very approachable. It was only possible to conclude it because of his support and advice. His main contributions were giving an initial North so that it was possible to start effectively, providing ideas, demonstrating the technical criteria and pointing out proper feedback on the errors that should be corrected. In other words, his assistance was essential for the success of this project, so, I am taking the opportunity to express my gratitude for each mentoring session that enabled the completition this work.
 
 <div align="right"><a href="#top">🔝</a></div>
