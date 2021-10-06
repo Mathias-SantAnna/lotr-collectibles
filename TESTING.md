@@ -153,36 +153,6 @@ As the JavaScript code is completed, a code validation test is carried out by us
 
 — **Code Validation** —
 
-As Python code is completed, a code validation test is carried out by using [PEP8 &#40;Python Enhancement Proposal&#41; online](http://pep8online.com) to see if the code meets guidelines and best practices for the readability and consistency of Python code.
-
-Below is the list of `py` files that are customised and checked by the validator.
-
-**eagle-golf Product**
-
-- `asgi.py`, `settings.py`, `urls.py` and `wsgi.py`: There is *line too long* error and it is all fixed
-
-**cart App**
-
-- `apps.py`, `contexts.py`, `urls.py` and `views.py`: There are *trailing whitespace*, *two blank lines*, *no newline at end of file*, *line too long* warnings and errors, and they are all fixed
-
-**checkout App**
-
-- `init.py`, `admin.py`, `apps.py`, `forms.py`, `models.py`, `signals.py`, `urls.py`, `views.py`, `webhook_handler.py` and `webhooks.py`: There are *no newline at end of file*, *trailing whitespace*, *line too long*, *too many blank lines*, *at least two spaces before inline comment*, *expected 2 blank lines*, *blank line contains whitespace* warnings and errors and they are all fixed
-
-**home App**
-
-- `admin.py`, `apps.py`, `contexts.py`, `forms.py`, `models.py`, `urls.py` and `views.py`: There are *trailing whitespace*, *no newline at end of file* and *line too long* warnings and errors and they are all fixed
-
-**products App**
-
-- `admin.py`, `apps.py`, `forms.py`, `models.py`, `urls.py`, `views.py` and `widgits.py`: There are *no newline at end of file*, *line too long*, *blank line contains whitespace* warnings and errors and they are all fixed
-
-**profiles App**
-
-- `apps.py`, `forms.py`, `models.py`, `urls.py`, and `views.py`: There are *no newline at end of file*, *line too long* and *trailing whitespace* warnings and errors and they are all fixed
-
-> **Note**<br>
-> All Python code complies with PEP8 guidance except [4 Allauth Password Validators](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/auth-pwd-validators.png) that cannot be broken into separate lines
 
 <div align="right"><a href="#testing-top">🔝</a></div>
 
