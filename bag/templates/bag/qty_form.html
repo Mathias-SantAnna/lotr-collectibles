@@ -8,17 +8,17 @@
                 <div class="input-group">
                     <!-- Decrement Button -->
                     <div class="input-group-prepend">
-                        <button id="decrement-qty_{{ item.item_id }}" class="decrement-qty"
+                        <button class="decrement-qty decrement-qty_{{ item.item_id }"
                             data-item_id="{{ item.item_id }}" aria-label="Decrement"><i class="fas fa-minus pt-2 fa-lg"></i>
                         </button>
                     </div>
                     <!-- Quantity Input Box -->
-                    <input id="id_qty_{{ item.item_id }}" class="form-control qty_input" 
+                    <input class="form-control qty_input id_qty_{{ item.item_id }}"  
                         type="number" name="quantity" value="{{ item.quantity }}" 
                         min="1" max="9" data-item_id="{{ item.item_id }}">
                     <!-- Increment Button -->
                     <div class="input-group-append">
-                        <button id="increment-qty_{{ item.item_id }}" class="increment-qty"
+                        <button class="increment-qty increment-qty_{{ item.item_id }}"
                             data-item_id="{{ item.item_id }}" aria-label="Increment"><i class="fas fa-plus pt-2 fa-lg"></i>
                         </button>
                     </div>
@@ -29,6 +29,6 @@
 </form>
 <!-- Product Quantity Update & Remove Options -->
 <a class="update-link text-info small pointer qty--update"><span class="color--1b4da0">Update</span></a>
-<a id="remove_{{ item.item_id }}" class="remove-item small pointer qty--remove">
+<a class="remove-item small pointer qty--remove remove_{{ item.item_id }}">
     <span class="color--e84610">Remove</span>
 </a>

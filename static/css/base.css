@@ -7,27 +7,19 @@
 
 html {
     height: 100%;
-    position: relative;
 }
+
 body {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     color: #333;
-    font-family: 'Abril Fatface', 'Roboto'sans-serif;
+    font-family: 'Roboto', 'Abril Fatface', sans-serif;
     letter-spacing: 0.1rem;
     margin: 0;
     padding: 0;
     background: url('/static/images/background.png') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
-}
-
-.footer {
-    height: 300px;
-    bottom: 0;
-    position: relative;
-    width: 100%;
-    overflow: hidden;
+    
 }
 
 /* -- General Settings and Styles -- */
@@ -169,6 +161,16 @@ header {
     color: #333;
 }
 
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
 /* Toasts Messages */
 .message-container {
     position: fixed;
@@ -182,7 +184,7 @@ header {
 }
 
 .toast-capper {
-    height: .25 rem;
+    height: .25rem;
 }
 
 .toast-header {
@@ -252,6 +254,15 @@ header {
 }
 
 /* Footer */
+
+.footer {
+    height: 300px;
+    bottom: 0;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
 .social--media a {
     color: #231703;
     font-size: 1.5rem;
@@ -411,7 +422,7 @@ h4 {
 }
 
 .margin--top {
-    margin-top: 8.5 !important;
+    margin-top: 8.5rem!important;
 }
 
 /* -- Media Query: Tablet Screen Size Bigger Than 48rem / 768px -- */
@@ -503,27 +514,27 @@ h4 {
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 65px;
+        padding-top: 66px;
     }
 
     body {
-        height: calc(100vh - 65px);
+        height: calc(100vh - 66px);
     }
 
     .display-4.logo-font.text-black {
         font-size: 2rem;
     }
 
-    .main--alert {
+    /* .main--alert {
         margin-top: 0 !important;
-    }
+    } */
 
     .navbar-nav .nav-link {
-        padding-left: .6rem;
+        padding-left: .5rem;
     }
-    .nav-link {
+    /* .nav-link {
         padding: 0.15rem;
-    }
+    } */
 
     .nav-link i.fa-lg {
         font-size: 1rem;
@@ -572,5 +583,9 @@ h4 {
 
     .dropdown-menu {
         left: 0!important;
+    }
+
+    .margin--top {
+        margin-top: 4rem!important;
     }
 }

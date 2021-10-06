@@ -17,38 +17,23 @@
     <span class="fw-bold text-uppercase">free</span>!
 </div>
 <!-- /End of Credit -->
-<div class="overlay"></div>
+
 <section class="container text-center">
-    
-    <h2 class="mt-5 mb-lg-5 text-uppercase">Shopping bag</h2>
+    <h2 class="mt-5 mb-lg-5">Shopping bag</h2>
     
     <div class="row">
-        <div class="col">
-            {% if bag_items %}
-            <div class="">
-                <div class="row">
-                    <div class="col-12">
-                        {% include "bag/product_details_desktop.html" %}
-                    </div>
-                </div>
-                <div class="row center-align">
-                    <div class="col-4">
-                        {% include "bag/order_summary_desktop.html" %}
-                    </div>
-                </div>
-                
-               
+        {% if bag_items %}
         <!-- Product Details Section -->
-            <!-- <div class="col-lg-9">
+            <div class="col-lg-9">
                 <div class="d-none d-lg-block">
-                    
+                    {% include "bag/product_details_desktop.html" %}
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="d-none d-lg-block mt-lg-2">
-                    
+                    {% include "bag/order_summary_desktop.html" %}
                 </div>
-            </div> -->
+            </div>
 
             <!-- If No Items In bag -->   
         {% else %}
@@ -60,8 +45,6 @@
                 </a>
             </div>
         {% endif %}
-        </div>
-        
      </div>       
 
 </section>

@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+
+{% block extra_title %}
+- Shopping bag
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'bag/css/bag.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Credit: Bootstrap Alerts @ https://getbootstrap.com/docs/5.0/components/alerts/ -->
+<div class="alert alert-warning text-center mb-0 main--alert" role="alert">
+    Spend <span class="fw-bold">€{{ free_collectible_threshold }}</span> or more and get a Special Collectible for
+    <span class="fw-bold text-uppercase">free</span>!
+</div>
+<!-- /End of Credit -->
+
+<section class="container text-center">
+    <h2 class="mt-5 mb-5">Shopping bag</h2>
+    <div class="row">
+        <!-- Product Details Section -->
+        {% if bag_items %}
+        <div class="col-9">
+            <!-- Credit: MDB Tables @ https://mdbootstrap.com/docs/standard/data/tables/ -->
+            <table class="table mb-5">
+                <!-- Product Details Headings -->
+                <thead>
+                    <tr>
+                        <th class="c--1" scope="col">Product</th>
+                        <th class="text--left" scope="col">Description</th>
+                        <th scope="col">Qty</th>
+                        <th class="text-end" scope="col">Sub Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <!-- Product Details -->
+                        {% for item in bag_items %}
+                        <td>
+                            {% if item.product.image %}
+                            <img class="w--50" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            {% else %}
+                            <img class="w--50" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            {% endif %}
+                        </td>
+                        <td class="text-start">
+                            <p class="fw-bold">{{ item.product.name }}</p>
+                            <p class="small text-muted">Product ID: {{ item.product.sku }}</p>
+                            {% if not item.product.is_discount %}
+                            <p>Price: &#128;{{ item.product.price }}</p>
+                            {% else %}
+                            <p>Price: &#128;{{ item.product.discount_price }}</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <!-- Product Quantity Form -->
+                            <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div>
+                                        <div class="form-group mx-auto quantity--selector">
+                                            <div class="input-group">
+                                                <!-- Decrement Button -->
+                                                <div class="input-group-prepend">
+                                                    <button id="decrement-qty_{{ item.item_id }}" class="decrement-qty"
+                                                        data-item_id="{{ item.item_id }}"><i class="fas fa-minus pt-2 fa-lg"></i>
+                                                    </button>
+                                                </div>
+                                                <!-- Quantity Input Box -->
+                                                <input id="id_qty_{{ item.item_id }}" class="form-control qty_input" 
+                                                        type="number" name="quantity" value="{{ item.quantity }}" 
+                                                        min="1" max="9" data-item_id="{{ item.item_id }}">
+                                                 <!-- Increment Button -->
+                                                <div class="input-group-append">
+                                                    <button id="increment-qty_{{ item.item_id }}" class="increment-qty"
+                                                        data-item_id="{{ item.item_id }}"><i class="fas fa-plus pt-2 fa-lg"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- Product Quantity Update & Remove Options -->
+                            <a class="update-link text-info small pointer qty--update"><span class="color--1b4da0">Update</span></a>
+                            <a id="remove_{{ item.item_id }}" class="remove-item small pointer qty--remove"
+                                data-product_size="{{ item.size }}"><span class="color--e84610">Remove</span></a>
+                        </td>
+                        <td>
+                            {% if not item.product.is_discount %}
+                            <p class="text-end">&#128;{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            {% else %}
+                            <p class="text-end">&#128;{{ item.product.discount_price | calc_subtotal:item.quantity }}</p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- Order Summary Section -->
+        <div class="col-3 mt-2">
+            <h5 class="fw-bold pt-2">Order Summary</h5>
+            <div class="mt-2 p-3 text-end prices--display">
+                <p class="fw-normal mt-3">Bag Total: &#128;{{ total|floatformat:2 }}</p>
+                <p class="fw-normal mt-3">Delivery: &#128;{{ delivery|floatformat:2 }}</p>
+                <p class="fw-bold mt-5">Grand Total: &#128;{{ grand_total|floatformat:2 }}</p>
+                {% if free_collectible_delta > 0 %}
+                <p class="mb-1 color--e84610">
+                    You can get a <strong>Free Collectible</strong> by spending <strong>&#128;{{ free_delivery_delta }}</strong> more
+                </p>
+                {% endif %}
+            </div>
+            <!-- Keep Shopping and Checkout Options -->
+            <div class="col-12 text-end mb-5">
+                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                    <span class="icon"><i class="fas fa-chevron-left"></i></span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                </a>
+                <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                    <span class="text-uppercase">Secure Checkout</span>
+                    <span class="icon"><i class="fas fa-lock"></i></span>
+                </a>
+            </div>
+            <!-- If No Items In bag -->
+            {% else %}
+            <p>Your shopping bag is empty.</p>
+            <a class="btn btn-warning mt-5 mb-5 w-auto" href="{% url 'products' %}">
+                <i class="fas fa-chevron-left"></i> Keep Shopping
+            </a>
+        {% endif %}
+        </div>
+    </div>
+</section>
+
+{% include "home/delivery_cost_modal.html" %}
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'bag/includes/quantity_input_script.html' %}
+
+<script>
+    /*jshint esversion: 6 */
+
+    // Update quantity on click
+    $('.update-link').click(function (e) {
+        let form = $(this).prev('.update-form');
+        form.submit();
+    });
+
+    // Remove item and reload on click
+    $('.remove-item').click(function (e) {
+        let csrfToken = "{{ csrf_token }}";
+        let itemId = $(this).attr('class').split('remove_')[1];
+        let url = `/bag/remove/${itemId}/`;
+        let data = {
+            'csrfmiddlewaretoken': csrfToken
+        };
+
+        $.post(url, data)
+            .done(function () {
+                location.reload();
+            });
+    });
+</script>
+{% endblock %}

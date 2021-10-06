@@ -1,10 +1,17 @@
-
-.bag--product--image {
-    width: 100%;
+.w--35 {
+    width: 35%;
 }
 
-.bag--product--image--mob {
+.w--50 {
     width: 50%;
+}
+
+.w--75 {
+    width: 75%;
+}
+
+.w--85 {
+    width: 85%;
 }
 
 .qty--update {
@@ -42,14 +49,6 @@
 }
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
-    .header-container {
-        padding-top: 65px;
-    }
-
-    body {
-        height: calc(100vh - 65px);
-    }
-
     .main--alert {
         margin-top: 4rem !important;
     }

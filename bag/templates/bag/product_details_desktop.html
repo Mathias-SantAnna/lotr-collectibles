@@ -12,14 +12,14 @@
         </tr>
     </thead>
     <tbody>
-         <!-- Product Details -->
-         {% for item in bag_items %}
+        <!-- Product Details -->
+        {% for item in bag_items %}
         <tr>
             <td>
                 {% if item.product.image %}
-                <img class="bag--product--image" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                <img class="w--35" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                 {% else %}
-                <img class="bag--product--image" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                <img class="w--35" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                 {% endif %}
             </td>
             <td class="text-start">
@@ -31,38 +31,9 @@
                 <p>Price: €{{ item.product.discount_price }}</p>
                 {% endif %}
             </td>
+            <!-- Quantity Form -->
             <td>
-                <!-- Product Quantity Form -->
-                <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div>
-                            <div class="form-group mx-auto quantity--selector">
-                                <div class="input-group">
-                                    <!-- Decrement Button -->
-                                    <div class="input-group-prepend">
-                                        <button id="decrement-qty_{{ item.item_id }}" class="decrement-qty"
-                                            data-item_id="{{ item.item_id }}"><i class="fas fa-minus pt-2 fa-lg"></i>
-                                        </button>
-                                    </div>
-                                    <!-- Quantity Input Box -->
-                                    <input id="id_qty_{{ item.item_id }}" class="form-control qty_input" 
-                                            type="number" name="quantity" value="{{ item.quantity }}" 
-                                            min="1" max="9" data-item_id="{{ item.item_id }}">
-                                     <!-- Increment Button -->
-                                    <div class="input-group-append">
-                                        <button id="increment-qty_{{ item.item_id }}" class="increment-qty"
-                                            data-item_id="{{ item.item_id }}"><i class="fas fa-plus pt-2 fa-lg"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <!-- Product Quantity Update & Remove Options -->
-                <a class="update-link text-info small pointer qty--update"><span class="color--1b4da0">Update</span></a>
-                <a id="remove_{{ item.item_id }}" class="remove-item small pointer qty--remove"><span class="color--e84610">Remove</span></a>
+                {% include "bag/qty_form.html" %}
             </td>
             <td>
                 {% if not item.product.is_discount %}
@@ -75,6 +46,6 @@
         {% endfor %}
     </tbody>
     {% if free_collectible_delta == 0 %}
-        {% include "bag/free_collectible_desktop.html" %}
+    {% include "bag/free_collectible_desktop.html" %}
     {% endif %}
-</table> 
+</table>
