@@ -31,7 +31,7 @@ class Order(models.Model):
                                         null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2,
                                       null=False, default=0)
-    free_golf_balls = models.BooleanField(default=False, null=True,
+    free_collectible = models.BooleanField(default=False, null=True,
                                           blank=True)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2,
                                       null=False, default=0)
