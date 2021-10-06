@@ -71,6 +71,10 @@ body {
     margin: 0 auto;
 }
 
+.color--333 {
+    color: #333 !important;
+}
+
 .color--55 {
     color: #e7ba55 !important;
 }
@@ -231,7 +235,7 @@ header {
 }
 
 .bag-notification-wrapper {
-    height: 100px;
+    height: 10rem;
     overflow-x: hidden;
     overflow-y: auto;
 }
