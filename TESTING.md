@@ -165,6 +165,36 @@ When the JavaScript code is finished, it is put through a code validation test u
 
 — **Code Validation** —
 
+As Python code is completed, a code validation test is carried out by using [PEP8 &#40;Python Enhancement Proposal&#41; online](http://pep8online.com) to see if the code meets guidelines and best practices for the readability and consistency of Python code.
+
+Below is the list of `py` files that are customised and checked by the validator.
+
+**lotr App**
+
+- `asgi.py`, `settings.py`, `urls.py` and `wsgi.py`: There is *line too long* error and it is all fixed
+
+**bag App**
+
+- `apps.py`, `contexts.py`, `urls.py` and `views.py`: There are *trailing whitespace*, *two blank lines*, *no newline at end of file*, *line too long* warnings and errors, and they are all fixed
+
+**checkout App**
+
+- `init.py`, `admin.py`, `apps.py`, `forms.py`, `models.py`, `signals.py`, `urls.py`, `views.py`, `webhook_handler.py` and `webhooks.py`: There are *no newline at end of file*, *trailing whitespace*, *line too long*, *too many blank lines*, *at least two spaces before inline comment*, *expected 2 blank lines*, *blank line contains whitespace* warnings and errors and they are all fixed
+
+**home App**
+
+- `admin.py`, `apps.py`, `contexts.py`, `forms.py`, `models.py`, `urls.py` and `views.py`: There are *trailing whitespace*, *no newline at end of file* and *line too long* warnings and errors and they are all fixed
+
+**products App**
+
+- `admin.py`, `apps.py`, `forms.py`, `models.py`, `urls.py`, `views.py` and `widgits.py`: There are *no newline at end of file*, *line too long*, *blank line contains whitespace* warnings and errors and they are all fixed
+
+**profiles App**
+
+- `apps.py`, `forms.py`, `models.py`, `urls.py`, and `views.py`: There are *no newline at end of file*, *line too long* and *trailing whitespace* warnings and errors and they are all fixed
+
+> **Note**<br>
+> All Python code complies with PEP8 guidance except [4 Allauth Password Validators](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/auth-pwd-validators.png) that cannot be broken into separate lines
 
 <div align="right"><a href="#testing-top">🔝</a></div>
 
@@ -174,17 +204,17 @@ When the JavaScript code is finished, it is put through a code validation test u
 
 There are some functionalities, which are run by `views.py` file in each app (in some cases by `contexts.py`), on the website. A manual test is carried out to see if these functions work as expected.
 
-**cart App:**
+**bag App:**
 
-- View Cart: Products in the cart can be viewed by clicking the cart icon or a process your order button &#10004;
-- Add Cart: Products can be added from the product page by clicking an add to shopping cart button. If the same product has different sizes (and right or left for golf clubs), they are added separately &#10004;
-- Adjust Cart: Products can be adjusted in the cart. Change the quantity of the product and remove it &#10004;
-- Special Offer: Free Golf Balls appear for any order €250 or more. This is not run by `views.py` but should work when the total purchase is €250 or more &#10004;
-- Display: Price per product, discount price and total value including shipping cost show based on the products in the cart &#10004;
+- View bag: Products in the bag can be viewed by clicking the bag icon or a process your order button &#10004;
+- Add bag: Products can be added from the product page by clicking an add to shopping bag button.  &#10004;
+- Adjust bag: Products can be adjusted in the bag. Change the quantity of the product and remove it &#10004;
+- Special Offer: Free collectibles appear for any order €300 or more. This is not run by `views.py` but should work when the total purchase is €300 or more &#10004;
+- Display: Price per product, discount price and total value including shipping cost show based on the products in the bag &#10004;
 
 **checkout App:**
 
-- Checkout: Checkout is done by completing the form & credit card details and clicking a complete order button. Products in the cart can be views by clicking the cart icon or a process your order button &#10004;
+- Checkout: Checkout is done by completing the form & credit card details and clicking a complete order button. Products in the bag can be views by clicking the bag icon or a process your order button &#10004;
 - Checkout Success: When the order is completed, it creates an order in the database and saves the info. It also shows checkout success page for users &#10004;
 - Confirmation email: When the order is succeeded (means payment in Stripe goes through), a confirmation email is sent &#10004;
 - Stripe: When the order is completed, it creates a record of [payment_intent, charge.succeeded and payment_intent.succeeded](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/stripe-function.png) &#10004;
@@ -212,11 +242,11 @@ There are some pages that only authorised users have access to. This is to test 
 
 - **Profile page**: Only logged in users have access to the profile page. When `/profile/` is typed on URL, unless users are logged in, users are directed to the login page
 
-- **Add Product page**: Only admin has access to the page. When `/products/add/` is typed on URL, if users are not logged in, users are directed to the login page. If users are logged in, then users are directed to the home page with [an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/add-product.png) unless Admin user 
+- **Add Product page**: The page is only accessible by the administrator. When `/products/add/` is typed on URL, if users are not logged in, users are directed to the login page. If users are logged in, then users are directed to the home page with [an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/add-product.png) unless Admin user 
 
 - **Edit Product page and Delete product function**: Same as "Add Product"
 
-- **Order History**: Only the user who purchased the product has access to the order history. When the order history URL is typed and if users are not the user who purchased the product, the users are redirected to the profile page with [an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/product-history.png)
+- **Order History**: The order history is only accessible to the individual who purchased the product. When the order history URL is entered in case users are not the user who purchased the product, the users are redirected to the profile page with [an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/product-history.png)
 
 <div align="right"><a href="#testing-top">🔝</a></div>
 
@@ -226,10 +256,10 @@ There are some pages that only authorised users have access to. This is to test 
 
 — **Visibilities and functionalities** —
 
-The website is available on the major web browsers, such as **Chrome**, **Safari**, **Firefox**, **Opera** and **Microsoft Edge**. To make sure all the visual contents are shown and functions work properly on those browsers, the below tests are carried out on all of them. *Except Chrom that is used to build the website
+The website is compatible with all major browsers, such as **Chrome**, **Safari**, **Firefox**, **Opera** and **Microsoft Edge**. The tests listed below are run on all of them to ensure that all visual items are displayed and functionality perform properly on those browsers. *With the exception of Chrom, which was used to create the website.
 
-1. Open the website on the browser to do a visual test. Look at all the pages to see if everything appears as expected (both desktop and mobile sizes)
-2. Try all the functions outlined on the Python Functions test
+1. To perform a visual test, open the website in a browser. Examine all of the pages to ensure that everything is in order (both desktop and mobile sizes).
+2. Complete the Python Functions test by using all of the functions listed.
 
 <details>
 <summary>Python Functions</summary><br>
@@ -238,7 +268,7 @@ The website is available on the major web browsers, such as **Chrome**, **Safari
 </details><br>
 
 > **Note**<br>
-> All the above visibilities and functions work without any problem on each browser, except a small issue on Firefox that browser [default input display causes an issue on Firefox](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/firefox-input.png) so it is fixed by making it inactive by putting `input[type=number] {-moz-appearance: textfield;}` on `base.css`
+> All of the above visibility and functionality operate flawlessly in each browser. [default input display causes an issue on Firefox](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/firefox-input.png) so it is fixed by making it inactive by putting `input[type=number] {-moz-appearance: textfield;}` on `base.css`
 
 <div align="right"><a href="#testing-top">🔝</a></div>
 
@@ -248,7 +278,7 @@ The website is available on the major web browsers, such as **Chrome**, **Safari
 
 — **Evidence Of Achieving The Website From UX Point Of View** —
 
-There are some key features to achieve the primary goals of the website from user's point of view (both shoppers and the owner) and this is to confirm that all the features planned on **Strategy** and **Scope Planes** are implemented on the website based on the tests carried out in the testing section.
+There are several critical features to meet the website's primary goals from the user's perspective (both shoppers and the owner), and this is to validate that all the features planned on the website are implemented. **Strategy** and **Scope Planes** are implemented on the website based on the tests carried out in the testing section.
 
 <ins>Strategy Plane</ins>
 
@@ -272,7 +302,7 @@ There are a few issues in the project that are addressed to get them solved howe
 
 **Increment and Decrement Buttons**
 
-- For the products that have a size and all golf clubs that have right and left, increment & decrement buttons are not disabled. If `id` is used for this, one of them works but the other one does not (and `id` cannot be used for duplicate id error on html validation). If `class` is used, when one of them is disabled, another one is also disabled. By setting a unique class, this would work but do not know how to implement this in JavaScript using Django template and it is not a major issue, leave it as an unsolved issue 
+- For the products increment & decrement buttons are not disabled. If `id` is used for this, one of them works but the other one does not (and `id` cannot be used for duplicate id error on html validation). If `class` is used, when one of them is disabled, another one is also disabled. By setting a unique class, this would work but do not know how to implement this in JavaScript using Django template and it is not a major issue, leave it as an unsolved issue 
 
 **Sorting Products By Price Including Discounted Price**
 
