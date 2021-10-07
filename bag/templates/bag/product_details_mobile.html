@@ -6,10 +6,10 @@
         {% for item in bag_items %}
         <div class="col-md-4">
             {% if item.product.image %}
-            <img class="img-fluid w--35" src="{{ item.product.image.url }}"
+            <img class="img-fluid bag--product--image--mob" src="{{ item.product.image.url }}"
                 alt="{{ item.product.name }}">
             {% else %}
-            <img class="img-fluid w--35" src="{{ MEDIA_URL }}noimage.png"
+            <img class="img-fluid bag--product--image--mob" src="{{ MEDIA_URL }}noimage.png"
                 alt="{{ item.product.name }}">
             {% endif %}
         </div>
