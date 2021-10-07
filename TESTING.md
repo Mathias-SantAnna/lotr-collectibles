@@ -141,8 +141,6 @@ When the CSS code is finished, a code validation test is run using [W3C CSS Vali
 
 **`base.css`, `bag.css`, `checkout.css`, `index.css`, `products.css` and `profile.css`** are tested and there are [no errors on any of CSS files](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/css-validation.png).
 
-> **Note**<br>
-> There are some [warnings](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/css-warnings.png) related to WebKit, which is one of [web browser rendering engines](https://stackoverflow.com/questions/3468154/what-is-webkit-and-how-is-it-related-to-css), for base.css, index.css and product.css. By looking at the [Stack Overflow](https://stackoverflow.com/questions/52490004/what-are-all-of-these-w3c-css-validation-warnings-about) post and a [Code Institue Slack](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/css-webkit.png) threads, no further actions are required so decided to leave  it alone.
 
 <div align="right"><a href="#testing-top">🔝</a></div>
 
