@@ -6,9 +6,11 @@
         {% for item in bag_items %}
         <div class="col-md-4">
             {% if item.product.image %}
-            <img class="img-fluid bag--product--image--mob" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+            <img class="img-fluid bag--product--image--mob" src="{{ item.product.image.url }}"
+                alt="{{ item.product.name }}">
             {% else %}
-            <img class="img-fluid bag--product--image--mob" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+            <img class="img-fluid bag--product--image--mob" src="{{ MEDIA_URL }}noimage.png"
+                alt="{{ item.product.name }}">
             {% endif %}
         </div>
         <div class="col-md-8">
@@ -22,10 +24,11 @@
                 <p class="d-inline d-md-none">€{{ item.product.discount_price }}</p>
                 {% endif %}
             </div>
-            <div class="col-md-4">
-                <!-- Form Quantity -->
-                {% include "bag/qty_form.html" %}
-            </div>
+        </div>
+        <div class="col-md-4">
+            <!-- Form Quantity -->
+            {% include "bag/qty_form.html" %}
+        </div>
         <!-- Order Summary Section -->
         <div class="col-md-4">
             <p class="d-none d-md-inline">Price:</p>
@@ -41,11 +44,10 @@
         </div>
         <hr class="mt-3">
         {% endfor %}
-
+        <!-- Free collectible -->
         {% if free_collectible_delta == 0 %}
-            {% include "bag/free_collectible_mobile.html" %}
+        {% include "bag/free_collectible_mobile.html" %}
         {% endif %}
-
     </div>
 </div>
 <div class="mt-2 p-3 text-end prices--display card">
@@ -72,4 +74,4 @@
         <span class="text-uppercase">Secure Checkout</span>
         <span class="icon"><i class="fas fa-lock"></i></span>
     </a>
-</div> 
+</div>

@@ -13,42 +13,40 @@
 {% block content %}
 <!-- Credit: Bootstrap Alerts @ https://getbootstrap.com/docs/5.0/components/alerts/ -->
 <div class="alert alert-warning text-center mb-0 main--alert" role="alert">
-    Spend <span class="fw-bold">€{{ free_collectible_threshold }}</span> or more and get a Special Collectible for 
+    Spend <span class="fw-bold">€{{ free_collectible_threshold }}</span> or more and get a Special Collectible for
     <span class="fw-bold text-uppercase">free</span>!
 </div>
 <!-- /End of Credit -->
 
 <section class="container text-center">
     <h2 class="mt-5 mb-lg-5">Shopping bag</h2>
-    
+
     <div class="row">
         {% if bag_items %}
         <!-- Product Details Section -->
-            <div class="col-lg-9">
-                <div class="d-none d-lg-block">
-                    {% include "bag/product_details_desktop.html" %}
-                </div>
-                <div class="d-none d-sm-block d-md-none">
-                    {% include "bag/product_details_mobile.html" %} 
-                </div>
+        <div class="col-lg-9">
+            <div class="d-none d-lg-block">
+                {% include "bag/product_details_desktop.html" %}
             </div>
-            <div class="d-none d-lg-block col-lg-3">
-                {% include "bag/order_summary_desktop.html" %}
+            <div class="d-none d-sm-block d-md-none">
+                {% include "bag/product_details_mobile.html" %}
             </div>
-            <!-- If No Items In bag -->   
+        </div>
+        <div class="d-none d-lg-block col-lg-3">
+            {% include "bag/order_summary_desktop.html" %}
+        </div>
+        <!-- If No Items In bag -->
         {% else %}
-            <div>
-                <p class="mt-3">Your shopping bag is empty. Check out our latest offers!</p>
-                {% include "bag/bag_empty_desktop.html" %}
-                <a class="btn btn-warning mt-5 mb-5 w-auto d-lg-none" href="{% url 'products' %}">
-                    <i class="fas fa-chevron-left"></i> Keep Shopping
-                </a>
-            </div>
+        <div>
+            <p class="mt-3">Your shopping bag is empty. Check out our latest offers!</p>
+            {% include "bag/bag_empty_desktop.html" %}
+            <a class="btn btn-warning mt-5 mb-5 w-auto d-lg-none" href="{% url 'products' %}">
+                <i class="fas fa-chevron-left"></i> Keep Shopping
+            </a>
+        </div>
         {% endif %}
-     </div>       
-
+    </div>
 </section>
-
 {% include "home/delivery_cost_modal.html" %}
 {% endblock %}
 
@@ -61,21 +59,23 @@
 
     // Update quantity on click
     $('.update-link').click(function (e) {
-    let form = $(this).prev('.update-form');
-    form.submit();
+        let form = $(this).prev('.update-form');
+        form.submit();
     });
 
     // Remove item and reload on click
     $('.remove-item').click(function (e) {
-    let csrfToken = "{{ csrf_token }}";
-    let itemId = $(this).attr('class').split('remove_')[1];
-    let url = `/bag/remove/${itemId}/`;
-    let data = { 'csrfmiddlewaretoken': csrfToken };
-    
-    $.post(url, data)
-    .done(function () {
-        location.reload();
-    });
+        let csrfToken = "{{ csrf_token }}";
+        let itemId = $(this).attr('class').split('remove_')[1];
+        let url = `/bag/remove/${itemId}/`;
+        let data = {
+            'csrfmiddlewaretoken': csrfToken
+        };
+
+        $.post(url, data)
+            .done(function () {
+                location.reload();
+            });
     });
 </script>
 {% endblock %}
