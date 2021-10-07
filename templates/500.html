@@ -7,10 +7,10 @@
 
 {% block content %}
 <section class="text-center container margin--top">
-    <h2 class="mt-5">500<br>Server ERROR</h2>
+    <h2 class="mt-5 mb-5">500<br>Server ERROR</h2>
     <div>
         <img class="d-lg-none w-75" src="{% static 'images/404-500.png' %}" alt="Error 500 - Server Error">
-        <img class="d-none d-lg-block w-25" src="{% static 'images/404-500.png' %}" alt="Error 500 - Server Error">
+        <img class="d-none d-lg-inline w-25" src="{% static 'images/404-500.png' %}" alt="Error 500 - Server Error">
     </div>
     <div class="mb-5 mt-3">
         <a class="btn btn-warning" href="{% url 'home' %}">
