@@ -244,7 +244,7 @@ There are some pages that are only accessible to permitted users. This is to ens
 
 - **Edit Product page and Delete product function**: Same as "Add Product"
 
-- **Order History**: Only the person who purchased the product gets access to the order history. Users are sent to the profile page with the order history URL specified if they are not the user who purchased the product showing [an error message](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/product-history.png)
+- **Order History**: Only the person who purchased the product gets access to the order history. Users are sent to the profile page with the order history URL specified if they are not the user who purchased the product with an error message
 
 <div align="right"><a href="#testing-top">🔝</a></div>
 
@@ -254,7 +254,7 @@ There are some pages that are only accessible to permitted users. This is to ens
 
 — **Visibilities and functionalities** —
 
-All major browsers, including **Chrome**, **Safari**, **Firefox**, and **Microsoft Edge**, are compatible with the website. All of them are subjected to the tests outlined below to guarantee that all visual elements are displayed and that functionality works properly in those browsers. Except for Chrom, which was used to construct the website.
+All major browsers, including **Chrome**, **Safari**, **Firefox**, and **Microsoft Edge**, are compatible with the website. All of them are subjected to the tests outlined below to guarantee that all visual elements are displayed and that functionality works properly in those browsers. Except for Chrome, which was used to construct the website.
 
 1. Open the webpage in a browser to run a visual test. Check all of the pages to make sure they're in order (both desktop and mobile sizes).
 2. Use all of the functions provided in the Python Functions test.
@@ -265,8 +265,6 @@ All major browsers, including **Chrome**, **Safari**, **Firefox**, and **Microso
 ![Python Functions](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/python-functions.png)
 </details><br>
 
-> **Note**<br>
-> All of the above visibility and functionality operate flawlessly in each browser. [default input display causes an issue on Firefox](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/firefox-input.png) so it is fixed by making it inactive by putting `input[type=number] {-moz-appearance: textfield;}` on `base.css`
 
 <div align="right"><a href="#testing-top">🔝</a></div>
 
