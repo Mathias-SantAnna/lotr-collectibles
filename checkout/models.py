@@ -48,7 +48,6 @@ class Order(models.Model):
         """Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        # {'lineitem_total__sum': Decimal('149.90')}
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:

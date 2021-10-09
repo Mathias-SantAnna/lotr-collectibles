@@ -19,7 +19,7 @@
 <!-- /End of Credit -->
 
 <section class="container text-center">
-    <h2 class="mt-5 mb-lg-5">Shopping bag</h2>
+    <h2 class="mt-5 mb-lg-5 text-uppercase">Shopping bag</h2>
 
     <div class="row">
         {% if bag_items %}
@@ -28,7 +28,7 @@
             <div class="d-none d-lg-block">
                 {% include "bag/product_details_desktop.html" %}
             </div>
-            <div class="d-none d-sm-block d-md-none">
+            <div class="d-lg-none">
                 {% include "bag/product_details_mobile.html" %}
             </div>
         </div>

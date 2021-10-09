@@ -1,11 +1,11 @@
 #w--35 {
     width: 35%;
-    max-width: 50%;
+    max-width: 35%;
     border-radius: 6px;
 }
 
 .w--50 {
-    width: 40%;
+    width: 50%;
     max-width: 50%;
     border-radius: 6px;
 }
@@ -40,13 +40,17 @@
 	background-color: #fdfad5e0;
 }
 
-/* .main--alert {
+.main--alert {
 	margin-top: 8.5rem;
-} */
+}
+
+.qty--p {
+    margin-right: .7rem;
+}
 
 /* pad the top a bit when navbar is collapsed on mobile */
 
-@media (min-width: 480px) {
+@media (max-width: 991px) {
     .main--alert {
         margin-top: 4rem !important;
     }

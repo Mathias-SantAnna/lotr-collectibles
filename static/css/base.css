@@ -105,7 +105,8 @@ header {
 }
 
 .header--border {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    /* border-bottom: 1px solid rgba(1px, 1px, 1px, 0.5); */
+    box-shadow: inset 0 -3px 0 0 cornflowerblue;
 }
 
 .main--header {
@@ -347,6 +348,7 @@ h4 {
 
 .quantity--selector {
     width: 7rem;
+    margin: 0 3.8rem;
 }
 
 .decrement-qty, 
@@ -555,7 +557,7 @@ h4 {
     }
 
     .input-group {
-        width: 120%;
+        width: 180px;
         line-height: 1;
     }
 
@@ -578,9 +580,9 @@ h4 {
         left: 0!important;
     }
 
-    .margin--top {
+    /* .margin--top {
         margin-top: 4rem!important;
-    }
+    } */
 }
 
 _______________
@@ -589,64 +591,3 @@ _______________
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
 */
-
-@media (min-width: 1281px) {
-  
-    /* CSS */
-      
-  }
-  
-  /* 
-    ##Device = Laptops, Desktops
-    ##Screen = B/w 1025px to 1280px
-  */
-  
-  @media (min-width: 1025px) and (max-width: 1280px) {
-    
-    /* CSS */
-    
-  }
-  
-  /* 
-    ##Device = Tablets, Ipads (portrait)
-    ##Screen = B/w 768px to 1024px
-  */
-  
-  @media (min-width: 768px) and (max-width: 1024px) {
-    
-    /* CSS */
-    
-  }
-  
-  /* 
-    ##Device = Tablets, Ipads (landscape)
-    ##Screen = B/w 768px to 1024px
-  */
-  
-  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    
-    /* CSS */
-    
-  }
-  
-  /* 
-    ##Device = Low Resolution Tablets, Mobiles (Landscape)
-    ##Screen = B/w 481px to 767px
-  */
-  
-  @media (min-width: 481px) and (max-width: 767px) {
-    
-    /* CSS */
-    
-  }
-  
-  /* 
-    ##Device = Most of the Smartphones Mobiles (Portrait)
-    ##Screen = B/w 320px to 479px
-  */
-  
-  @media (min-width: 320px) and (max-width: 480px) {
-    
-    /* CSS */
-    
-  }

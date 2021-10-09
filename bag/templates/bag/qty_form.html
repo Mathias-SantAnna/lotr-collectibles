@@ -2,10 +2,11 @@
 <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
     {% csrf_token %}
     <div class="row">
-        <p class="d-lg-none">Qty</p>
+        <!-- <p class="d-lg-none">Qty</p> -->
         <div>
-            <div class="form-group mx-auto quantity--selector">
+            <div class="form-group  quantity--selector">
                 <div class="input-group">
+                    <p class="d-lg-none mt-2 qty--p">Qty: </p>
                     <!-- Decrement Button -->
                     <div class="input-group-prepend">
                         <button class="decrement-qty decrement-qty_{{ item.item_id }"
