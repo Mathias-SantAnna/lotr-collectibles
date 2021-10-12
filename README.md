@@ -369,12 +369,12 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
 — **Order Summary been smashed down** —
 
   The issue was the order summary been "pushed down" when the bootstrap hidden classes (.d-none etc) are there in bag.html, when I add more products it completely disappears, but on mobile it's working fine though.
-  When I have up to 2 products in the bag It shows the Order Summary in the bottom. even though I had it as class="d-none d-lg-block col-lg-3 mt-lg-2 <br>
+  When I have up to 2 products in the bag It shows the Order Summary in the bottom. even though I had it as class="d-none d-lg-block col-lg-3 mt-lg-2<br>
 
   ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/order-summary-issue1.png)<br>
 
-  The tutors pointed that was a opened div somewhere in the bag templates, after investigating I founded one in the bag.html and another one in product_details_mobile.html
-  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/order-summary-issue1.1png)<br><br>
+  The tutors pointed that was a opened div somewhere in the bag templates, after investigating I founded one in the bag.html and another one in product_details_mobile.html<br>
+  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/order-summary-issue1.1.png)<br><br>
 
   After fixing that The Order summary went back to the right position (col-3), as it was suppose to be.<br><br>
 
