@@ -195,6 +195,7 @@ The validator customizes and checks a number of `py` files, which are shown belo
 - `apps.py`, `forms.py`, `models.py`, `urls.py`, and `views.py`: There are *no newline at end of file*, *line too long* and *trailing whitespace* warnings and errors and they are all corrected.
 
 > **Note**<br>
+> Some files such as models.py (checkout app) and view.py(products app) I tried to change but because they broke the page I decide to leave the error as it is not too important, but mostly not ideal. [E501 - line too long ](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/line-too-long.png.png)<br>
 > All Python code complies with PEP8 guidance except [4 Allauth Password Validators](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/auth-pwd-validators.png) that cannot be broken into separate lines
 
 <div align="right"><a href="#testing-top">🔝</a></div>
