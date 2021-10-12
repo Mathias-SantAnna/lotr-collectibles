@@ -99,6 +99,6 @@ select option[value=""] {
     }
 
     .margin--top {
-        margin-top: 4rem;
+        margin-top: 3rem !important;
     }
 }
