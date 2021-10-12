@@ -360,10 +360,12 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
   So we tried to check if there was something wrong in the setting, with the paths and base directory, I tried to see if I had more than one DB sqlite, and it was only one, everything was fine. I also tried to add a new product to see if the rows in the postgres DB would go up, but they haven't changed at all. 
   After a while, we figured that I had to leave the var DISABLE_COLLECTSTATIC=1 in Heroku, and DEBUG=True in the setting.py to see the issue in detail.
   <br>
+
   ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/aws-bucket-issue1.png)<br><br>
   The tutors pointed that the issue was with the AWS Bucket permissions, The action called : "PutObject" had a access denied. 
   After I changed the code like in the image below the images were loading as they should.
   <br>
+  
   ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/aws-bucket-issue2.png)<br><br>
 
 — **Order Summary been smashed down** —
@@ -374,14 +376,14 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
   ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/order-summary-issue1.png)<br>
 
   The tutors pointed that was a opened div somewhere in the bag templates, after investigating I founded one in the bag.html and another one in product_details_mobile.html<br>
-  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/order-summary-issue1.1.png)<br><br>
+  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/order-summary-issue1.1.png)<br>
 
   After fixing that The Order summary went back to the right position (col-3), as it was suppose to be.<br><br>
 
 — **Accounts page does NOT exist** —
 
   When trying to Login, Register or access Profile page (My Account), get screen error: DoesNotExist at /accounts/login.<br>
-  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/DoesNotExists-issue.png)<br><br>
+  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/DoesNotExists-issue.png)<br>
   After some time with tutor helping me out, he figured that could be a strange error from the "PAGE_ID" variable in settings.py changed on it's own.<br>
   To fixed, I only needed to change from "1" to "2", and the accounts pages went back to fully functional. <br>
 

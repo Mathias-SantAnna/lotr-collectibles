@@ -259,7 +259,9 @@ There are some pages that are only accessible to permitted users. This is to ens
 
 All major browsers, including **Chrome**, **Safari**, **Firefox**, and **Microsoft Edge**, are compatible with the website. All of them are subjected to the tests outlined below to guarantee that all visual elements are displayed and that functionality works properly in those browsers. Except for Chrome, which was used to construct the website.
 
-1. Open the webpage in a browser to run a visual test. Check all of the pages to make sure they're in order (both desktop and mobile sizes).
+1. Open the webpage in a browser to run a visual test. Check all of the pages to make sure they're in order (both desktop and mobile sizes).<br>
+![Responsiveness Tests](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/testing/responsivenessTests.png)
+
 2. Use all of the functions provided in the Python Functions test.
 
 <details>
