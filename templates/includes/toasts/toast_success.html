@@ -36,7 +36,13 @@
                 <div class="col-9">
                     <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
-                    <p class="my-0 small text-muted">Unit.Price: {{ item.product.price }}</p>
+                    <p class="my-0 small text-muted">Unit.Price: 
+                    {% if not item.product.is_discount %}
+                        <span>€{{ item.product.price }}</span>
+                    {% else %}
+                        <span>€{{ item.product.discount_price }}</span>
+                    {% endif %}
+                    </p>
                 </div>
             </div>
             {% endfor %}

@@ -344,13 +344,13 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
 
 <div align="right"><a href="#top">🔝</a></div>
 
-## PROJECT BARRIERS & SOLUTIONS
+## PROJECT BARRIERS & SOLUTIONS 
 
 — **Heroku App Deployment** —
 
  On the deployment part, I succeed when building up the app but the app crashes, and in the logs --tail it shows an error to the GET method. What was happening was that heroku couldn't load the static files.
  <br>
- I had to roll back a few commits and start again the deployment. I missed one step of adding SECRET KEY, and also did a typo in settings.py. In the end that worked out for me.
+ I had to roll back a few commits and start again the deployment. I missed one step of adding SECRET KEY, and also did a typo in settings.py. In the end that worked out for me.<br><br>
 
 — **Images not loading (AWS - S3 Bucket)** —
 
@@ -368,11 +368,24 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
 
 — **Order Summary been smashed down** —
 
-  I have a order summary been pushed down when the bootstrap hidden classes (.d-none etc) are there in bag.html,
-  when I add more products it completely disappears,
-  on mobile it's working fine though.
-  I inspect the code carefully, and checked many times the templates to see where did I made a mistake, but I created too many commits and now I can't see where it was correct before.
-  When I have up to 2 products in the bag It shows the Order Summary in the bottom. even though I had it as class="d-none d-lg-block col-lg-3 mt-lg-2
+  The issue was the order summary been "pushed down" when the bootstrap hidden classes (.d-none etc) are there in bag.html, when I add more products it completely disappears, but on mobile it's working fine though.
+  When I have up to 2 products in the bag It shows the Order Summary in the bottom. even though I had it as class="d-none d-lg-block col-lg-3 mt-lg-2 <br>
+
+  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/order-summary-issue1.png)<br>
+
+  The tutors pointed that was a opened div somewhere in the bag templates, after investigating I founded one in the bag.html and another one in product_details_mobile.html
+  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/order-summary-issue1.1png)<br><br>
+
+  After fixing that The Order summary went back to the right position (col-3), as it was suppose to be.<br><br>
+
+— **Accounts page does NOT exist** —
+
+  When trying to Login, Register or access Profile page (My Account), get screen error: DoesNotExist at /accounts/login.<br>
+  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/DoesNotExists-issue.png)<br><br>
+  After some time with tutor helping me out, he figured that could be a strange error from the "PAGE_ID" variable in settings.py changed on it's own.<br>
+  To fixed, I only needed to change from "1" to "2", and the accounts pages went back to fully functional. <br>
+
+  ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/project-barriers/DoesNotExists-issue1.png)<br><br>
 
 
 <div align="right"><a href="#top">🔝</a></div>

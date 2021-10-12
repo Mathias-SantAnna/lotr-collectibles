@@ -37,9 +37,9 @@
             </td>
             <td>
                 {% if not item.product.is_discount %}
-                <p class="text-end">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                    <p class="text-end">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                 {% else %}
-                <p class="text-end">€{{ item.product.discount_price | calc_subtotal:item.quantity }}</p>
+                    <p class="text-end">€{{ item.product.discount_price | calc_subtotal:item.quantity }}</p>
                 {% endif %}
             </td>
         </tr>
