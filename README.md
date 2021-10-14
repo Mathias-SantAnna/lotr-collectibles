@@ -136,7 +136,7 @@ The website's flowchart, which depicts the key relationships between the pages, 
 
 — **Back-end** —<br>
 
-Users can purchase things as either guest users or account holders. Guest users are unable to preserve personal information for future purchases since personal information such as their name, email address, shipping address, and other details are associated with their order in the database. Account holder users who register an account with their <ins>email address</ins> and <ins>username</ins>, user name (user profile) is connected with their order sallowing personal information to be obtained. Each product is assigned to a category and a brand, both of which are identifiable by an id. Each order has a unique order number that is produced when the order is processed, as well as information on the shopper and the goods.
+Users can purchase things as either guest users or account holders. Guest users are unable to preserve personal information for future purchases since personal information such as their name, email address, shipping address, and other details are associated with their order in the database. Account holder users who register an account with their <ins>email address</ins> and <ins>username</ins>, user name (user profile) is connected with their orders allowing personal information to be obtained. Each product is assigned to a category and a brand, both of which are identifiable by an id. Each order has a unique order number that is produced when the order is processed, as well as information on the shopper and the goods.
 <br>
 In development mode, SQLite, a Django built-in database, is used, whereas in production mode, Heroku Postgre is used. All static files and folders for the website in production mode are stored on AWS (Amazon Web Services).
 
@@ -245,7 +245,7 @@ Because this is a full-stack website with both front-end and back-end components
 
 1. Planning The Website with UX5 Planes
 1. Project Set-Up (Installing Django, Setting up Project, Testing connection, Creating Django superuser)
-1. Authentication & Authorisation (Installing Allauth, Testing)
+1. Authentication & Authorization (Installing Allauth, Testing)
 1. The Base Template (Creating base template)
 1. The Home Page (Navigation bar, Header and Footer)
 1. Products Set-Up (Creating Products app, Installing data, Filtering & Searching)
@@ -404,7 +404,7 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
 2. Use **Code Institute Template**, put the repository name and click Create Repository making sure to select public<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/version-control/version-control2.png)
 
-3. Open the repository with [Gitpod](https://www.gitpod.io/) which is my Integrated Development Environment (IDE). Initialization, including initial commit, is done using the Code Institue Template, thus there is no need to do `git init` command when open IDE, or to use `git push -u origin main` command for my first commit. `gitignore` file, which is highly crucial for the project and contains certain secret information. It is made using a Code Institute template, so it is not necessary to develop it, however, it is verified to include files such as pycache, *.sqlite3, env.py etc<br><br>
+3. Open the repository with [Gitpod](https://www.gitpod.io/) which is my Integrated Development Environment (IDE). Initialization, including initial commit, is done using the Code Institute Template, thus there is no need to do `git init` command when open IDE, or to use `git push -u origin main` command for my first commit. `gitignore` file, which is highly crucial for the project and contains certain secret information. It is made using a Code Institute template, so it is not necessary to develop it, however, it is verified to include files such as pycache, *.sqlite3, env.py etc<br><br>
 ![image](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/version-control/version-control3.png)
 
 — **Commitments** —
@@ -436,7 +436,7 @@ Testing report is available **[TESTING.md](https://github.com/Mathias-SantAnna/l
 
 ## DEPLOYMENT
 
-This project's website demands back-end technology such as a server, application, and database, so it is deployed in [Heroku](https://www.heroku.com/), which is a cloud platform with a service supporting several programming languages, because GitHub can only host a static website. Heroku Postgres is used for the database. [AWS services](https://aws.amazon.com/), which is also a cloud-based platform, is utilized to store static files and images as Heroku has *no files system to store new files* [*Reference from Code Institue Slack](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/reference-aws.png).
+This project's website demands back-end technology such as a server, application, and database, so it is deployed in [Heroku](https://www.heroku.com/), which is a cloud platform with a service supporting several programming languages, because GitHub can only host a static website. Heroku Postgres is used for the database. [AWS services](https://aws.amazon.com/), which is also a cloud-based platform, is utilized to store static files and images as Heroku has *no files system to store new files* [*Reference from Code Institute Slack](https://github.com/Mathias-SantAnna/lotr-collectibles/blob/main/readme/deployment/reference-aws.png).
 
 
 The steps for deploying the website to Heroku and setting up static files and images in AWS are outlined below.
@@ -593,10 +593,8 @@ The steps for deploying the website to Heroku and setting up static files and im
 
 I would like to thank:
 
-- My deer friend and personal mentor, **Rimom Costa**, for going through the project with me and giving a lots of advice and taking so much time for teaching and helping me when I needed the most. (If it wasn't for him I wouldn't have finished it)
-
 - For all Code Institute Tutors, **Scott**, **Johann**, **Kevin**, **Michael**, **Stephen**, **Jo**, **Igor** and **Sheryl**, for giving me a guidance on how to solve different issues
-- **Ed Bradley** for the meeting about MS3 and explainig very carefully each subject.
-- **Brian Macharia** for giving me advice on some subjects and helping with the project. He has mentored this project since the beginning being very approachable. It was only possible to conclude it because of his support and advice. His main contributions were giving an initial North so that it was possible to start effectively, providing ideas, demonstrating the technical criteria and pointing out proper feedback on the errors that should be corrected. In other words, his assistance was essential for the success of this project, so, I am taking the opportunity to express my gratitude for each mentoring session that enabled the completition this work.
+- **Rimom Costa** for the meeting with me and teaching me some important fundamentals of programming along the way.
+- **Brian Macharia** for giving me advice on some subjects and helping with the project. He has mentored this project since the beginning being very approachable. It was only possible to conclude it because of his support and advice. His main contributions were giving an initial North so that it was possible to start effectively, providing ideas, demonstrating the technical criteria and pointing out proper feedback on the errors that should be corrected. In other words, his assistance was essential for the success of this project, so, I am taking the opportunity to express my gratitude for each mentoring session that enabled the completion this work.
 
 <div align="right"><a href="#top">🔝</a></div>

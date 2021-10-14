@@ -77,7 +77,7 @@
     </div>
     <!-- Product Sort -->
     {% if products|length > 1 %}
-        <div class="mt-3 mt-lg-0 sort--selector--field">
+        <div class="mt-3 mb-3 mt-lg-0 msort--selector--field">
             <i class="fas fa-filter"></i>
             <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
