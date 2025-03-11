@@ -1,4 +1,5 @@
-setuptools>=68.0.0
+setuptools==58.1.0
+wheel
 asgiref==3.4.1
 boto3==1.18.53
 botocore==1.21.53
