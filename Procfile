@@ -1,1 +1,1 @@
-web: gunicorn lotr_collectibles.wsgi:application 
+web: gunicorn lotr_collectibles.lotr_collectibles.wsgi:application
